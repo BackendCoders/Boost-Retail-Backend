@@ -9,3 +9,18 @@
 packages/
 .nuget/
 .DS_Store
+# Build artifacts
+[Bb]in/
+[Oo]bj/
+# User/IDE-specific
+*.user
+*.suo
+.vs/
+.idea/
+# Logs
+Logs/
+*.log
+# Temp files
+_temp/
+# Publish profiles (user-specific)
+*.pubxml.user
