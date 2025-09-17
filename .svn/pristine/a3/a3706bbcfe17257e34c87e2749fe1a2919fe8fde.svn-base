@@ -1,0 +1,118 @@
+﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc;
+
+namespace SIM.Actions
+{
+    public abstract class ActionsBase
+    {
+        /// <summary>
+        /// Creates a <see cref="OkResult"/> object that produces an empty <see cref="StatusCodes.Status200OK"/> response.
+        /// </summary>
+        /// <returns>The created <see cref="OkResult"/> for the response.</returns>
+        [NonAction]
+        public virtual OkResult Ok()
+            => new OkResult();
+
+        /// <summary>
+        /// Creates an <see cref="OkObjectResult"/> object that produces an <see cref="StatusCodes.Status200OK"/> response.
+        /// </summary>
+        /// <param name="value">The content value to format in the entity body.</param>
+        /// <returns>The created <see cref="OkObjectResult"/> for the response.</returns>
+        [NonAction]
+        public virtual OkObjectResult Ok([ActionResultObjectValue] object? value)
+            => new OkObjectResult(value);
+
+        /// <summary>
+        /// Gets an instance of <see cref="EmptyResult"/>.
+        /// </summary>
+        public static EmptyResult Empty { get; } = new();
+
+        /// <summary>
+        /// Creates a <see cref="StatusCodeResult"/> object by specifying a <paramref name="statusCode"/>.
+        /// </summary>
+        /// <param name="statusCode">The status code to set on the response.</param>
+        /// <returns>The created <see cref="StatusCodeResult"/> object for the response.</returns>
+        [NonAction]
+        public virtual StatusCodeResult StatusCode([ActionResultStatusCode] int statusCode)
+            => new StatusCodeResult(statusCode);
+
+        /// <summary>
+        /// Creates a <see cref="ObjectResult"/> object by specifying a <paramref name="statusCode"/> and <paramref name="value"/>
+        /// </summary>
+        /// <param name="statusCode">The status code to set on the response.</param>
+        /// <param name="value">The value to set on the <see cref="ObjectResult"/>.</param>
+        /// <returns>The created <see cref="ObjectResult"/> object for the response.</returns>
+        [NonAction]
+        public virtual ObjectResult StatusCode([ActionResultStatusCode] int statusCode, [ActionResultObjectValue] object? value)
+        {
+            return new ObjectResult(value)
+            {
+                StatusCode = statusCode
+            };
+        }
+
+        /// <summary>
+        /// Creates an <see cref="UnauthorizedResult"/> that produces an <see cref="StatusCodes.Status401Unauthorized"/> response.
+        /// </summary>
+        /// <returns>The created <see cref="UnauthorizedResult"/> for the response.</returns>
+        [NonAction]
+        public virtual UnauthorizedResult Unauthorized()
+            => new UnauthorizedResult();
+
+        /// <summary>
+        /// Creates an <see cref="UnauthorizedObjectResult"/> that produces a <see cref="StatusCodes.Status401Unauthorized"/> response.
+        /// </summary>
+        /// <returns>The created <see cref="UnauthorizedObjectResult"/> for the response.</returns>
+        [NonAction]
+        public virtual UnauthorizedObjectResult Unauthorized([ActionResultObjectValue] object? value)
+            => new UnauthorizedObjectResult(value);
+
+        /// <summary>
+        /// Creates an <see cref="NotFoundResult"/> that produces a <see cref="StatusCodes.Status404NotFound"/> response.
+        /// </summary>
+        /// <returns>The created <see cref="NotFoundResult"/> for the response.</returns>
+        [NonAction]
+        public virtual NotFoundResult NotFound()
+            => new NotFoundResult();
+
+        /// <summary>
+        /// Creates an <see cref="NotFoundObjectResult"/> that produces a <see cref="StatusCodes.Status404NotFound"/> response.
+        /// </summary>
+        /// <returns>The created <see cref="NotFoundObjectResult"/> for the response.</returns>
+        [NonAction]
+        public virtual NotFoundObjectResult NotFound([ActionResultObjectValue] object? value)
+            => new NotFoundObjectResult(value);
+
+        /// <summary>
+        /// Creates an <see cref="BadRequestResult"/> that produces a <see cref="StatusCodes.Status400BadRequest"/> response.
+        /// </summary>
+        /// <returns>The created <see cref="BadRequestResult"/> for the response.</returns>
+        [NonAction]
+        public virtual BadRequestResult BadRequest()
+            => new BadRequestResult();
+
+        /// <summary>
+        /// Creates an <see cref="BadRequestObjectResult"/> that produces a <see cref="StatusCodes.Status400BadRequest"/> response.
+        /// </summary>
+        /// <param name="error">An error object to be returned to the client.</param>
+        /// <returns>The created <see cref="BadRequestObjectResult"/> for the response.</returns>
+        [NonAction]
+        public virtual BadRequestObjectResult BadRequest([ActionResultObjectValue] object? error)
+            => new BadRequestObjectResult(error);
+
+        /// <summary>
+        /// Creates an <see cref="BadRequestObjectResult"/> that produces a <see cref="StatusCodes.Status400BadRequest"/> response.
+        /// </summary>
+        /// <param name="modelState">The <see cref="ModelStateDictionary" /> containing errors to be returned to the client.</param>
+        /// <returns>The created <see cref="BadRequestObjectResult"/> for the response.</returns>
+        [NonAction]
+        public virtual BadRequestObjectResult BadRequest([ActionResultObjectValue] ModelStateDictionary modelState)
+        {
+            ArgumentNullException.ThrowIfNull(modelState);
+
+            return new BadRequestObjectResult(modelState);
+        }
+
+    }
+}

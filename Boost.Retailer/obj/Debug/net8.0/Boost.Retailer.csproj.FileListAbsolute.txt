@@ -1,0 +1,51 @@
+F:\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.deps.json
+F:\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.dll
+F:\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.pdb
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.csproj.AssemblyReference.cache
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.GeneratedMSBuildEditorConfig.editorconfig
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.AssemblyInfoInputs.cache
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.AssemblyInfo.cs
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.csproj.CoreCompileInputs.cache
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.dll
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\refint\Boost.Retailer.dll
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.pdb
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\ref\Boost.Retailer.dll
+F:\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Admin.dll
+F:\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Shared.dll
+F:\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Admin.pdb
+F:\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Shared.pdb
+F:\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Re.678310B3.Up2Date
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.deps.json
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Admin.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Shared.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Admin.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Shared.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.csproj.AssemblyReference.cache
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.GeneratedMSBuildEditorConfig.editorconfig
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.AssemblyInfoInputs.cache
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.AssemblyInfo.cs
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.csproj.CoreCompileInputs.cache
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Re.678310B3.Up2Date
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\refint\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\ref\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.deps.json
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Retailer.pdb
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Admin.dll
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Shared.dll
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Admin.pdb
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\bin\Debug\net8.0\Boost.Shared.pdb
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.csproj.AssemblyReference.cache
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.GeneratedMSBuildEditorConfig.editorconfig
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.AssemblyInfoInputs.cache
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.AssemblyInfo.cs
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.csproj.CoreCompileInputs.cache
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Re.678310B3.Up2Date
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\refint\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\Boost.Retailer.pdb
+D:\BackendCodersWork\Boost Retail\BOOST RETAIL\Boost.Retailer\obj\Debug\net8.0\ref\Boost.Retailer.dll

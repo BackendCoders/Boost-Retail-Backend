@@ -1,0 +1,671 @@
+﻿using EFCore.BulkExtensions;
+using Microsoft.EntityFrameworkCore;
+using Serilog;
+using SIM.Data;
+using SIM.Data.Models;
+using SIM.Data.Models.Catalog;
+using SIM.Suppliers.Cube;
+using SIM.Suppliers.Giant;
+using SIM.Suppliers.Madison;
+using SIM.Suppliers.Raleigh;
+using SIM.Suppliers.Sportline;
+using SIM.Suppliers.Trek;
+using SIM.Suppliers.Whyte;
+
+namespace SIM.Logic
+{
+    public class ImportLogic : IImportLogic
+    {
+        private readonly GiantDataImportService _giant;
+        private readonly TrekDataImportService _trek;
+        private readonly CubeDataImportService _cube;
+        private readonly WhyteDataImportService _whyte;
+        private readonly MadisonDataImportService _madison;
+        private readonly SportlineDataImportService _sportline;
+        private readonly RaleighDataImportService _raleigh;
+        private readonly SimDbContext _db;
+        private readonly Serilog.ILogger _logger;
+
+        public ImportLogic(
+            SimDbContext context)
+        {
+            _db = context;
+            _giant = new GiantDataImportService();
+            _trek = new TrekDataImportService();
+            _cube = new CubeDataImportService();
+            _whyte = new WhyteDataImportService();
+            _madison = new MadisonDataImportService();
+            _sportline = new SportlineDataImportService();
+            _raleigh = new RaleighDataImportService();
+
+            _logger = Log.ForContext<ImportLogic>();
+        }
+
+        #region Giant
+        public async Task<int> ImportGiant(GiantProductType type, int year)
+        {
+            var cnt = 0;
+
+            if (type == GiantProductType.Both)
+            {
+                cnt = await InsertOrUpdateGiantBikes(year);
+                cnt += await InsertOrUpdateGiantGear();
+            }
+            else if (type == GiantProductType.Bike)
+            {
+                cnt = await InsertOrUpdateGiantBikes(year);
+            }
+            else if (type == GiantProductType.Gear)
+            {
+                cnt = await InsertOrUpdateGiantGear();
+            }
+
+            await CreateRecord(DataSupplier.Giant, cnt);
+
+            return cnt;
+        }
+
+        private async Task<int> InsertOrUpdateGiantBikes(int year)
+        {
+            var bikes = await _giant.GetBikesFromApi(year);
+
+            _logger.Information("begin insert or update for bikes");
+            await InsertOrUpdateBulk(bikes);
+            _logger.Information("db insert/updates completed");
+
+            return bikes.Count;
+        }
+
+        private async Task<int> InsertOrUpdateGiantGear()
+        {
+            var gear = await _giant.GetGearFromApi();
+
+            // database
+            _logger.Information("begin insert or update for gear");
+            await InsertOrUpdateBulk(gear);
+            _logger.Information("db insert/updates completed");
+
+            return gear.Count;
+        }
+        #endregion
+
+        #region Trek
+        public async Task<int> ImportTrek(SupplierProductType type)
+        {
+            var cnt = 0;
+
+            if (type == SupplierProductType.Both)
+            {
+                cnt = await InsertOrUpdateTrekBikes();
+                cnt += await InsertOrUpdateTrekAccessories();
+            }
+            else if (type == SupplierProductType.Bike)
+            {
+                cnt = await InsertOrUpdateTrekBikes();
+            }
+            else if (type == SupplierProductType.Accessories)
+            {
+                cnt = await InsertOrUpdateTrekAccessories();
+            }
+
+            await CreateRecord(DataSupplier.Trek, cnt);
+
+            return cnt;
+        }
+
+        private async Task<int> InsertOrUpdateTrekBikes()
+        {
+            var bikes = _trek.GetBikesFromApi();
+
+            _logger.Information("begin insert or update trek bikes");
+            await InsertOrUpdateBulk(bikes);
+            _logger.Information("db insert/updates completed");
+
+            return bikes.Count;
+        }
+
+        private async Task<int> InsertOrUpdateTrekAccessories()
+        {
+            var acces = _trek.GetAccessoriesFromApi();
+
+            _logger.Information("begin insert or update trek accessories");
+            await InsertOrUpdateBulk(acces);
+            _logger.Information("db insert/updates completed");
+
+            return acces.Count;
+        }
+        #endregion
+
+        #region Cube
+        public async Task<int> ImportCube(SupplierProductType type)
+        {
+            if (type == SupplierProductType.Bike)
+            {
+                var bikes = _cube.GetBikesFromFeed();
+
+                _logger.Information("begin insert or update cube bikes");
+                await InsertOrUpdateBulk(bikes);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Cube, bikes.Count);
+
+                return bikes.Count;
+            }
+            else if (type == SupplierProductType.Accessories)
+            {
+                var pa = _cube.GetPartsAccessories();
+
+                _logger.Information("begin insert or update cube bikes");
+                await InsertOrUpdateBulk(pa);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Cube, pa.Count);
+
+                return pa.Count;
+            }
+            else
+            {
+                var bikes = _cube.GetBikesFromFeed();
+
+                _logger.Information("begin insert or update cube bikes");
+                await InsertOrUpdateBulk(bikes);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Cube, bikes.Count);
+
+                var pa = _cube.GetPartsAccessories();
+
+                _logger.Information("begin insert or update cube bikes");
+                await InsertOrUpdateBulk(pa);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Cube, pa.Count);
+
+                return pa.Count + bikes.Count;
+            }
+            
+        }
+        #endregion
+
+        #region Whyte
+        public async Task<int> ImportWhyte()
+        {
+            var bikes = _whyte.GetBikesFromFeed();
+
+            _logger.Information("begin insert or update whyte bikes");
+            await InsertOrUpdateBulk(bikes);
+            _logger.Information("db insert/updates completed");
+
+            await CreateRecord(DataSupplier.Whyte, bikes.Count);
+
+            return bikes.Count;
+        }
+        #endregion
+
+        #region Madison/Sportline
+        public async Task<int> ImportMadison()
+        {
+            var accessories = _madison.GetPartsAccessories();
+
+            _logger.Information("begin insert or update madison p&a");
+            await InsertOrUpdateBulk(accessories);
+            _logger.Information("db insert/updates completed");
+
+            await CreateRecord(DataSupplier.Madison, accessories.Count);
+
+            return accessories.Count;
+        }
+
+        public async Task<int> ImportSportline()
+        {
+            var bikes = _sportline.GetBikes();
+
+            _logger.Information("begin insert or update sportline bikes");
+            await InsertOrUpdateBulk(bikes);
+            _logger.Information("db insert/updates completed");
+
+            await CreateRecord(DataSupplier.Sportline, bikes.Count);
+
+            return bikes.Count;
+        }
+        #endregion
+
+        #region Raleigh
+        public async Task<int> ImportRaleigh(SupplierProductType type)
+        {
+            if (type == SupplierProductType.Bike)
+            {
+                var bikes = _raleigh.GetBikes();
+
+                _logger.Information("begin insert or update raleigh bikes");
+                await InsertOrUpdateBulk(bikes);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Raleigh, bikes.Count);
+
+                return bikes.Count;
+            }
+            else if (type == SupplierProductType.Accessories)
+            {
+                var parts = _raleigh.GetParts();
+
+                _logger.Information("begin insert or update raleigh parts");
+                await InsertOrUpdateBulk(parts);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Raleigh, parts.Count);
+
+                return parts.Count;
+            }
+            else
+            {
+                var bikes = _raleigh.GetBikes();
+
+                _logger.Information("begin insert or update raleigh bikes");
+                await InsertOrUpdateBulk(bikes);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Raleigh, bikes.Count);
+
+                var parts = _raleigh.GetParts();
+
+                _logger.Information("begin insert or update raleigh parts");
+                await InsertOrUpdateBulk(parts);
+                _logger.Information("db insert/updates completed");
+
+                await CreateRecord(DataSupplier.Raleigh, parts.Count);
+
+                return parts.Count + bikes.Count;
+            }
+        }
+        #endregion
+
+
+        public async Task InsertOrUpdateBulk(List<CatalogueItem> items)
+        {
+            await _db.BulkInsertOrUpdateAsync(items);
+        }
+
+        public async Task CreateRecord(DataSupplier supplier, int productCount)
+        {
+            await _db.SupplierImportHistories.AddAsync(new SupplierImportHistory { Supplier = supplier, SupplierName = supplier.ToString(), ProductCount = productCount, ImportedOn = DateTime.Now });
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task<List<SupplierImportHistory>> GetHistory(DataSupplier supplier)
+        {
+            return await _db.SupplierImportHistories.Where(o => o.Supplier == supplier).ToListAsync();
+        }
+
+        public async Task<SupplierImportHistory> GetLastImportRecord(DataSupplier supplier)
+        {
+            return await _db.SupplierImportHistories.Where(o => o.Supplier == supplier).FirstOrDefaultAsync();
+        }
+
+        #region Process Imported Data
+
+        public async Task<List<VatRate>> GetWithAddVatRates()
+        {
+            if (!await _db.VatRates.AnyAsync())
+            {
+                await _db.VatRates.AddAsync(new VatRate { Rate = 0 });
+                await _db.VatRates.AddAsync(new VatRate { Rate = 5 });
+                await _db.VatRates.AddAsync(new VatRate { Rate = 20 });
+
+                await _db.SaveChangesAsync();
+            }
+
+            return await _db.VatRates.ToListAsync();
+        }
+
+        public async Task<List<Supplier>> GetWithAddSuppliers()
+        {
+            if (!await _db.Suppliers.AnyAsync())
+            {
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Giant" });
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Trek" });
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Specialized" });
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Raleigh" });
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Whyte" });
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Madison" });
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Cube" });
+                await _db.Suppliers.AddAsync(new Supplier { Name = "Sportline" });
+
+                await _db.SaveChangesAsync();
+            }
+
+            return await _db.Suppliers.ToListAsync();
+        }
+
+        public async Task<List<Brand>> GetOrInsertBrands(List<string> tocheck)
+        {
+            // Use a HashSet to store the names of the brand that already exist
+            var existingBrands = await _db.Brands
+                .Where(t => tocheck.Contains(t.Name))
+                .ToListAsync();
+
+            // Get the names of the existing tags
+            var existingBrandNames = existingBrands.Select(t => t.Name).ToList();
+
+            // Get the names that are not in the existing brand
+            var newBrandNames = tocheck.Except(existingBrandNames).ToList();
+
+            // Create new Brand entities for the new tag names
+            var newBrands = newBrandNames.Select(name => new Brand { Name = name }).ToList();
+
+            // Add the new Brand entities to the context
+            await _db.Brands.AddRangeAsync(newBrands);
+
+            // Save changes to the database asynchronously
+            await _db.SaveChangesAsync();
+
+            // merge both sets and return the data
+            existingBrands.AddRange(newBrands);
+
+            return existingBrands;
+        }
+
+        public async Task<List<Size>> GetOrInsertSizes(List<string> tocheck)
+        {
+            // Use a HashSet to store the names of that already exist
+            var existing = await _db.Sizes
+                .Where(t => tocheck.Contains(t.Name))
+                .ToListAsync();
+
+            // Get the names of the existing 
+            var existingNames = existing.Select(t => t.Name).ToList();
+
+            // Get the names that are not in the existing 
+            var newNames = tocheck.Except(existingNames).ToList();
+
+            // Create new entities for the new tag names
+            var newBrands = newNames.Select(name => new Size { Name = name }).ToList();
+
+            // Add the new entities to the context
+            await _db.Sizes.AddRangeAsync(newBrands);
+
+            // Save changes to the database asynchronously
+            await _db.SaveChangesAsync();
+
+            // merge both sets and return the data
+            existing.AddRange(newBrands);
+
+            return existing;
+        }
+
+        public async Task<List<Colour>> GetOrInsertColors(List<string> tocheck)
+        {
+            // Use a HashSet to store the names of that already exist
+            var existing = await _db.Colours
+                .Where(t => tocheck.Contains(t.Name))
+                .ToListAsync();
+
+            // Get the names of the existing 
+            var existingNames = existing.Select(t => t.Name).ToList();
+
+            // Get the names that are not in the existing 
+            var newNames = tocheck.Except(existingNames).ToList();
+
+            // Create new entities for the new tag names
+            var newItems = newNames.Select(name => new Colour { Name = name }).ToList();
+
+            // Add the new entities to the context
+            await _db.Colours.AddRangeAsync(newItems);
+
+            // Save changes to the database asynchronously
+            await _db.SaveChangesAsync();
+
+            // merge both sets and return the data
+            existing.AddRange(newItems);
+
+            return existing;
+        }
+
+        public async Task<Category> GetCategory(string categoryName)
+        {
+            var cat = _db.Categories.FirstOrDefault(o => o.Name == categoryName);
+            return cat;
+        }
+
+        public async Task<List<Category>> ProcessStringCategory(string fullCategory)
+        {
+            List<Category> res = new List<Category>();
+
+            int cat1Id = 0;
+            int cat2Id = 0;
+            int cat3Id = 0;
+
+            var cats = fullCategory.Split(',').ToList();
+
+            // check exists
+            var cata = await _db.Categories.FirstOrDefaultAsync(o => o.Name == cats[0]);
+
+            if (cata != null)
+            {
+                cat1Id = cata.Id;
+
+                res.Add(cata);
+            }
+            else
+            {
+                var cat = new Category();
+                cat.Name = cats[0];
+
+                await _db.Categories.AddAsync(cat);
+                await _db.SaveChangesAsync();
+
+                res.Add(cat);
+
+                // assign id
+                cat1Id = cat.Id;
+            }
+
+            if (cats.Count > 1)
+            {
+                // check exists
+                var catb = await _db.Categories.FirstOrDefaultAsync(o => o.Name == cats[1]);
+
+                if (catb != null)
+                {
+                    cat2Id = catb.Id;
+
+                    res.Add(catb);
+                }
+                else
+                {
+                    var cat = new Category();
+                    cat.Name = cats[1];
+                    cat.ParentId = cat1Id;
+
+                    await _db.Categories.AddAsync(cat);
+                    await _db.SaveChangesAsync();
+
+                    res.Add(cat);
+
+                    // assign id
+                    cat2Id = cat.Id;
+                }
+            }
+
+            if (cats.Count > 2)
+            {
+                // check exists
+                //var catc = await _db.Categories.FirstOrDefaultAsync(o => o.Name == cats[2]);
+
+                //if (catc != null)
+                //{ 
+                //    cat3Id = catc.Id;
+
+                //    res.Add(catc);
+                //}
+                //else
+                {
+                    var cat = new Category();
+                    cat.Name = cats[2];
+                    cat.ParentId = cat2Id;
+
+                    await _db.Categories.AddAsync(cat);
+                    await _db.SaveChangesAsync();
+
+                    res.Add(cat);
+
+                    // assign id
+                    cat3Id = cat.Id;
+                }
+            }
+
+            return res;
+        }
+
+        public async Task<List<Data.Models.Specification>> GetOrInsertSpecs(List<string> tocheck)
+        {
+            // Use a HashSet to store the names of that already exist
+            var existing = await _db.Specifications
+                .Where(t => tocheck.Contains(t.SpecificationJson))
+                .ToListAsync();
+
+            // Get the names of the existing 
+            var existingNames = existing.Select(t => t.SpecificationJson).ToList();
+
+            // Get the names that are not in the existing 
+            var newNames = tocheck.Except(existingNames).ToList();
+
+            // Create new entities for the new tag names
+            var newItems = newNames.Select(name => new Data.Models.Specification { SpecificationJson = name }).ToList();
+
+            // Add the new entities to the context
+            await _db.Specifications.AddRangeAsync(newItems);
+
+            // Save changes to the database asynchronously
+            await _db.SaveChangesAsync();
+
+            // merge both sets and return the data
+            existing.AddRange(newItems);
+
+            return existing;
+        }
+
+        public async Task<List<Data.Models.Geometry>> GetOrInsertGeos(List<string> tocheck)
+        {
+            // Use a HashSet to store the names of that already exist
+            var existing = await _db.Geometrys
+                .Where(t => tocheck.Contains(t.GeometryJson))
+                .ToListAsync();
+
+            // Get the names of the existing 
+            var existingNames = existing.Select(t => t.GeometryJson).ToList();
+
+            // Get the names that are not in the existing 
+            var newNames = tocheck.Except(existingNames).ToList();
+
+            // Create new entities for the new tag names
+            var newItems = newNames.Select(name => new Data.Models.Geometry { GeometryJson = name }).ToList();
+
+            // Add the new entities to the context
+            await _db.Geometrys.AddRangeAsync(newItems);
+
+            // Save changes to the database asynchronously
+            await _db.SaveChangesAsync();
+
+            // merge both sets and return the data
+            existing.AddRange(newItems);
+
+            return existing;
+        }
+
+        public async Task<List<LongDescription>> GetOrInsertLongDescriptions(List<string> tocheck)
+        {
+            // Use a HashSet to store the names of that already exist
+            var existing = await _db.LongDescriptions
+                .Where(t => tocheck.Contains(t.Description))
+                .ToListAsync();
+
+            // Get the names of the existing 
+            var existingNames = existing.Select(t => t.Description).ToList();
+
+            // Get the names that are not in the existing 
+            var newNames = tocheck.Except(existingNames).ToList();
+
+            // Create new entities for the new tag names
+            var newItems = newNames.Select(name => new LongDescription { Description = name }).ToList();
+
+            // Add the new entities to the context
+            await _db.LongDescriptions.AddRangeAsync(newItems);
+
+            // Save changes to the database asynchronously
+            await _db.SaveChangesAsync();
+
+            // merge both sets and return the data
+            existing.AddRange(newItems);
+
+            return existing;
+        }
+
+        public async Task<List<ShortDescription>> GetOrInsertShortDescriptions(List<string> tocheck)
+        {
+            // Use a HashSet to store the names of that already exist
+            var existing = await _db.ShortDescriptions
+                .Where(t => tocheck.Contains(t.Description))
+                .ToListAsync();
+
+            // Get the names of the existing 
+            var existingNames = existing.Select(t => t.Description).ToList();
+
+            // Get the names that are not in the existing 
+            var newNames = tocheck.Except(existingNames).ToList();
+
+            // Create new entities for the new tag names
+            var newItems = newNames.Select(name => new ShortDescription { Description = name }).ToList();
+
+            // Add the new entities to the context
+            await _db.ShortDescriptions.AddRangeAsync(newItems);
+
+            // Save changes to the database asynchronously
+            await _db.SaveChangesAsync();
+
+            // merge both sets and return the data
+            existing.AddRange(newItems);
+
+            return existing;
+        }
+
+        public async Task Save(Data.Models.Catalog.Product product)
+        {
+            var cnt = await _db.Products.CountAsync(o => o.MPN == product.MPN);
+
+            if (cnt == 0)
+            {
+                await _db.Products.AddAsync(product);
+                await _db.SaveChangesAsync();
+            }
+        }
+
+        public async Task ImportBaseCategoriesFromCSV()
+        {
+            const string bikes = "Data\\BIKE_CATEGORIES.csv";
+            const string acce = "Data\\ACCESSORIES_CATEGORIES.csv";
+            const string clot = "Data\\CLOTHING_CATEGORIES.csv";
+            const string comp = "Data\\COMPONENTS_CATEGORIES.csv";
+            const string helm = "Data\\HELMETS_CATEGORIES.csv";
+
+            var lst = new List<string>()
+            { 
+                //bikes,helm,acce, clot,
+                comp
+            };
+
+            foreach (var cat in lst)
+            {
+                var lines = File.ReadAllLines(cat);
+
+                foreach (var line in lines)
+                {
+                    await ProcessStringCategory(line);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+}

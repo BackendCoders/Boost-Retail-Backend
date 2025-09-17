@@ -1,0 +1,8 @@
+﻿namespace SIM.DTOs
+{
+    public class ProductsDto
+    {
+        public List<string> NotFound { get; set; } = new();
+        public List<ProductDto> Products { get; set; }
+    }
+}

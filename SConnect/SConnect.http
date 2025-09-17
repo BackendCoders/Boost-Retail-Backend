@@ -1,0 +1,6 @@
+@SConnect_HostAddress = http://localhost:5184
+
+GET {{SConnect_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

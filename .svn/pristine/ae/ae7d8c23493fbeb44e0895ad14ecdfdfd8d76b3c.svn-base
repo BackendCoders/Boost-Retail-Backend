@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ChatGPT.Net" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.12" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Data\Maps\CANNONDALE_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\CUBE_BIKES_MODEL_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\FROG_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\GIANT_BIKES_MODELS_LOOKUP_TABLE.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Data\Maps\HAIBIKE_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\LAPIERRE_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\LIV_BIKES_MODELS_LOOKUP_TABLE.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Data\Maps\MARIN_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\MERIDA_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\ORBEA_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\RAKEIGH_BIKES_MODEL_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\SPECIALIZED_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\TERN_BIKES_MODELS_LOOKUP_TABLE.csv" />
+    <Page Include="Data\Maps\TREK_BIKES_MODELS_LOOKUP_TABLE.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Data\Maps\WHYTE_BIKES_MODELS_LOOKUP_TABLE.csv" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\SIM.Lib\SIM.Lib.csproj" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <None Update="Data\ACCESSORIES_CATEGORIES.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\BIKE_CATEGORIES.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\CLOTHING_CATEGORIES.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\COMPONENTS_CATEGORIES.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\HELMETS_CATEGORIES.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

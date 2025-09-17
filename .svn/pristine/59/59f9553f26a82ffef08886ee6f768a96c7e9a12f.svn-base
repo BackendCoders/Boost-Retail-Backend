@@ -1,0 +1,274 @@
+﻿using Newtonsoft.Json;
+using Serilog;
+using SIM.Data;
+using SIM.Data.Models.Catalog;
+using SIM.DTOs;
+using System.Data;
+using System.Net;
+
+namespace SIM.Suppliers.Whyte
+{
+    public class WhyteDataImportService
+    {
+        private readonly Serilog.ILogger _logger;
+        private const string BikeFeedUrl = "https://cdn.abacusonline.net/SUPPLIER-DATA/whyte/MY24EPOSPEC.xlsx";
+        private const string BikesLocalFile = "_temp\\whyte-bikes.xlsx";
+
+        public WhyteDataImportService()
+        {
+            _logger = Log.ForContext<WhyteDataImportService>();
+        }
+
+        public List<CatalogueItem> GetBikesFromFeed()
+        {
+            using (WebClient wc = new())
+            {
+                if (!Directory.Exists("_temp"))
+                {
+                    Directory.CreateDirectory("_temp");
+                }
+
+                // download and save to local file  
+                _logger.Information($"downloading bikes file to local");
+                wc.DownloadFile(BikeFeedUrl, BikesLocalFile);
+            }
+
+            if (!File.Exists(BikesLocalFile))
+                throw new FileNotFoundException(BikesLocalFile);
+
+            _logger.Information($"converting whyte bikes from local file to datatable.");
+            var dt = Helper.GetDataTableFromExcel(BikesLocalFile);
+
+            _logger.Information($"converting datatable to catalogue items");
+            var bikes = ConvertToFeed(dt);
+            _logger.Information($"conversion complete");
+
+            _logger.Information($"converting bike feed to catalgue items");
+            var res = ConvertProducts(bikes, 2024);
+            _logger.Information($"convert bikes complete");
+
+            return res;
+        }
+
+        private List<CatalogueItem> ConvertProducts(List<WhyteFeedDto> items, int year)
+        {
+            var res = new List<CatalogueItem>();
+
+            foreach (var item in items) 
+            {
+                var type = item.ElectricBikeYESNO == "Yes" ? ProductType.EBike : ProductType.Bike;
+
+                var spec = new SpecDto();
+                var geo = new List<KeyValueDto>();
+
+                var specJson = string.Empty;
+                var geoJson = string.Empty;
+
+                spec = BuildSpecs(item);
+                geo = BuildGeo(item);
+
+                if (geo.Count > 0)
+                    geoJson = JsonConvert.SerializeObject(geo);
+
+                if (spec.Specs.Count > 0)
+                    specJson = JsonConvert.SerializeObject(spec);
+
+                var obj = new CatalogueItem
+                {
+                    MPN = item.SKU,
+                    Barcode = item.EAN,
+                    BoxQty = 1,
+                    ProductTitle = item.Description,
+                    ShortDescription = item.Description,
+                    Brand = "Whyte",
+                    Supplier = DataSupplier.Whyte,
+                    GroupName = item.ModelName,
+                    Colour = ColorConverter.GetStandardColor(item.Colour),
+                    Size = SizeConverter.GetStandardSize(item.Size),
+                    Categorys = item.Category,
+                    Price = Convert.ToDouble(item.SRP.Replace("£","")),
+                    SalePrice = 0,
+                    Cost = 0,
+                    Year = year,
+                    ProductType = type,
+                    GenderOrAge = GenderOrAgeGroup.Unisex,
+                    GeometryJson = geoJson,
+                    SpecificationsJson = specJson,
+                    SupplierDetailsUrl = string.Empty
+                };
+
+                // deal with long description
+                obj.LongDescription = item.ProductDescription;
+
+                // deal with images
+                obj.Images = BuildImages(item);
+
+                res.Add(obj);
+            }
+            
+            return res;
+        }
+
+        private List<WhyteFeedDto> ConvertToFeed(DataTable dataTable)
+    {
+        var lst = new List<WhyteFeedDto>();
+
+        foreach (DataRow dr in dataTable.Rows)
+        {
+            var dataRow = dr.ItemArray;
+            var obj = new WhyteFeedDto
+            {
+                ModelName = dataRow[0].ToString().Trim(),
+                Description = dataRow[1].ToString().Trim(),
+                Category = dataRow[2].ToString().Trim(),
+                ProductDescription = dataRow[3].ToString().Trim(),
+                Version = dataRow[4].ToString().Trim(),
+                SKU = dataRow[5].ToString().Trim(),
+                EAN = dataRow[6].ToString().Trim(),
+                ImageLocation1 = dataRow[7].ToString().Trim(),
+                ImageLocation2 = dataRow[8].ToString().Trim(),
+                ImageLocation3 = dataRow[9].ToString().Trim(),
+                Size = dataRow[10].ToString().Trim(),
+                SRP = dataRow[11].ToString().Trim(),
+                ElectricBikeYESNO = dataRow[12].ToString().Trim(),
+                Colour = dataRow[13].ToString().Trim(),
+                Weight = dataRow[14].ToString().Trim(),
+
+
+                Frame = dataRow[15].ToString().Trim(),
+                Fork = dataRow[16].ToString().Trim(),
+                RearShock = dataRow[17].ToString().Trim(),
+                Headset = dataRow[18].ToString().Trim(),
+                RearHub = dataRow[19].ToString().Trim(),
+                FrontHub = dataRow[20].ToString().Trim(),
+                Spokes = dataRow[21].ToString().Trim(),
+                Rims = dataRow[22].ToString().Trim(),
+                Tyre = dataRow[23].ToString().Trim(),
+                ShiftLevers = dataRow[24].ToString().Trim(),
+                FrontMech = dataRow[25].ToString().Trim(),
+                RearMech = dataRow[26].ToString().Trim(),
+                Cassette = dataRow[27].ToString().Trim(),
+                Chain = dataRow[28].ToString().Trim(),
+                Crankset = dataRow[29].ToString().Trim(),
+                BottomBracket = dataRow[30].ToString().Trim(),
+                Seatpost = dataRow[31].ToString().Trim(),
+                Saddle = dataRow[32].ToString().Trim(),
+                Handlebar = dataRow[33].ToString().Trim(),
+                Stem = dataRow[34].ToString().Trim(),
+                Grips = dataRow[35].ToString().Trim(),
+                BrakesFront = dataRow[36].ToString().Trim(),
+                BrakesRear = dataRow[37].ToString().Trim(),
+                BrakesLevers = dataRow[38].ToString().Trim(),
+                Pedals = dataRow[39].ToString().Trim(),
+                eBikeMotor = dataRow[40].ToString().Trim(),
+                eBikeDisplay = dataRow[41].ToString().Trim(),
+                eBikeBattery = dataRow[42].ToString().Trim(),
+                eBikeBatteryCharger = dataRow[43].ToString().Trim(),
+                ShockStrokeAndSag = dataRow[44].ToString().Trim(),
+                ReducerBushWidths = dataRow[45].ToString().Trim(),
+                EyetoEyeLength = dataRow[46].ToString().Trim(),
+
+                Reach = dataRow[47].ToString().Trim(),
+                Stack = dataRow[48].ToString().Trim(),
+                HeadAngle = dataRow[49].ToString().Trim(),
+                SeatAngle = dataRow[50].ToString().Trim(),
+                BottomBracketHeight = dataRow[51].ToString().Trim(),
+                Wheelbase = dataRow[52].ToString().Trim(),
+                RearCentre = dataRow[53].ToString().Trim(),
+                StandoverHeight = dataRow[54].ToString().Trim(),
+                SeatubeLength = dataRow[55].ToString().Trim(),
+                HeadtubeLength = dataRow[56].ToString().Trim(),
+                SizeGuide1 = dataRow[57].ToString().Trim(),
+                SizeGuide2 = dataRow[58].ToString().Trim(),
+            };
+
+            lst.Add(obj);
+        }
+
+        return lst;
+    }
+
+        private List<KeyValueDto> BuildGeo(WhyteFeedDto obj)
+        {
+            var res = new List<KeyValueDto>();
+
+            res.Add(new KeyValueDto { Title = "Reach", Value = $"{obj.Reach}mm" });
+            res.Add(new KeyValueDto { Title = "Stack", Value = $"{obj.Stack}mm" });
+            res.Add(new KeyValueDto { Title = "Head Angle", Value = $"{obj.HeadAngle} degrees" });
+            res.Add(new KeyValueDto { Title = "Seat Angle", Value = $"{obj.SeatAngle} degrees" });
+            res.Add(new KeyValueDto { Title = "Bottom Bracket Height ", Value = $"{obj.BottomBracketHeight}mm" });
+            res.Add(new KeyValueDto { Title = "Wheelbase ", Value = $"{obj.Wheelbase}mm" });
+            res.Add(new KeyValueDto { Title = "Rear Centre ", Value = $"{obj.RearCentre}mm" });
+            res.Add(new KeyValueDto { Title = "Standover Height ", Value = $"{obj.StandoverHeight}mm" });
+            res.Add(new KeyValueDto { Title = "Seatube Length ", Value = $"{obj.SeatubeLength}mm" });
+            res.Add(new KeyValueDto { Title = "Headtube Length ", Value = $"{obj.HeadtubeLength}mm" });
+            res.Add(new KeyValueDto { Title = "Size Guide", Value = $"{obj.SizeGuide1} inches" });
+            res.Add(new KeyValueDto { Title = "Size Guide", Value = $"{obj.SizeGuide2}cm" });
+
+            return res;
+        }
+
+        private SpecDto BuildSpecs(WhyteFeedDto obj)
+    {
+        var res = new SpecDto();
+
+        res.Specs.Add(new KeyValueDto { Title = "Frame", Value = obj.Frame });
+        res.Specs.Add(new KeyValueDto { Title= "Fork", Value = obj.Fork });
+        res.Specs.Add(new KeyValueDto { Title= "Rear Shock", Value = obj.RearShock });
+        res.Specs.Add(new KeyValueDto { Title= "Headset", Value = obj.Headset });
+        res.Specs.Add(new KeyValueDto { Title= "Rear Hub", Value = obj.RearHub });
+        res.Specs.Add(new KeyValueDto { Title= "Front Hub", Value = obj.FrontHub });
+        res.Specs.Add(new KeyValueDto { Title= "Spokes", Value = obj.Spokes });
+        res.Specs.Add(new KeyValueDto { Title= "Rims", Value = obj.Rims });
+        res.Specs.Add(new KeyValueDto { Title= "Tyre", Value = obj.Tyre });
+        res.Specs.Add(new KeyValueDto { Title= "Shift Levers", Value = obj.ShiftLevers });
+        res.Specs.Add(new KeyValueDto { Title= "Front Mech", Value = obj.FrontMech });
+        res.Specs.Add(new KeyValueDto { Title= "Rear Mech", Value = obj.RearMech });
+        res.Specs.Add(new KeyValueDto { Title= "Cassette", Value = obj.Cassette });
+        res.Specs.Add(new KeyValueDto { Title= "Chain", Value = obj.Chain });
+        res.Specs.Add(new KeyValueDto { Title= "Crankset", Value = obj.Crankset });
+        res.Specs.Add(new KeyValueDto { Title= "Bottom Bracket", Value = obj.BottomBracket });
+        res.Specs.Add(new KeyValueDto { Title= "Seatpost", Value = obj.Seatpost });
+        res.Specs.Add(new KeyValueDto { Title= "Saddle", Value = obj.Saddle });
+        res.Specs.Add(new KeyValueDto { Title= "Handlebar", Value = obj.Handlebar });
+        res.Specs.Add(new KeyValueDto { Title= "Stem", Value = obj.Stem });
+        res.Specs.Add(new KeyValueDto { Title= "Grips", Value = obj.Grips });
+        res.Specs.Add(new KeyValueDto { Title= "Brakes Front", Value = obj.BrakesFront });
+        res.Specs.Add(new KeyValueDto { Title= "Brakes Rear", Value = obj.BrakesRear });
+        res.Specs.Add(new KeyValueDto { Title= "Brakes Levers", Value = obj.BrakesLevers });
+        res.Specs.Add(new KeyValueDto { Title= "Pedals", Value = obj.Pedals });
+        res.Specs.Add(new KeyValueDto { Title= "eBikeMotor", Value = obj.eBikeMotor });
+        res.Specs.Add(new KeyValueDto { Title= "eBikeDisplay", Value = obj.eBikeDisplay });
+        res.Specs.Add(new KeyValueDto { Title= "eBikeBattery", Value = obj.eBikeBattery });
+        res.Specs.Add(new KeyValueDto { Title= "eBikeBattery Charger", Value = obj.eBikeBatteryCharger });
+        res.Specs.Add(new KeyValueDto { Title= "Shock Stroke And Sag", Value = obj.ShockStrokeAndSag });
+        res.Specs.Add(new KeyValueDto { Title= "Reducer Bush Widths", Value = obj.ReducerBushWidths });
+        res.Specs.Add(new KeyValueDto { Title= "Eye to Eye Length", Value = obj.EyetoEyeLength });
+
+        res.Specs = res.Specs.Where(o => !string.IsNullOrEmpty(o.Value)).ToList();
+
+        return res;
+    }
+
+        private string BuildImages(WhyteFeedDto obj)
+        {
+            var str = string.Empty;
+
+            var images = new List<string>();
+
+            images.Add(obj.ImageLocation1);
+            images.Add(obj.ImageLocation2);
+            images.Add(obj.ImageLocation3);
+
+            images = images.Where(o => !string.IsNullOrEmpty(o)).ToList();
+
+            if(images.Count == 1)
+                str = images[0];
+            else if (images.Count > 1)
+                str = string.Join(",", images);
+
+            return str;
+        }
+
+    }
+}

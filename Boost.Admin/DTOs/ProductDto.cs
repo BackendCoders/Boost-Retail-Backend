@@ -1,0 +1,37 @@
+﻿using Boost.Admin.Data;
+
+namespace Boost.Admin.DTOs
+{
+    public class SIMProductDto
+    {
+        public string MPN { get; set; }
+        public string? Barcode { get; set; }
+        public string ProductTitle { get; set; }
+        public string? GroupName { get; set; }
+        public string Brand { get; set; }
+        public DataSupplier Supplier { get; set; }
+        public ProductType ProductType { get; set; }
+        public GenderOrAgeGroup? GenderOrAge { get; set; }
+        public string? Colour { get; set; }
+        public string? Size { get; set; }
+        public string? Weight { get; set; }
+        public string? Images { get; set; }
+        public string? VideoUrl { get; set; }
+        public string? SupplierDetailsUrl { get; set; }
+        public string ShortDescription { get; set; }
+        public string LongDescription { get; set; }
+        public int BoxQty { get; set; }
+        public double? Cost { get; set; }
+        public double Price { get; set; }
+        public double SalePrice { get; set; }
+        public double? VatRate { get; set; }
+        public string? GoogleCategoryId { get; set; }
+        public string? Categorys { get; set; }
+
+        public List<KeyValueDto>? Geometry { get; set; }
+        public string GeometryJson { get; set; }
+        public SpecDto? Specification { get; set; }
+        public string? SpecificationsJson { get; set; }
+        public int? Year { get; set; }
+    }
+}

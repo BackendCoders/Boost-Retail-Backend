@@ -1,0 +1,17 @@
+F:\BOOST RETAIL\Boost.Admin\bin\Release\net8.0\Boost.Admin.deps.json
+F:\BOOST RETAIL\Boost.Admin\bin\Release\net8.0\Boost.Admin.runtimeconfig.json
+F:\BOOST RETAIL\Boost.Admin\bin\Release\net8.0\Boost.Admin.dll
+F:\BOOST RETAIL\Boost.Admin\bin\Release\net8.0\Boost.Admin.pdb
+F:\BOOST RETAIL\Boost.Admin\bin\Release\net8.0\Boost.Shared.dll
+F:\BOOST RETAIL\Boost.Admin\bin\Release\net8.0\Boost.Shared.pdb
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.csproj.AssemblyReference.cache
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.GeneratedMSBuildEditorConfig.editorconfig
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.AssemblyInfoInputs.cache
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.AssemblyInfo.cs
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.csproj.CoreCompileInputs.cache
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Ad.CE87F47C.Up2Date
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.dll
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\refint\Boost.Admin.dll
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.pdb
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\Boost.Admin.genruntimeconfig.cache
+F:\BOOST RETAIL\Boost.Admin\obj\Release\net8.0\ref\Boost.Admin.dll

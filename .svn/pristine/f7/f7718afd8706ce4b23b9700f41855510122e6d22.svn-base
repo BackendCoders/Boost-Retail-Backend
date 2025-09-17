@@ -1,0 +1,408 @@
+﻿using CsvHelper;
+using Newtonsoft.Json;
+using Serilog;
+using SIM.Configuration;
+using SIM.Data;
+using SIM.Data.Models.Catalog;
+using SIM.DTOs;
+using System.Globalization;
+using System.Net;
+using System.Text;
+
+namespace SIM.Suppliers.Trek
+{
+    public class TrekDataImportService
+    {
+        private readonly Serilog.ILogger _logger;
+
+        private const string TrekLoginUsername = "eposUKUser01";
+        private const string TrekLoginPassword = "uZcdHvrxX9kqThCXxsRJWzAb";
+        private static string TrekLoginUrl = string.Format("https://epos.trekbikes.com/WebInterface/login.html?u={0}&p={1}&l=true", TrekLoginUsername, TrekLoginPassword);
+        private static string TrekFeedUrl = string.Format("https://epos.trekbikes.com/WebInterface?u={0}&p={1}&l=true&path=/uk/generic/product", TrekLoginUsername, TrekLoginPassword);
+        private static string TrekBikeFeedUrl = string.Format("{0}/ENGB_Generic_Product.csv", TrekFeedUrl);
+        private static string TrekAccessoriesFeedUrl = string.Format("{0}/ENGB_Generic_Product_Quoted.csv", TrekFeedUrl);
+
+        public TrekDataImportService()
+        {
+            _logger = Log.ForContext<TrekDataImportService>();
+        }
+
+        #region Trek Api Feed
+        public List<CatalogueItem> GetBikesFromApi()
+        {
+            // login to trek
+            var cookies = LoginToTrek();
+
+            //import initial feed
+            var csv = new List<TrekFeedDto>();
+
+            // read the csv data from our online location
+            _logger.Information("Starting Trek Bikes Data Download.");
+            var data = Helper.ReadFileFromUrl(TrekBikeFeedUrl, cookies);
+
+            _logger.Information("Converting feed to Stream.");
+            var stream = Helper.GenerateStreamFromString(data);
+
+            _logger.Information("Starting Trek Bikes DeSerialization");
+            csv = ConvertToFeed(stream);
+
+            var res = ConvertProducts(csv, ProductType.Bike);
+
+            return res;
+        }
+
+        public List<CatalogueItem> GetAccessoriesFromApi()
+        {
+            // login to trek
+            var cookies = LoginToTrek();
+
+            //import initial feed
+            var csv = new List<TrekFeedDto>();
+
+            // read the csv data from our online location
+            _logger.Information("Starting Trek Accessories Data Download.");
+            var data = Helper.ReadFileFromUrl(TrekAccessoriesFeedUrl, cookies);
+
+            _logger.Information("Converting feed to Stream.");
+            var stream = Helper.GenerateStreamFromString(data);
+
+            _logger.Information("Starting Trek Accessories DeSerialization");
+            csv = ConvertToFeed(stream);
+
+            var res = ConvertProducts(csv, ProductType.Accessory);
+
+            return res;
+        }
+        
+        private List<TrekFeedDto> ConvertToFeed(Stream stream)
+        {
+            StreamReader reader;
+
+            try
+            {
+                reader = new StreamReader(stream, new UTF8Encoding());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error while reading stream.", ex);
+            }
+
+            var lst = new List<TrekFeedDto>();
+
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Context.RegisterClassMap<TrekFeedMap>();
+                var records = csv.GetRecords<TrekFeedDto>();
+                lst.AddRange(records);
+            }
+
+            // cleanup
+            reader.Dispose();
+            return lst;
+        }
+        private static CookieContainer LoginToTrek()
+        {
+            // create reusable variables
+            CookieContainer cookies;
+            try
+            {
+                string url = TrekLoginUrl;
+
+                HttpWebRequest request;
+
+                try
+                {
+                    request = (HttpWebRequest)WebRequest.Create(url);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Unable to make web request.", ex);
+                }
+
+                request.AllowAutoRedirect = false;
+                request.CookieContainer = new CookieContainer();
+
+                HttpWebResponse response;
+
+                try
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error while receiving web response.", ex);
+                }
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    response.Close();
+                    request.KeepAlive = false;
+                }
+                cookies = request.CookieContainer;
+                response.Close();
+                //cleanup
+                response = null;
+                request = null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error while loging in to trek server.", ex);
+            }
+            return cookies;
+        }
+        #endregion
+
+        private List<CatalogueItem> ConvertProducts(List<TrekFeedDto> items, ProductType type)
+        {
+            var res = new List<CatalogueItem>();
+
+            switch (type)
+            {
+                case ProductType.Bike:
+                    var result = ConvertFeed(items.Where(o => o.Product == "BIKE" || o.Product == "EBIKE" || o.Product == "FRAME").ToList(), true);
+                        res.AddRange(result);
+                    break;
+                case ProductType.Accessory:  // gear
+                    var result1 = ConvertFeed(items.Where(o => o.Product == "AFTERMARKET" || o.Product == "SERVICEPART").ToList(), false);
+                    res.AddRange(result1);
+                    break;
+            }
+
+            return res;
+        }
+
+        private List<CatalogueItem> ConvertFeed(List<TrekFeedDto> items, bool bike)
+        {
+            var res = new List<CatalogueItem>();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var item = items[i];
+
+                if (item.SKUId == "5294668")
+                { 
+                }
+
+                ProductType type = ProductType.Unknown;
+
+                switch (item.Product)
+                {
+                    case "BIKE":
+                        type = ProductType.Bike;
+                        break;
+                    case "EBIKE":
+                        type = ProductType.EBike;
+                        break;
+                    case "FRAME":
+                        type = ProductType.Frame;
+                        break;
+                    case "AFTERMARKET":
+                        type = ProductType.AfterMarket;
+                        break;
+                    case "SERVICEPART":
+                        type = ProductType.ServicePart;
+                        break;
+                    case "":
+                        break;
+                }
+
+                GenderOrAgeGroup gender = GenderOrAgeGroup.None;
+                switch (item.Gender.ToLower())
+                {
+                    case "male":
+                        gender = GenderOrAgeGroup.Men;
+                        break;
+                    case "female":
+                        gender = GenderOrAgeGroup.Women;
+                        break;
+                    case "unisex":
+                    default:
+                        gender = GenderOrAgeGroup.Unisex;
+                        break;
+                }
+
+                var specJson = string.Empty;
+                var geoJson = string.Empty;
+
+                if (bike)
+                {
+                    var spec = new SpecDto();
+                    var geo = new List<KeyValueDto>();
+
+                    geo = BuildGeo(item);
+                    spec = BuildSpecs(item);
+
+                    if (geo.Count > 0)
+                        geoJson = JsonConvert.SerializeObject(geo);
+
+                    if (spec.Specs.Count > 0)
+                        specJson = JsonConvert.SerializeObject(spec);
+                }
+
+                var cost = double.TryParse(item.IBD, out var value) ? value : 0;
+
+                var color = string.Empty;
+
+                if (!string.IsNullOrEmpty(item.ColorCode))
+                    color = ColorConverter.GetStandardColor(item.ColorCode);
+                else if (!string.IsNullOrEmpty(item.ColorName))
+                    color = ColorConverter.GetStandardColor(item.ColorName);
+                else if (!string.IsNullOrEmpty(item.ColorCode1))
+                {
+                    color = ColorConverter.GetStandardColor(item.ColorCode1);
+
+                    if (!string.IsNullOrEmpty(item.ColorCode2))
+                    {
+                        color = ColorConverter.GetStandardMultiColor([item.ColorCode1, item.ColorCode2]);
+                    }
+                }
+
+                var obj = new CatalogueItem
+                {
+                    MPN = item.SKUId,
+                    Barcode = item.UPC,
+                    BoxQty = 1,
+                    ProductTitle = item.ParentName.Replace("Émonda","Emonda"),
+                    ShortDescription = item.LongDescription,
+                    Brand = item.Brand,
+                    Supplier = DataSupplier.Trek,
+                    GroupName = item.ParentName.Replace("Émonda", "Emonda"),
+                    Colour =  color, 
+                    Size = SizeConverter.GetStandardSize(item.Size),
+                    Categorys = item.Category,
+                    Price = Convert.ToDouble(item.RRPPrice),
+                    SalePrice = Convert.ToDouble(item.SalePrice),
+                    Cost = Convert.ToDouble(cost),
+                    Year = Convert.ToInt32(item.ModelYear),
+                    ProductType = type, 
+                    GenderOrAge = gender,
+                    GeometryJson = geoJson, 
+                    SpecificationsJson = specJson, 
+                    SupplierDetailsUrl = item.ConsumerSiteURL
+                };
+
+                // deal with long description
+                obj.LongDescription = BuildDescription(item);
+
+                // deal with images
+                obj.Images = BuildImages(item);
+
+                res.Add(obj);
+            }
+
+            return res;
+        }
+
+        private string BuildDescription(TrekFeedDto item)
+        {
+            var str = string.Empty;
+
+            str = item.Overview;
+
+            var html = string.Empty;
+            
+            // Key Feature
+            if (!string.IsNullOrEmpty(item.KeyFeatures))
+            {
+                html = $"<p>{item.KeyFeatures}</p>";
+            }
+
+            // Tech Feature
+            if (!string.IsNullOrEmpty(item.TechFeatures))
+            {
+                html = $"<p>{item.TechFeatures}</p>";
+            }
+
+            str += html;
+
+            return str;
+        }
+
+        private string BuildImages(TrekFeedDto item)
+        {
+            var str = string.Empty;
+
+            var lst = new List<string>();
+
+            if (!string.IsNullOrEmpty(item.Image1URL))
+                lst.Add(item.Image1URL);
+            if (!string.IsNullOrEmpty(item.Image2URL))
+                lst.Add(item.Image2URL);
+            if (!string.IsNullOrEmpty(item.Image3URL))
+                lst.Add(item.Image3URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt1URL))
+                lst.Add(item.ImageAlt1URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt2URL))
+                lst.Add(item.ImageAlt2URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt3URL))
+                lst.Add(item.ImageAlt3URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt4URL))
+                lst.Add(item.ImageAlt4URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt5URL))
+                lst.Add(item.ImageAlt5URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt6URL))
+                lst.Add(item.ImageAlt6URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt7URL))
+                lst.Add(item.ImageAlt7URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt8URL))
+                lst.Add(item.ImageAlt8URL);
+            if (!string.IsNullOrEmpty(item.ImageAlt9URL))
+                lst.Add(item.ImageAlt8URL);
+
+            if(lst.Count > 0)
+                str = string.Join(",", lst);
+
+            return str;
+        }
+
+        private SpecDto BuildSpecs(TrekFeedDto item)
+        {
+            var res = new SpecDto();
+            var specs = new List<KeyValueDto> 
+            {
+                // frameset
+                new KeyValueDto { Title = "Frame", Value = item.BasicSpecFrame },
+                new KeyValueDto { Title = "Frame Material", Value = item.FrameMaterial },
+                new KeyValueDto { Title = "Fork", Value = item.BasicSpecFork},
+                new KeyValueDto { Title = "Shock", Value = item.BasicSpecSuspensionRear },
+
+                // wheels
+                new KeyValueDto { Title = "Wheels", Value = item.BasicSpecWheels },
+                new KeyValueDto { Title = "Tyres", Value = item.BasicSpecTires },
+                new KeyValueDto { Title = "Shock", Value = item.BasicSpecSuspensionRear },
+
+                // E-System
+                new KeyValueDto { Title = "Battery", Value = item.BasicSpecBattery },
+
+                // drive train
+                new KeyValueDto { Title = "Rear Derailleur", Value = item.BasicSpecDerailleurRear },
+                new KeyValueDto { Title = "Crank", Value = item.BasicSpecCrank },
+                new KeyValueDto { Title = "Cassette", Value = item.BasicSpecCassette },
+                new KeyValueDto { Title = "Chain", Value = item.BasicSpecChain },
+                new KeyValueDto { Title = "Pedal", Value = item.BasicSpecPedals },
+
+                // components
+                new KeyValueDto { Title = "Saddle", Value = item.BasicSpecSaddle },
+                new KeyValueDto { Title = "Seatpost", Value = item.BasicSpecSeatpost },
+                new KeyValueDto { Title = "Handlebar", Value = item.BasicSpecHandlebar },
+                new KeyValueDto { Title = "Stem", Value = item.BasicSpecStem },
+                new KeyValueDto { Title = "Head Set", Value = item.BasicSpecHeadset },
+                new KeyValueDto { Title = "Brake", Value = item.BasicSpecBrakeset },
+                new KeyValueDto { Title = "Grips", Value = item.BasicSpecGrips },
+            };
+
+            // remove emptys
+            specs = specs.Where(o => !string.IsNullOrEmpty(o.Value)).ToList();
+            res.Specs = specs;
+
+            return res;
+        }
+
+        private List<KeyValueDto> BuildGeo(TrekFeedDto item)
+        {
+            var res = new List<KeyValueDto>();
+
+            return res;
+        }
+    }
+}

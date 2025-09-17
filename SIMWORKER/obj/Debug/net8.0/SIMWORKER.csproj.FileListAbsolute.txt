@@ -1,0 +1,824 @@
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\appsettings.Development.json
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\appsettings.json
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.exe
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.deps.json
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.runtimeconfig.json
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.pdb
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\AutoMapper.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Azure.Core.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Azure.Identity.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\CsvHelper.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.Core.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.MySql.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.PostgreSql.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.Sqlite.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.SqlServer.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EPPlus.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\HtmlAgilityPack.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Humanizer.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\MedallionTopologicalSort.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.HierarchyId.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.UserSecrets.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Configuration.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Console.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Debug.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventLog.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventSource.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Types.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\MySqlConnector.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SpatiaLite.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SqlServerBytes.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Npgsql.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.File.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.Seq.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.ClientModel.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.CodeDom.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Data.OleDb.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.PerformanceCounter.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Memory.Data.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\System.Text.Json.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\SqlServerSpatial160.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\SqlServerSpatial160.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.OleDb.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.PerformanceCounter.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SIM.Lib.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\SIM.Lib.pdb
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.AssemblyReference.cache
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.GeneratedMSBuildEditorConfig.editorconfig
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfoInputs.cache
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfo.cs
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.CoreCompileInputs.cache
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.Up2Date
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\refint\SIMWORKER.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.pdb
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.genruntimeconfig.cache
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\obj\Debug\net8.0\ref\SIMWORKER.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\ChatGPT.Net.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\BIKE_CATEGORIES.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\ACCESSORIES_CATEGORIES.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\CLOTHING_CATEGORIES.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\COMPONENTS_CATEGORIES.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\HELMETS_CATEGORIES.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\CANNONDALE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\CUBE_BIKES_MODEL_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\FROG_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\GIANT_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\HAIBIKE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\LAPIERRE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\LIV_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\MARIN_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\MERIDA_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\ORBEA_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\SPECIALIZED_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\TERN_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\TREK_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\WHYTE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\RALEIGH_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Boost.Data.dll
+D:\SERVICES\API-SERVICES\SIM\SIMWORKER\bin\Debug\net8.0\Boost.Data.pdb
+F:\SIM\SIMWORKER\bin\Debug\net8.0\appsettings.Development.json
+F:\SIM\SIMWORKER\bin\Debug\net8.0\appsettings.json
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.exe
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\ACCESSORIES_CATEGORIES.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\BIKE_CATEGORIES.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\CLOTHING_CATEGORIES.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\COMPONENTS_CATEGORIES.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\HELMETS_CATEGORIES.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\CANNONDALE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\CUBE_BIKES_MODEL_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\FROG_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\GIANT_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\HAIBIKE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\LAPIERRE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\LIV_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\MARIN_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\MERIDA_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\ORBEA_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\RALEIGH_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\SPECIALIZED_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\TERN_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\TREK_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Data\Maps\WHYTE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.deps.json
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.runtimeconfig.json
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SIMWORKER.pdb
+F:\SIM\SIMWORKER\bin\Debug\net8.0\AutoMapper.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Azure.Core.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Azure.Identity.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ChatGPT.Net.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\CsvHelper.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.Core.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.MySql.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.PostgreSql.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.Sqlite.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.SqlServer.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EPPlus.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EPPlus.Interfaces.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\HtmlAgilityPack.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Humanizer.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\MedallionTopologicalSort.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.HierarchyId.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.UserSecrets.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Configuration.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Console.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Debug.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventLog.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventSource.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Types.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\MySqlConnector.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SpatiaLite.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SqlServerBytes.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Npgsql.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.AspNetCore.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.File.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Serilog.Sinks.Seq.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.ClientModel.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.CodeDom.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Data.OleDb.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.PerformanceCounter.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.IO.Pipelines.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Memory.Data.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Runtime.Caching.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\System.Text.Json.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\de\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\es\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\it\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\SqlServerSpatial160.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\SqlServerSpatial160.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.OleDb.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.PerformanceCounter.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Boost.Data.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SIM.Lib.dll
+F:\SIM\SIMWORKER\bin\Debug\net8.0\Boost.Data.pdb
+F:\SIM\SIMWORKER\bin\Debug\net8.0\SIM.Lib.pdb
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.AssemblyReference.cache
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.GeneratedMSBuildEditorConfig.editorconfig
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfoInputs.cache
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfo.cs
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.CoreCompileInputs.cache
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.Up2Date
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.dll
+F:\SIM\SIMWORKER\obj\Debug\net8.0\refint\SIMWORKER.dll
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.pdb
+F:\SIM\SIMWORKER\obj\Debug\net8.0\SIMWORKER.genruntimeconfig.cache
+F:\SIM\SIMWORKER\obj\Debug\net8.0\ref\SIMWORKER.dll
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.AssemblyReference.cache
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.GeneratedMSBuildEditorConfig.editorconfig
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfoInputs.cache
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfo.cs
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.CoreCompileInputs.cache
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\appsettings.Development.json
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\appsettings.json
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.exe
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\ACCESSORIES_CATEGORIES.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\BIKE_CATEGORIES.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\CLOTHING_CATEGORIES.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\COMPONENTS_CATEGORIES.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\HELMETS_CATEGORIES.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\CANNONDALE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\CUBE_BIKES_MODEL_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\FROG_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\GIANT_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\HAIBIKE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\LAPIERRE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\LIV_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\MARIN_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\MERIDA_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\ORBEA_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\RALEIGH_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\SPECIALIZED_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\TERN_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\TREK_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\WHYTE_BIKES_MODELS_LOOKUP_TABLE.csv
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.deps.json
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.runtimeconfig.json
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.pdb
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\AutoMapper.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Azure.Core.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Azure.Identity.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ChatGPT.Net.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\CsvHelper.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EPPlus.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EPPlus.Interfaces.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\HtmlAgilityPack.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\MedallionTopologicalSort.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.HierarchyId.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.UserSecrets.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Configuration.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Console.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Debug.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventLog.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventSource.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Types.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\MySqlConnector.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SpatiaLite.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SqlServerBytes.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Npgsql.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Serilog.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Data.OleDb.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.PerformanceCounter.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Memory.Data.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Runtime.Caching.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\de\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\es\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\it\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\SqlServerSpatial160.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\SqlServerSpatial160.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.OleDb.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.PerformanceCounter.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Admin.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Retailer.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Shared.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Admin.pdb
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Retailer.pdb
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Shared.pdb
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.Up2Date
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.dll
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\refint\SIMWORKER.dll
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.pdb
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.genruntimeconfig.cache
+F:\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\ref\SIMWORKER.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.ClientModel.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Formats.Asn1.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.IO.Pipelines.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Text.Json.dll
+F:\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\appsettings.Development.json
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\appsettings.json
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.exe
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\ACCESSORIES_CATEGORIES.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\BIKE_CATEGORIES.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\CLOTHING_CATEGORIES.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\COMPONENTS_CATEGORIES.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\HELMETS_CATEGORIES.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\CANNONDALE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\CUBE_BIKES_MODEL_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\FROG_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\GIANT_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\HAIBIKE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\LAPIERRE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\LIV_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\MARIN_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\MERIDA_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\ORBEA_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\RALEIGH_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\SPECIALIZED_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\TERN_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\TREK_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Data\Maps\WHYTE_BIKES_MODELS_LOOKUP_TABLE.csv
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.deps.json
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.runtimeconfig.json
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SIMWORKER.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\AutoMapper.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Azure.Core.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Azure.Identity.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ChatGPT.Net.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\CsvHelper.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EFCore.BulkExtensions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EPPlus.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\HtmlAgilityPack.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\MedallionTopologicalSort.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.HierarchyId.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Configuration.UserSecrets.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Configuration.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Console.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.Debug.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventLog.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventSource.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.SqlServer.Types.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\MySqlConnector.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SpatiaLite.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\NetTopologySuite.IO.SqlServerBytes.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Npgsql.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Serilog.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.ClientModel.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Data.OleDb.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Diagnostics.PerformanceCounter.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Memory.Data.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\System.Text.Json.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\de\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\es\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\fr\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\it\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ja\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ko\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\pt-BR\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\ru\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x64\native\SqlServerSpatial160.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win-x86\native\SqlServerSpatial160.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.OleDb.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.PerformanceCounter.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Admin.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Retailer.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Shared.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Admin.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Retailer.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\bin\Debug\net8.0\Boost.Shared.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.AssemblyReference.cache
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.GeneratedMSBuildEditorConfig.editorconfig
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfoInputs.cache
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.AssemblyInfo.cs
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.CoreCompileInputs.cache
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.csproj.Up2Date
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\refint\SIMWORKER.dll
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.pdb
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\SIMWORKER.genruntimeconfig.cache
+D:\BackendCodersWork\Boost Reatil\BOOST RETAIL\BOOST RETAIL\SIMWORKER\obj\Debug\net8.0\ref\SIMWORKER.dll

@@ -1,0 +1,24 @@
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.csproj.AssemblyReference.cache
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.GeneratedMSBuildEditorConfig.editorconfig
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.AssemblyInfoInputs.cache
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.AssemblyInfo.cs
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.csproj.CoreCompileInputs.cache
+D:\BOOST\BoostRetail.Integrations\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.deps.json
+D:\BOOST\BoostRetail.Integrations\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.dll
+D:\BOOST\BoostRetail.Integrations\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.pdb
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.dll
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\refint\BoostRetail.Integrations.SConnect.dll
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.pdb
+D:\BOOST\BoostRetail.Integrations\obj\Debug\net9.0\ref\BoostRetail.Integrations.SConnect.dll
+F:\BOOST RETAIL\BoostRetail.Integrations\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.deps.json
+F:\BOOST RETAIL\BoostRetail.Integrations\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.dll
+F:\BOOST RETAIL\BoostRetail.Integrations\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.pdb
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.csproj.AssemblyReference.cache
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.GeneratedMSBuildEditorConfig.editorconfig
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.AssemblyInfoInputs.cache
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.AssemblyInfo.cs
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.csproj.CoreCompileInputs.cache
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.dll
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\refint\BoostRetail.Integrations.SConnect.dll
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\BoostRetail.Integrations.SConnect.pdb
+F:\BOOST RETAIL\BoostRetail.Integrations\obj\Debug\net9.0\ref\BoostRetail.Integrations.SConnect.dll

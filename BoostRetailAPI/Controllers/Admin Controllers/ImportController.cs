@@ -1,0 +1,118 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Boost.Admin.Data;
+using Boost.Admin.Logic;
+
+namespace BoostRetailAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    public class ImportController : ControllerBase
+    {
+        private readonly IImportLogic _logic;
+        private readonly ILogger<ImportController> _logger;
+
+        public ImportController(
+            ILogger<ImportController> logger,
+            IImportLogic logic)
+        {
+            _logic = logic;
+            _logger = logger;
+        }
+
+        [HttpGet]
+        [Route("Giant")]
+        public async Task<string> Giant(GiantProductType type, Years year)
+        {
+            var yr = (int)year;
+            var cnt = 0;
+            _logger.LogInformation($"starting giant import for type {type} and year {year}");
+
+            if (yr == 0)
+            {
+                for (var i = 2018; i < 2025; i++) 
+                {
+                    _logger.LogInformation($"import started for year {i}");
+                    cnt = await _logic.ImportGiant(type, i);
+                    _logger.LogInformation($"import completed for year {i}");
+                }
+            }
+            else
+            {
+                _logger.LogInformation($"import started for year {yr}");
+                cnt = await _logic.ImportGiant(type, yr);
+                _logger.LogInformation($"import completed for year {yr}");
+            }
+
+            return $"{cnt} products created or updated.";
+        }
+
+        [HttpGet]
+        [Route("Trek")]
+        public async Task<string> Trek(SupplierProductType type)
+        {
+            _logger.LogInformation($"starting trek import for type {type}");
+            var cnt = await _logic.ImportTrek(type);
+            return $"{cnt} products created or updated.";
+        }
+
+        [HttpGet]
+        [Route("Cube")]
+        public async Task<string> Cube(SupplierProductType type)
+        {
+            _logger.LogInformation($"starting cube import");
+            var cnt = await _logic.ImportCube(type);
+            return $"{cnt} products created or updated.";
+        }
+
+        [HttpGet]
+        [Route("Whyte")]
+        public async Task<string> Whyte()
+        {
+            _logger.LogInformation($"starting whyte import");
+            var cnt = await _logic.ImportWhyte();
+            return $"{cnt} products created or updated.";
+        }
+
+        [HttpGet]
+        [Route("Madison")]
+        public async Task<string> Madison()
+        {
+            _logger.LogInformation($"starting madison import");
+            var cnt = await _logic.ImportMadison();
+            return $"{cnt} products created or updated.";
+        }
+
+        [HttpGet]
+        [Route("Sportline")]
+        public async Task<string> Sportline()
+        {
+            _logger.LogInformation($"starting sportline import");
+            var cnt = await _logic.ImportSportline();
+            return $"{cnt} products created or updated.";
+        }
+
+        [HttpGet]
+        [Route("Raleigh")]
+        public async Task<string> Raleigh(SupplierProductType type)
+        {
+            _logger.LogInformation($"starting raleigh import");
+            var cnt = await _logic.ImportRaleigh(type);
+            return $"{cnt} products created or updated.";
+        }
+
+        public enum Years
+        { 
+            ALL = 0,
+            Y2018 = 2018,
+            Y2019 = 2019,
+            Y2020 = 2020,
+            Y2021 = 2021,
+            Y2022 = 2022,
+            Y2023 = 2023,
+            Y2024 = 2024,
+            Y2025 = 2025,
+        }
+        
+    }
+}

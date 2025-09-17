@@ -1,0 +1,15 @@
+﻿using SIM.Data;
+
+namespace SIM.Logic
+{
+    public interface IImportLogic
+    {
+        Task<int> ImportGiant(GiantProductType type, int year);
+        Task<int> ImportTrek(SupplierProductType type);
+        Task<int> ImportCube(SupplierProductType type);
+        Task<int> ImportWhyte();
+        Task<int> ImportMadison();
+        Task<int> ImportSportline();
+        Task<int> ImportRaleigh(SupplierProductType type);
+    }
+}

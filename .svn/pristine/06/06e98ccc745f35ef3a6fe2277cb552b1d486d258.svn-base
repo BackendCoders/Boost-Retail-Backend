@@ -1,0 +1,61 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SIM.Actions;
+using SIM.Configuration;
+using SIM.Data;
+using SIM.Logic;
+using SIM.Logic.Interface;
+using SIM.Repositories;
+
+namespace SIMWORKER
+{
+    internal class Program
+    {
+        private static IConfiguration Config { get; set; }
+
+        static void Main(string[] args)
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile(@"appsettings.json", optional: false)
+                .Build();
+
+            Config = config;
+
+            var host = Host.CreateDefaultBuilder()
+           .ConfigureServices((context, services) =>
+           {
+               services.AddDbContext<SimDbContext>(options =>
+                   options.UseSqlServer(Config.GetConnectionString(name: @"DefaultConnection")));
+
+               services.AddAutoMapper(typeof(AutoMapperProfile));
+               services.AddScoped<ICatalogueRepository, CatalogueRepository>();
+               services.AddScoped<ICatalogueLogic, CatalogueLogic>();
+               services.AddScoped<IProductLogic, ProductLogic>();
+               services.AddScoped<ICatalogueToProductActions, CatalogueToProductActions>();
+
+           }).Build();
+
+            RunApp(host.Services);
+
+        }
+
+
+        static async void RunApp(IServiceProvider services)
+        {
+            using var scope = services.CreateScope();
+            var catService = scope.ServiceProvider
+                .GetRequiredService<ICatalogueLogic>();
+
+            var cat2prod = scope.ServiceProvider
+                .GetRequiredService<ICatalogueToProductActions>();
+
+            // get products
+            var products = await catService.GetProductsBySupplierAndType(DataSupplier.Giant, ProductType.Bike);
+
+            await cat2prod.ProcessItems(products, DataSupplier.Giant);
+
+        }
+    }
+}

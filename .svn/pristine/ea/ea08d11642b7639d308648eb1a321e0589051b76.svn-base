@@ -1,0 +1,625 @@
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Serilog;
+using SIM.Data;
+using SIM.Data.Models.Catalog;
+using SIM.DTOs;
+
+namespace SIM.Logic
+{
+    public class CatalogueLogic : LogicBase, ICatalogueLogic
+    {
+        private readonly ILogger _logger;
+        private readonly SimDbContext _db;
+        private readonly IMapper _mapper;
+
+        public CatalogueLogic(SimDbContext db, IMapper mapper)
+        {
+            _logger = Log.ForContext<CatalogueLogic>();
+            _db = db;
+            _mapper = mapper;
+        }
+        
+
+        public async Task<bool> Exists(string mpn)
+        {
+            return await _db.CatalogueItems.AnyAsync(o => o.MPN == mpn);
+        }
+
+        public async Task<LogicResult<BarcodesDto>> GetBarcodes(List<string> mpns)
+        {
+            if (mpns.Count == 0)
+                return LogicResult.Fail<BarcodesDto>("no mpns provided");
+            else
+            {
+                var exists = await Exists(mpns);
+
+                var obj = new BarcodesDto();
+                var res = await _db.CatalogueItems
+                    .Where(o => mpns.Contains(o.MPN))
+                    .Select(o => new BarcodeDto { MPN = o.MPN, Barcode = o.Barcode })
+                    .ToListAsync();
+
+                obj.NotFound.AddRange(exists.NotFound);
+                obj.Barcodes = res;
+
+                return LogicResult.Ok(obj);
+            }
+        }
+
+        public async Task<LogicResult<BarcodeDto>> GetBarcode(string mpn)
+        {
+            if (await Exists(mpn))
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.MPN == mpn)
+                    .Select(o => o.Barcode)
+                    .FirstOrDefaultAsync();
+                
+                return LogicResult.Ok(new BarcodeDto { MPN = mpn, Barcode = obj });
+            }
+            else
+                return LogicResult.Fail<BarcodeDto>($"mpn {mpn} not found");
+        }
+
+        public async Task<List<BarcodeDto>> GetBarcodesBySupplier(DataSupplier supplier)
+        {
+            var results = await _db.CatalogueItems
+                .Where(o => o.Supplier == supplier)
+                .Select(o => new BarcodeDto { MPN = o.MPN, Barcode = o.Barcode })
+                .ToListAsync();
+
+            return results;
+        }
+
+        public async Task<List<string>> GetBrands(DataSupplier supplier, string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Supplier == supplier && o.Year == yr)
+                    .Select(o => o.Brand)
+                    .Distinct()
+                    .ToListAsync();
+
+                return obj;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<LogicResult<DescriptionsDto>> GetDescriptions(List<string> mpns)
+        {
+            if (mpns.Count == 0)
+                return LogicResult.Fail<DescriptionsDto>("no mpns provided");
+            else
+            {
+                var exists = await Exists(mpns);
+
+                var obj = new DescriptionsDto();
+                var lst = new List<DescriptionDto>();
+
+                foreach (var mpn in mpns)
+                {
+                    var obj1 = await _db.CatalogueItems
+                        .Where(o => o.MPN == mpn)
+                        .Select(o => new { o.ShortDescription, o.LongDescription })
+                        .FirstOrDefaultAsync();
+
+                    if (obj1 != null)
+                    {
+                        lst.Add(new DescriptionDto() { MPN = mpn, LongDescription = obj1.LongDescription, ShortDescription = obj1.ShortDescription });
+                    }
+                }
+
+                obj.NotFound.AddRange(exists.NotFound);
+                obj.Descriptions = lst;
+
+                return LogicResult.Ok(obj);
+            }
+        }
+
+        public async Task<LogicResult<DescriptionDto>> GetDescription(string mpn)
+        {
+            var obj = await _db.CatalogueItems
+                .Where(o => o.MPN == mpn)
+                .Select(o => new DescriptionDto { MPN = mpn, ShortDescription = o.ShortDescription, LongDescription = o.LongDescription })
+                .FirstOrDefaultAsync();
+            
+            return LogicResult.Ok(obj);
+        }
+
+        public async Task<LogicResult<ImagesDto>> GetImagesBulk(List<string> mpns)
+        {
+            if (mpns.Count == 0)
+                return LogicResult.Fail<ImagesDto>("no mpns provided");
+            else
+            {
+                var exists = await Exists(mpns);
+
+                var obj = new ImagesDto();
+
+                var images = new List<ImageDto>();
+
+                foreach (var mpn in mpns)
+                {
+                    var obj1 = await _db.CatalogueItems
+                        .Where(o => o.MPN == mpn)
+                        .Select(o => o.Images)
+                        .FirstOrDefaultAsync();
+
+                    if (obj1 == null)
+                        continue; //throw new KeyNotFoundException("MPN");
+
+                    var imgs = obj1.Split(',').ToList<string>();
+
+                    if (imgs.Count > 0)
+                    {
+                        foreach (var img in imgs)
+                        {
+                            images.Add(new ImageDto
+                            {
+                                MPN = mpn,
+                                Url = img
+                            });
+                        }
+                    }
+                }
+
+                obj.NotFound.AddRange(exists.NotFound);
+                obj.Images = images;
+
+                return LogicResult.Ok(obj);
+            }
+        }
+
+        public async Task<LogicResult<ImagesDto>> GetImages(string mpn)
+        {
+            if (await Exists(mpn))
+            {
+                var images = new List<ImageDto>();
+
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.MPN == mpn)
+                    .Select(o => o.Images)
+                    .FirstOrDefaultAsync();
+
+                var imgs = obj.Split(',').ToList<string>();
+
+                if (imgs.Count > 0)
+                {
+                    foreach (var img in imgs)
+                    {
+                        images.Add(new ImageDto
+                        {
+                            MPN = mpn,
+                            Url = img
+                        });
+                    }
+                }
+
+                return LogicResult.Ok(new ImagesDto { Images = images });
+            }
+            else
+                return LogicResult.Fail<ImagesDto>($"mpn {mpn} not found");
+        }
+
+        public async Task<int> GetProductCountByKeywordYear(string keyword, string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr && (
+                    o.ProductTitle.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.ShortDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.LongDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.Brand.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+                    .CountAsync();
+
+                return obj;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<int> GetProductCountBySupplierBrand(DataSupplier supplier, string brand, string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr && o.Supplier == supplier && o.Brand.ToLower() == brand.ToLower())
+                    .CountAsync();
+
+                return obj;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<int> GetProductCountBySupplierBrandKeywordYear(DataSupplier supplier, string brand, string keyword, string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr && o.Supplier == supplier && o.Brand == brand && (
+                    o.ProductTitle.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.ShortDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.LongDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+                    .CountAsync();
+                return obj;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<int> GetProductCountBySupplierYear(DataSupplier supplier, string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr && o.Supplier == supplier)
+                    .CountAsync();
+                return obj;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<int> GetProductCountBySupplierYearKeyword(DataSupplier supplier, string keyword, string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr && o.Supplier == supplier && (
+                    o.ProductTitle.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.ShortDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.LongDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.Brand.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+                    .CountAsync();
+                return obj;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<int> GetProductCountByYear(string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr)
+                    .CountAsync();
+
+                return obj;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<LogicResult<ProductDto>> GetProductByMpn(string mpn)
+        {
+
+            var obj = await _db.CatalogueItems
+                .AsNoTracking()
+                .Where(o => o.MPN == mpn)
+                .FirstOrDefaultAsync();
+
+            if (obj != null)
+            {
+                var res = _mapper.Map<CatalogueItem, ProductDto>(obj);
+                return LogicResult.Ok(res);
+            }
+
+            return (LogicResult<ProductDto>)LogicResult.Fail("mpn not found");
+
+            
+        }
+
+        public async Task<LogicResult<ProductsDto>> GetProductsByMpnBulk(List<string> mpns)
+        {
+            if (mpns.Count == 0)
+                return LogicResult.Fail<ProductsDto>("no mpns provided");
+            else
+            {
+                var exists = await Exists(mpns);
+
+                var obj = new ProductsDto();
+                var lst = new List<ProductDto>();
+
+                foreach (var mpn in exists.Found)
+                {
+                    var obj1 = await _db.CatalogueItems
+                        .AsNoTracking()
+                        .Where(o => o.MPN == mpn)
+                        .FirstOrDefaultAsync();
+
+                    if (obj1 != null)
+                    {
+                        var res = _mapper.Map<CatalogueItem, ProductDto>(obj1);
+                        lst.Add(res);
+                    }
+                }
+
+                obj.NotFound.AddRange(exists.NotFound);
+                obj.Products = lst;
+
+                return LogicResult.Ok(obj);
+            }
+        }
+
+        public async Task<List<ProductDto>> GetProductsBySupplier(DataSupplier supplier)
+        {
+            var lst = new List<ProductDto>();
+
+            var obj = await _db.CatalogueItems
+                .AsNoTracking()
+                .Where(o => o.Supplier == supplier)
+                .ToListAsync();
+
+            if (obj != null)
+            {
+                foreach (var item in obj)
+                {
+                    var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+                    lst.Add(res);
+                }
+            }
+
+            return lst;
+        }
+
+        public async Task<List<ProductDto>> GetProductsBySupplierAndType(DataSupplier supplier, ProductType type)
+        {
+            var lst = new List<ProductDto>();
+
+            var obj = await _db.CatalogueItems
+                .AsNoTracking()
+                .Where(o => o.Supplier == supplier && o.ProductType == type)
+                .ToListAsync();
+
+            if (obj != null)
+            {
+                foreach (var item in obj)
+                {
+                    var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+                    lst.Add(res);
+                }
+            }
+
+            return lst;
+        }
+
+        public async Task<List<ProductDto>> GetProductsBySupplier(DataSupplier supplier, int year)
+        {
+            var lst = new List<ProductDto>();
+
+            var obj = await _db.CatalogueItems
+                .AsNoTracking()
+                .Where(o => o.Supplier == supplier && o.Year == year)
+                .ToListAsync();
+
+            if (obj != null)
+            {
+                foreach (var item in obj)
+                {
+                    var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+
+                    res.SpecificationsJson = item.SpecificationsJson;
+                    res.GeometryJson = item.GeometryJson;
+
+                    lst.Add(res);
+                }
+            }
+
+            return lst;
+        }
+
+        public async Task<List<ProductDto>> GetProductsBySupplierBrandByYear(DataSupplier supplier, string brand, int skip, int take, string year)
+        {
+            var lst = new List<ProductDto>();
+
+            var valid = int.TryParse(year, out var yr);
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr && o.Supplier == supplier && o.Brand.ToLower() == brand.ToLower())
+                    .AsNoTracking()
+                    .Skip(skip)
+                    .Take(take)
+                    .ToListAsync();
+
+                if (obj != null)
+                {
+                    foreach (var item in obj)
+                    {
+                        var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+                        lst.Add(res);
+                    }
+                }
+
+                return lst;
+
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<List<ProductDto>> GetProductsBySupplierYearKeyword(DataSupplier supplier, int skip, int take, string keyword, string year)
+        {
+            var lst = new List<ProductDto>();
+            var valid = int.TryParse(year, out var yr);
+
+            var obj = await _db.CatalogueItems
+                .AsNoTracking()
+                .Where(o => o.Supplier == supplier && o.Year == yr && (
+                    o.ProductTitle.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.ShortDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.LongDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.Brand.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+
+            if (obj != null)
+            {
+                foreach (var item in obj)
+                {
+                    var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+                    lst.Add(res);
+                }
+            }
+
+            return lst;
+        }
+
+        public async Task<List<ProductDto>> GetProductsBySupplierYearKeywordBrand(DataSupplier supplier, string brand, int skip, int take, string keyword, string year)
+        {
+            var lst = new List<ProductDto>();
+            var valid = int.TryParse(year, out var yr);
+
+            var obj = await _db.CatalogueItems
+                .AsNoTracking()
+                .Where(o => o.Supplier == supplier && o.Year == yr && o.Brand == brand && (
+                    o.ProductTitle.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.ShortDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.LongDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.Brand.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+                .AsNoTracking()
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+
+            if (obj != null)
+            {
+                foreach (var item in obj)
+                {
+                    var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+                    lst.Add(res);
+                }
+            }
+
+            return lst;
+        }
+
+        public async Task<List<ProductDto>> GetProductsBySupplierYearPaged(DataSupplier supplier, int skip, int take, string year)
+        {
+            var lst = new List<ProductDto>();
+            var valid = int.TryParse(year, out var yr);
+
+            var obj = await _db.CatalogueItems
+                .AsNoTracking()
+                .Where(o => o.Supplier == supplier && o.Year == yr)
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+
+            if (obj != null)
+            {
+                foreach (var item in obj)
+                {
+                    var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+                    lst.Add(res);
+                }
+            }
+
+            return lst;
+        }
+
+        public async Task<List<ProductDto>> GetProductsByYearKeyword(int skip, int take, string keyword, string year)
+        {
+            var valid = int.TryParse(year, out var yr);
+
+            var lst = new List<ProductDto>();
+
+            if (valid)
+            {
+                var obj = await _db.CatalogueItems
+                    .Where(o => o.Year == yr &&
+                    (o.ProductTitle.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.ShortDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.LongDescription.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                    o.Brand.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+                    .AsNoTracking()
+                    .Skip(skip)
+                    .Take(take)
+                    .ToListAsync();
+
+                if (obj != null)
+                {
+                    foreach (var item in obj)
+                    {
+                        var res = _mapper.Map<CatalogueItem, ProductDto>(item);
+                        lst.Add(res);
+                    }
+                }
+
+                return lst;
+            }
+            else
+                throw new InvalidOperationException("Invalid year");
+        }
+
+        public async Task<List<string>> GetProductTypes()
+        {
+            var obj = await _db.CatalogueItems
+                .Select(o => o.ProductType.ToString())
+                .Distinct()
+                .ToListAsync();
+
+            return obj;
+        }
+
+        public async Task<List<string>> GetSuppliers()
+        {
+            var obj = await _db.CatalogueItems
+                .Select(o => o.Supplier.ToString())
+                .Distinct()
+                .ToListAsync();
+
+            return obj;
+        }
+
+        public async Task<List<string>> GetYears()
+        {
+            var obj = await _db.CatalogueItems
+                .Where(o => o.Year != null)
+                .Select(o => o.Year.ToString())
+                .Distinct()
+                .OrderBy(o => o)
+                .ToListAsync();
+
+            return obj;
+        }
+
+        #region Private
+        private async Task<(List<string> Found, List<string> NotFound)> Exists(List<string> mpns)
+        {
+            var notFound = new List<string>();
+            var found = new List<string>();
+
+            foreach (var mpn in mpns)
+            {
+                if (!await Exists(mpn))
+                    notFound.Add(mpn);
+                else
+                    found.Add(mpn);
+            }
+
+            return (found, notFound);
+        }
+
+        #endregion
+    }
+}

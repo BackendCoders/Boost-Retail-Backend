@@ -1,0 +1,173 @@
+﻿using AutoMapper;
+using Boost.Data;
+using Boost.Data.Models;
+using Boost.DTOs;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SIM.Data;
+using SIM.Data.Models.Catalog;
+
+
+namespace SIMAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserProductsController : ControllerBase
+    {
+        private SimDbContext _db;
+        private BoostDbContext _bdb;
+        private IMapper _mapper;
+
+        public UserProductsController(SimDbContext db, BoostDbContext bdb, IMapper mapper)
+        {
+            _db = db;
+            _bdb = bdb;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        [Route("GetUserProducts")]
+        public async Task<IActionResult> GetUserProducts(string userid)
+        {
+            var selected = await _db.UserSupplierProductCategoryBrands
+                .Where(o => o.UserId == userid).ToListAsync();
+
+            var res = new List<MasterProduct>();
+
+            foreach (var s in selected)
+            {
+                var items = await _db.MasterProducts
+                    .Include(p => p.Brand)
+                   .Include(p => p.Category1)
+                   .Include(p => p.Category2)
+                   .Include(p => p.Category3)
+                   .Include(p => p.Colour)
+                   .Include(p => p.Size)
+                   .Include(p => p.Spec)
+                   .Include(p => p.Geo)
+                   .Include(p => p.VatRate)
+                    .Where(o => 
+                    o.Category2Id == s.Category2Id &&
+                    o.Category3Id == s.Category3Id &&
+                    o.BrandId == s.BrandId)
+                    .ToListAsync();
+
+                res.AddRange(items);
+            }
+
+            return Ok(res);
+        }
+
+        [HttpPost]
+        [Route("UploadEposData")]
+        public async Task<IActionResult> UploadEposData(EposFeed feed)
+        {
+            var uid = feed.UserId;
+
+            ///
+            /// filter out so we have only customer epos products that we dont have in Master
+            /// 
+
+            // get users master products range
+            var selected = await _db.UserSupplierProductCategoryBrands
+                .AsNoTracking()
+               .Where(o => o.UserId == uid).ToListAsync();
+
+            var master = new List<MasterProduct>();
+
+            foreach (var s in selected)
+            {
+                var items = await _db.MasterProducts
+                    .AsNoTracking()
+                    .Where(o =>
+                    o.Category2Id == s.Category2Id &&
+                    o.Category3Id == s.Category3Id &&
+                    o.BrandId == s.BrandId)
+                    .ToListAsync();
+
+                master.AddRange(items);
+            }
+
+            // convert master to user product
+            var products = _mapper.Map<List<MasterProduct>, List<UserProduct>>(master);
+
+            /// manually map the following:
+            foreach (var product in products)
+            { 
+                // check we have this is epos and copy data
+                var e = feed.EposProducts.Where(o=>o.MPN == product.MPN).FirstOrDefault();
+                if (e != null) 
+                {
+                    product.Price = e.Price;
+                    product.PromoPrice = e.PromoPrice;
+                    product.PromoStart = e.PromoStart;
+                    product.PromoEnd = e.PromoEnd;
+                    product.EPN = e.PartNo;
+                }
+            }
+
+            // create mpn list
+            var mmpns = new HashSet<string>(products.Select(o=>o.MPN.Trim()));
+
+            // remove what we have in products already
+            var epos = feed.EposProducts.Where(o => !mmpns.Contains(o.MPN.Trim())).ToList();
+
+            // interogate the master db to see if we have this mpn and get its data
+            foreach (var part in epos)
+            {
+                var mpart = await _db.MasterProducts.AsNoTracking().Where(o => o.MPN == part.MPN).FirstOrDefaultAsync();
+
+                if (mpart != null) // master product found
+                {
+                    // convert to user product
+                    var userpart = _mapper.Map<MasterProduct, UserProduct>(mpart);
+
+                    // take epos specific values
+                    userpart.Price = part.Price;
+                    userpart.PromoPrice = part.PromoPrice;
+                    userpart.PromoStart = part.PromoStart;
+                    userpart.PromoEnd = part.PromoEnd;
+                    userpart.EPN = part.PartNo;
+
+                    // merge to list
+                    products.Add(userpart);
+                }
+                else 
+                {
+                    // map categorys for epos products
+                }
+            }
+
+            // apply overides to master
+            var goverrides = _bdb.UserProductGroupOverrides
+                .Where(o => o.UserId == feed.UserId).ToList();
+
+            var poverrides = _bdb.UserProductOverrides
+                .Where(o => o.UserId == feed.UserId).ToList();
+
+            foreach (var o in goverrides) 
+            {
+                
+            }
+
+            // create report - added/removed/changed?
+
+            return Ok();
+        }
+
+
+
+        //[HttpPost]
+        //[Route("ImportEposData")]
+        //public async Task<IActionResult> ImportEposFile(IFormFile file)
+        //{
+
+        //    if (file == null || file.Length == 0)
+        //        return BadRequest("No file uploaded.");
+
+            
+
+        //    return Ok();
+        //}
+    }
+}

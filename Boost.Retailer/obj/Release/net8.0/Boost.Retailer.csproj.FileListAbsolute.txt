@@ -1,0 +1,17 @@
+F:\BOOST RETAIL\Boost.Retailer\bin\Release\net8.0\Boost.Retailer.deps.json
+F:\BOOST RETAIL\Boost.Retailer\bin\Release\net8.0\Boost.Retailer.dll
+F:\BOOST RETAIL\Boost.Retailer\bin\Release\net8.0\Boost.Retailer.pdb
+F:\BOOST RETAIL\Boost.Retailer\bin\Release\net8.0\Boost.Admin.dll
+F:\BOOST RETAIL\Boost.Retailer\bin\Release\net8.0\Boost.Shared.dll
+F:\BOOST RETAIL\Boost.Retailer\bin\Release\net8.0\Boost.Admin.pdb
+F:\BOOST RETAIL\Boost.Retailer\bin\Release\net8.0\Boost.Shared.pdb
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Retailer.csproj.AssemblyReference.cache
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Retailer.GeneratedMSBuildEditorConfig.editorconfig
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Retailer.AssemblyInfoInputs.cache
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Retailer.AssemblyInfo.cs
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Retailer.csproj.CoreCompileInputs.cache
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Re.678310B3.Up2Date
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Retailer.dll
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\refint\Boost.Retailer.dll
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\Boost.Retailer.pdb
+F:\BOOST RETAIL\Boost.Retailer\obj\Release\net8.0\ref\Boost.Retailer.dll

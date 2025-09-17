@@ -1,0 +1,362 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace SIM.Migrations
+{
+    /// <inheritdoc />
+    public partial class renameTobicycles : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.CreateTable(
+                name: "Bicycles",
+                columns: table => new
+                {
+                    MPN = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SupplierId = table.Column<int>(type: "int", nullable: false),
+                    BrandId = table.Column<int>(type: "int", nullable: false),
+                    ColourId = table.Column<int>(type: "int", nullable: true),
+                    SizeId = table.Column<int>(type: "int", nullable: true),
+                    VatRateId = table.Column<int>(type: "int", nullable: true),
+                    Category1Id = table.Column<int>(type: "int", nullable: true),
+                    Category2Id = table.Column<int>(type: "int", nullable: true),
+                    Category3Id = table.Column<int>(type: "int", nullable: true),
+                    GeoId = table.Column<int>(type: "int", nullable: true),
+                    SpecId = table.Column<int>(type: "int", nullable: true),
+                    ShortDescId = table.Column<int>(type: "int", nullable: true),
+                    LongDescId = table.Column<int>(type: "int", nullable: true),
+                    ProductType = table.Column<int>(type: "int", nullable: false),
+                    GenderOrAge = table.Column<int>(type: "int", nullable: true),
+                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Images = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VideoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SupplierDetailsUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BoxQty = table.Column<int>(type: "int", nullable: false),
+                    Cost = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: true),
+                    Price = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bicycles", x => x.MPN);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Categories_Category1Id",
+                        column: x => x.Category1Id,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Categories_Category2Id",
+                        column: x => x.Category2Id,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Categories_Category3Id",
+                        column: x => x.Category3Id,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Colours_ColourId",
+                        column: x => x.ColourId,
+                        principalTable: "Colours",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Geometrys_GeoId",
+                        column: x => x.GeoId,
+                        principalTable: "Geometrys",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_LongDescriptions_LongDescId",
+                        column: x => x.LongDescId,
+                        principalTable: "LongDescriptions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_ShortDescriptions_ShortDescId",
+                        column: x => x.ShortDescId,
+                        principalTable: "ShortDescriptions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Sizes_SizeId",
+                        column: x => x.SizeId,
+                        principalTable: "Sizes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Specifications_SpecId",
+                        column: x => x.SpecId,
+                        principalTable: "Specifications",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_Suppliers_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "Suppliers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bicycles_VatRates_VatRateId",
+                        column: x => x.VatRateId,
+                        principalTable: "VatRates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_BrandId",
+                table: "Bicycles",
+                column: "BrandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_Category1Id",
+                table: "Bicycles",
+                column: "Category1Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_Category2Id",
+                table: "Bicycles",
+                column: "Category2Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_Category3Id",
+                table: "Bicycles",
+                column: "Category3Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_ColourId",
+                table: "Bicycles",
+                column: "ColourId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_GeoId",
+                table: "Bicycles",
+                column: "GeoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_LongDescId",
+                table: "Bicycles",
+                column: "LongDescId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_ShortDescId",
+                table: "Bicycles",
+                column: "ShortDescId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_SizeId",
+                table: "Bicycles",
+                column: "SizeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_SpecId",
+                table: "Bicycles",
+                column: "SpecId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_SupplierId",
+                table: "Bicycles",
+                column: "SupplierId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bicycles_VatRateId",
+                table: "Bicycles",
+                column: "VatRateId");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Bicycles");
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    MPN = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BrandId = table.Column<int>(type: "int", nullable: false),
+                    Category1Id = table.Column<int>(type: "int", nullable: true),
+                    Category2Id = table.Column<int>(type: "int", nullable: true),
+                    Category3Id = table.Column<int>(type: "int", nullable: true),
+                    ColourId = table.Column<int>(type: "int", nullable: true),
+                    GeoId = table.Column<int>(type: "int", nullable: true),
+                    LongDescId = table.Column<int>(type: "int", nullable: true),
+                    ShortDescId = table.Column<int>(type: "int", nullable: true),
+                    SizeId = table.Column<int>(type: "int", nullable: true),
+                    SpecId = table.Column<int>(type: "int", nullable: true),
+                    SupplierId = table.Column<int>(type: "int", nullable: false),
+                    VatRateId = table.Column<int>(type: "int", nullable: true),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BoxQty = table.Column<int>(type: "int", nullable: false),
+                    Cost = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: true),
+                    GenderOrAge = table.Column<int>(type: "int", nullable: true),
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Images = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: false),
+                    ProductType = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    SupplierDetailsUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VideoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Year = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.MPN);
+                    table.ForeignKey(
+                        name: "FK_Products_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_Category1Id",
+                        column: x => x.Category1Id,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_Category2Id",
+                        column: x => x.Category2Id,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_Category3Id",
+                        column: x => x.Category3Id,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Colours_ColourId",
+                        column: x => x.ColourId,
+                        principalTable: "Colours",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Geometrys_GeoId",
+                        column: x => x.GeoId,
+                        principalTable: "Geometrys",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_LongDescriptions_LongDescId",
+                        column: x => x.LongDescId,
+                        principalTable: "LongDescriptions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_ShortDescriptions_ShortDescId",
+                        column: x => x.ShortDescId,
+                        principalTable: "ShortDescriptions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Sizes_SizeId",
+                        column: x => x.SizeId,
+                        principalTable: "Sizes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Specifications_SpecId",
+                        column: x => x.SpecId,
+                        principalTable: "Specifications",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Suppliers_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "Suppliers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_VatRates_VatRateId",
+                        column: x => x.VatRateId,
+                        principalTable: "VatRates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_BrandId",
+                table: "Products",
+                column: "BrandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_Category1Id",
+                table: "Products",
+                column: "Category1Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_Category2Id",
+                table: "Products",
+                column: "Category2Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_Category3Id",
+                table: "Products",
+                column: "Category3Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ColourId",
+                table: "Products",
+                column: "ColourId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_GeoId",
+                table: "Products",
+                column: "GeoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_LongDescId",
+                table: "Products",
+                column: "LongDescId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ShortDescId",
+                table: "Products",
+                column: "ShortDescId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_SizeId",
+                table: "Products",
+                column: "SizeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_SpecId",
+                table: "Products",
+                column: "SpecId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_SupplierId",
+                table: "Products",
+                column: "SupplierId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_VatRateId",
+                table: "Products",
+                column: "VatRateId");
+        }
+    }
+}

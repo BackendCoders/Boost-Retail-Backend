@@ -1,0 +1,45 @@
+﻿using Boost.Admin.Data.Models.Catalog;
+using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Boost.Admin.Data.Models
+{
+    public class Category
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        public int? ParentId { get; set; }  // Nullable for root categories
+
+        [ForeignKey(nameof(ParentId))]
+        public Category Parent { get; set; }
+
+        public virtual List<Category> SubCategories { get; set; } = new List<Category>();
+
+        public ICollection<MasterProduct> Cat1Products { get; set; } = new List<MasterProduct>();
+        public ICollection<MasterProduct> Cat2Products { get; set; } = new List<MasterProduct>();
+        public ICollection<MasterProduct> Cat3Products { get; set; } = new List<MasterProduct>();
+
+
+        public string GetFullCategory()
+        {
+            var str = Name;
+
+            if (SubCategories.Count == 1)
+            {
+                str += "," + SubCategories[0].Name;
+            }
+            if (SubCategories.Count == 2)
+            {
+                str += "," + SubCategories[0].Name + "," + SubCategories[1];
+            }
+
+            return str;
+        }
+    }
+}

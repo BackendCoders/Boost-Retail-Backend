@@ -1,0 +1,168 @@
+D:\BOOST\SConnect\bin\Debug\net9.0\appsettings.Development.json
+D:\BOOST\SConnect\bin\Debug\net9.0\appsettings.json
+D:\BOOST\SConnect\bin\Debug\net9.0\SConnect.staticwebassets.endpoints.json
+D:\BOOST\SConnect\bin\Debug\net9.0\SConnect.exe
+D:\BOOST\SConnect\bin\Debug\net9.0\SConnect.deps.json
+D:\BOOST\SConnect\bin\Debug\net9.0\SConnect.runtimeconfig.json
+D:\BOOST\SConnect\bin\Debug\net9.0\SConnect.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\SConnect.pdb
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.csproj.AssemblyReference.cache
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.GeneratedMSBuildEditorConfig.editorconfig
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.AssemblyInfoInputs.cache
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.AssemblyInfo.cs
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.csproj.CoreCompileInputs.cache
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.MvcApplicationPartsAssemblyInfo.cs
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.MvcApplicationPartsAssemblyInfo.cache
+D:\BOOST\SConnect\obj\Debug\net9.0\scopedcss\bundle\SConnect.styles.css
+D:\BOOST\SConnect\obj\Debug\net9.0\staticwebassets.build.json
+D:\BOOST\SConnect\obj\Debug\net9.0\staticwebassets.development.json
+D:\BOOST\SConnect\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.csproj.Up2Date
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.dll
+D:\BOOST\SConnect\obj\Debug\net9.0\refint\SConnect.dll
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.pdb
+D:\BOOST\SConnect\obj\Debug\net9.0\SConnect.genruntimeconfig.cache
+D:\BOOST\SConnect\obj\Debug\net9.0\ref\SConnect.dll
+D:\BOOST\SConnect\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\BOOST\SConnect\bin\Debug\net9.0\Azure.Core.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Azure.Identity.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.ClientModel.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.Drawing.Common.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.Memory.Data.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.Runtime.Caching.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.dll
+D:\BOOST\SConnect\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.pdb
+D:\BOOST\SConnect\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\BOOST\SConnect\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\BOOST\SConnect\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\BOOST\SConnect\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\BOOST\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\BOOST\SConnect\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\appsettings.Development.json
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\appsettings.json
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\SConnect.staticwebassets.endpoints.json
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\SConnect.exe
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\SConnect.deps.json
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\SConnect.runtimeconfig.json
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\SConnect.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\SConnect.pdb
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Azure.Core.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Azure.Identity.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Binder.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.OpenApi.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.ClientModel.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.Drawing.Common.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.Memory.Data.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.Runtime.Caching.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.Security.Permissions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\System.Windows.Extensions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.dll
+F:\BOOST RETAIL\SConnect\bin\Debug\net9.0\BoostRetail.Integrations.SConnect.pdb
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.csproj.AssemblyReference.cache
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\rpswa.dswa.cache.json
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.GeneratedMSBuildEditorConfig.editorconfig
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.AssemblyInfoInputs.cache
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.AssemblyInfo.cs
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.csproj.CoreCompileInputs.cache
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.MvcApplicationPartsAssemblyInfo.cs
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.MvcApplicationPartsAssemblyInfo.cache
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\rjimswa.dswa.cache.json
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\scopedcss\bundle\SConnect.styles.css
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\staticwebassets.build.json
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\staticwebassets.build.json.cache
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\staticwebassets.development.json
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.csproj.Up2Date
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.dll
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\refint\SConnect.dll
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.pdb
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\SConnect.genruntimeconfig.cache
+F:\BOOST RETAIL\SConnect\obj\Debug\net9.0\ref\SConnect.dll

@@ -1,0 +1,8 @@
+﻿namespace SIM.DTOs
+{
+    public class ImageDto
+    {
+        public string MPN { get; set; }
+        public string Url { get; set; }
+    }
+}

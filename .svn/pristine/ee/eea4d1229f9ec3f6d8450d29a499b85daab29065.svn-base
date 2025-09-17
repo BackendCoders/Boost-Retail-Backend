@@ -1,0 +1,69 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SIM.Configuration;
+using SIM.Data;
+using SIM.DTOs;
+using SIM.Logic;
+
+namespace SIMWORKER
+{
+    internal class Program
+    {
+        private static IConfiguration Config { get; set; }
+
+        static void Main(string[] args)
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile(@"appsettings.json",optional: false)
+                .Build();
+
+            Config = config;
+
+            var host = Host.CreateDefaultBuilder()
+           .ConfigureServices((context,services) =>
+           {
+               services.AddDbContext<SimDbContext>(options =>
+                   options.UseSqlServer(Config.GetConnectionString(name: @"DefaultConnection")));
+
+               services.AddAutoMapper(typeof(AutoMapperProfile));
+               services.AddScoped<ICatalogueLogic,CatalogueLogic>();
+               services.AddScoped<IImportLogic,ImportLogic>();
+               services.AddScoped<ProcessCatalogueToProducts, ProcessCatalogueToProducts>();
+
+           }).Build();
+
+           // var ai = new AI();
+           // var category = ai.GetCategory("Can you tell me the categorys 'Category A','Category B','Category C' this bicycle would come under,the model name is Trinity Advanced Pro 1. Do not return any other text except the category").GetAwaiter().GetResult();
+
+            ProcessGiant(host.Services).GetAwaiter().GetResult();
+        }
+
+
+        static async Task ProcessGiant(IServiceProvider services)
+        {
+            //var d = new SIM.Suppliers.Specialized.SpecializedDataImportService();
+            //await d.GetBikes();
+
+            using var scope = services.CreateScope();
+            var catService = scope.ServiceProvider
+                .GetRequiredService<ICatalogueLogic>();
+
+            var cat2prod = scope.ServiceProvider
+                .GetRequiredService<ProcessCatalogueToProducts>();
+
+            var prod = scope.ServiceProvider
+                .GetRequiredService<IImportLogic>();
+            
+            //await prod.ImportBaseCategoriesFromCSV();
+            // get products
+            var products = await catService.GetProductsBySupplierAndType(DataSupplier.Giant,ProductType.Bike);
+            products.AddRange(await catService.GetProductsBySupplierAndType(DataSupplier.Giant,ProductType.EBike));
+
+            await cat2prod.ProcessItems(products,DataSupplier.Giant);
+        }
+
+
+    }
+}
