@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34407.89
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boost.Admin", "Boost.Admin\Boost.Admin.csproj", "{7AE6A3FA-C1CD-41DB-A7C8-C6928A8E3B20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boost.Admin", "Boost.Admin\Boost.Admin.csproj", "{7AE6A3FA-C1CD-41DB-A7C8-C6928A8E3B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boost.Retailer", "Boost.Retailer\Boost.Retailer.csproj", "{45E94FCF-A433-444F-98E6-B6D47325556D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boost.Retailer", "Boost.Retailer\Boost.Retailer.csproj", "{45E94FCF-A433-444F-98E6-B6D47325556D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoostRetailAPI", "BoostRetailAPI\BoostRetailAPI.csproj", "{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoostRetailAPI", "BoostRetailAPI\BoostRetailAPI.csproj", "{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boost.Shared", "Boost.Shared\Boost.Shared.csproj", "{690A00E5-B8B4-4E3E-85DD-8E75650748B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boost.Shared", "Boost.Shared\Boost.Shared.csproj", "{690A00E5-B8B4-4E3E-85DD-8E75650748B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMWORKER", "SIMWORKER\SIMWORKER.csproj", "{A32ED2E3-93DC-B3DF-7A08-F036D361CBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIMWORKER", "SIMWORKER\SIMWORKER.csproj", "{A32ED2E3-93DC-B3DF-7A08-F036D361CBDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SConnect", "SConnect\SConnect.csproj", "{140E0818-261E-5E0D-B469-EF03CCFC5A80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SConnect", "SConnect\SConnect.csproj", "{140E0818-261E-5E0D-B469-EF03CCFC5A80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoostRetail.Integrations.SConnect", "BoostRetail.Integrations\BoostRetail.Integrations.SConnect.csproj", "{081C83D2-DA60-EA15-3952-AE71F197183D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoostRetail.Integrations.SConnect", "BoostRetail.Integrations\BoostRetail.Integrations.SConnect.csproj", "{081C83D2-DA60-EA15-3952-AE71F197183D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrations", "Integrations", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -63,7 +63,7 @@ Global
 		{081C83D2-DA60-EA15-3952-AE71F197183D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {22423017-59B6-43F6-B537-C0F9B0CA9F0C}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {22423017-59B6-43F6-B537-C0F9B0CA9F0C}
 	EndGlobalSection
 EndGlobal

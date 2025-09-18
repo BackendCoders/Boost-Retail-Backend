@@ -4,6 +4,7 @@ using Boost.Admin.Data;
 using Boost.Admin.Data.Models;
 using Boost.Admin.Logic;
 using Boost.Admin.Logic.Implementiation;
+using Boost.Admin.Logic.Interface;
 using Boost.Retail.Data;
 using Boost.Retail.Data.Models;
 using Boost.Retail.Services;
@@ -155,6 +156,7 @@ namespace BoostRetailAPI
 
             builder.Services.AddScoped<IImportLogic, ImportLogic>();
             builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
+            builder.Services.AddScoped<ISupplierFeedLogic, SupplierFeedLogic>();
 
             builder.Services.AddScoped<IEmailSender, EmailSender>();
             builder.Services.AddTransient<ISMSSender, SMSSender>();

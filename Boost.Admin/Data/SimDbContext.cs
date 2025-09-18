@@ -29,6 +29,8 @@ namespace Boost.Admin.Data
         public virtual DbSet<UserSupplierProductCategoryBrand> UserSupplierProductCategoryBrands { get; set; }  
         public virtual DbSet<CategoryMap> CategoryMaps { get; set; }
         public virtual DbSet<CategoryLookup> CategoryLookups { get; set; }
+        public virtual DbSet<SupplierFeed> SupplierFeeds { get; set; }
+
 
         public SimDbContext(DbContextOptions<SimDbContext> options, IConfiguration configuration) 
         {
