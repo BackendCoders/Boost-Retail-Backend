@@ -1,0 +1,19 @@
+﻿using SIM.Data.Models.Catalog;
+
+namespace SIM.Logic.Interface
+{
+    public interface IProductLogic
+    {
+        Task<List<VatRate>> GetVatRates();
+        Task<List<Supplier>> GetSuppliers();
+        Task<List<Brand>> GetBrands(List<string> tocheck);
+        Task<List<Size>> GetSizes(List<string> tocheck);
+        Task<List<Colour>> GetColors(List<string> tocheck);
+        Task<List<Category>> GetCategorys(List<string> tocheck);
+        Task<List<Specification>> GetSpecs(List<string> tocheck);
+        Task<List<Geometry>> GetGeos(List<string> tocheck);
+        Task<List<LongDescription>> GetLongDescriptions(List<string> tocheck);
+        Task<List<ShortDescription>> GetShortDescriptions(List<string> tocheck);
+
+    }
+}

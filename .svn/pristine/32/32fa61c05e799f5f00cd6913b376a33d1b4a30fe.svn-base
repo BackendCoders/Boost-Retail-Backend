@@ -1,0 +1,169 @@
+﻿@page "/ProductChoice"
+@using Microsoft.EntityFrameworkCore
+@inject SIM.Data.SimDbContext _db;
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>Supplier Data Product Choice</PageTitle>
+
+<h1>Supplier Data Product Choice</h1>
+
+
+<button class="btn btn-primary" disabled="@_disbaled" @onclick="BuildTree">Load</button>
+
+<TreeView TItem="TreeNode" Nodes="TreeData" />
+
+<button class="btn btn-success" @onclick="SaveUsersSelection">Save Selection</button>
+
+
+@code {
+    private List<TreeNode> TreeData = new();
+    private bool _disbaled = false;
+    private string _userId = "";
+
+    protected async override Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            var userId = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            _userId = userId;
+        }
+
+        await base.OnInitializedAsync();
+    }
+
+    private async Task BuildTree()
+    {
+        _disbaled = true;
+
+        var category1Nodes = new List<TreeNode>();
+
+        var products = await _db.MasterProducts
+            .Include(o => o.Category1)
+            .Include(o => o.Category2)
+            .Include(o => o.Category3)
+            .Include(o => o.Brand)
+            .Where(o => o.Category1Id != null)
+            .ToListAsync();
+
+        var groupedByCat1 = products.GroupBy(p => p.Category1?.Name).OrderBy(g => g.Key);
+
+        foreach (var catA in groupedByCat1)
+        {
+            var catANode = new TreeNode
+                {
+                    Title = catA.Key ?? "Unknown Category 1",
+                    Type = TreeNodeType.Category,
+                    Count = catA.Count(),
+                    Children = new List<TreeNode>()
+                };
+            category1Nodes.Add(catANode);
+
+            var groupedByCat2 = catA.GroupBy(p => p.Category2?.Name).OrderBy(g => g.Key);
+
+            foreach (var catB in groupedByCat2)
+            {
+                var catBNode = new TreeNode
+                    {
+                        Title = catB.Key ?? "Unknown Category 2",
+                        Type = TreeNodeType.Category,
+                        Count = catB.Count(),
+                        Category2Id = catB.FirstOrDefault()?.Category2Id,
+                        Children = new List<TreeNode>(),
+                        Parent = catANode
+                    };
+                catANode.Children.Add(catBNode);
+
+                var groupedByCat3 = catB.GroupBy(p => p.Category3?.Name).OrderBy(g => g.Key);
+
+                foreach (var catC in groupedByCat3)
+                {
+                    var catCNode = new TreeNode
+                        {
+                            Title = catC.Key ?? "Unknown Category 3",
+                            Type = TreeNodeType.Category,
+                            Count = catC.Count(),
+                            Category3Id = catC.FirstOrDefault()?.Category3Id,
+                            Children = new List<TreeNode>(),
+                            Parent = catBNode
+                        };
+                    catBNode.Children.Add(catCNode);
+
+                    var groupedBrands = catC.GroupBy(p => p.Brand?.Name).OrderBy(g => g.Key);
+
+                    foreach (var brandGroup in groupedBrands)
+                    {
+                        var b = brandGroup.FirstOrDefault();
+                        var brandNode = new TreeNode
+                            {
+                                Title = brandGroup.Key ?? "Unknown Brand",
+                                Type = TreeNodeType.Brand,
+                                Count = brandGroup.Count(),
+                                BrandId = b?.BrandId,
+                                Parent = catCNode
+                            };
+                        catCNode.Children.Add(brandNode);
+                    }
+                }
+            }
+        }
+
+        // get selected
+        var selected = await _db.UserSupplierProductCategoryBrands
+            .Where(o => o.UserId == _userId)
+            .ToListAsync();
+      
+        foreach (var sel in selected)
+        {
+            
+        }
+
+
+        TreeData = category1Nodes;
+        _disbaled = false;
+    }
+
+    private List<(int Category2Id, int Category3Id, int BrandId)> GetSelectedBrandPaths()
+    {
+        return TreeData
+            .SelectMany(GetAllDescendants)
+            .Where(n => n.Type == TreeNodeType.Brand && n.IsChecked)
+            .Select(n => (
+                Category2Id: n.Parent?.Parent?.Category2Id ?? 0,
+                Category3Id: n.Parent?.Category3Id ?? 0,
+                BrandId: n.BrandId ?? 0
+            ))
+            .Where(x => x.Category2Id != 0 && x.Category3Id != 0 && x.BrandId != 0)
+            .ToList();
+    }
+
+    private IEnumerable<TreeNode> GetAllDescendants(TreeNode node)
+    {
+        yield return node;
+        foreach (var child in node.Children.SelectMany(GetAllDescendants))
+            yield return child;
+    }
+
+    private async Task SaveUsersSelection()
+    { 
+        var selected = GetSelectedBrandPaths();
+
+        foreach (var selection in selected)
+        {
+            await _db.UserSupplierProductCategoryBrands.AddAsync(new UserSupplierProductCategoryBrand
+            {
+                BrandId = selection.BrandId, 
+                Category2Id = selection.Category2Id,
+                Category3Id = selection.Category3Id, 
+                UserId = _userId
+            });
+        }
+
+        await _db.SaveChangesAsync();
+    }
+
+
+
+}

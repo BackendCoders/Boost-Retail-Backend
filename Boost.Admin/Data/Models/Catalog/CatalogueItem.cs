@@ -1,0 +1,69 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace Boost.Admin.Data.Models.Catalog
+{
+    public class CatalogueItem : ModelBase
+    {
+        [Key]
+        [Required]
+        public string MPN { get; set; }
+
+        public string? Barcode { get; set; }
+
+        [Required]
+        public string ProductTitle { get; set; }
+
+        public string? GroupName { get; set; }
+
+        [Required]
+        public string Brand { get; set; }
+
+        [Required]
+        public DataSupplier Supplier { get; set; }
+
+        public ProductType ProductType { get; set; }
+
+        public GenderOrAgeGroup? GenderOrAge { get; set; }
+
+        public string? Colour { get; set; }
+        public string? Size { get; set; }
+        public string? Weight { get; set; }
+
+        public string? Images { get; set; }
+
+        public string? VideoUrl { get; set; }
+        public string? SupplierDetailsUrl { get; set; }
+
+        [DefaultValue("")]
+        public string ShortDescription { get; set; }
+
+        public string LongDescription { get; set; }
+
+        [DefaultValue(1)]
+        public int BoxQty { get; set; }
+
+        [Precision(18, 2)]
+        public double? Cost { get; set; }
+
+        [Precision(18, 2)]
+        public double Price { get; set; }
+
+        [Precision(18, 2)]
+        public double SalePrice { get; set; }
+
+        [Precision(18, 2)]
+        public double? VatRate { get; set; }
+
+        public string? GoogleCategoryId { get; set; }
+        public string? Categorys { get; set; }
+
+        public string? GeometryJson { get; set; }
+
+        public string? SpecificationsJson { get; set; }
+
+        public int? Year { get; set; }
+        public bool Processed { get; set; }
+    }
+}

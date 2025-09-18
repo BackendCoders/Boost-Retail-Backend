@@ -1,0 +1,74 @@
+07/11/2025 07:15:32 Failed to determine the https port for redirect.
+07/11/2025 07:17:43 starting giant import for type Both and year ALL
+07/11/2025 07:17:43 import started for year 2018
+07/11/2025 07:17:43 getting giant bikes from api.
+07/11/2025 07:17:45 giant bikes found 0
+07/11/2025 07:17:45 getting liv bikes from api.
+07/11/2025 07:17:47 liv bikes found 0
+07/11/2025 07:17:47 getting cadex bikes from api.
+07/11/2025 07:17:49 cadex bikes found 0
+07/11/2025 07:17:49 starting conversions to db models
+07/11/2025 07:17:49 converting giant bikes
+07/11/2025 07:17:51 converting liv bikes
+07/11/2025 07:17:52 converting cadex bikes
+07/11/2025 07:17:52 conversions completed
+07/11/2025 07:17:52 begin insert or update for bikes
+07/11/2025 07:17:52 db insert/updates completed
+07/11/2025 07:17:52 getting giant gear from api.
+07/11/2025 07:17:55 giant gear found 494
+07/11/2025 07:17:55 getting liv gear from api.
+07/11/2025 07:17:57 liv gear found 61
+07/11/2025 07:17:57 getting cadex gear from api.
+07/11/2025 07:18:00 cadex gear found 53
+07/11/2025 07:18:00 starting conversions to db models
+07/11/2025 07:18:00 converting giant bikes
+07/11/2025 07:18:00 converting liv bikes
+07/11/2025 07:18:01 converting cadex bikes
+07/11/2025 07:18:01 conversions completed
+07/11/2025 07:18:01 begin insert or update for gear
+07/11/2025 07:18:02 Connection ID ""18374686480476930054"", Request ID ""4000000d-0000-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The MERGE statement attempted to UPDATE or DELETE the same row more than once. This happens when a target row matches more than one source row. A MERGE statement cannot UPDATE/DELETE the same row of the target table multiple times. Refine the ON clause to ensure a target row matches at most one source row, or use the GROUP BY clause to group the source rows.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__193_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.ExecuteSqlRawAsync(DatabaseFacade databaseFacade, String sql, IEnumerable`1 parameters, CancellationToken cancellationToken)
+   at EFCore.BulkExtensions.SqlAdapters.SqlServer.SqlServerAdapter.MergeAsync[T](DbContext context, Type type, IEnumerable`1 entities, TableInfo tableInfo, OperationType operationType, Action`1 progress, Boolean isAsync, CancellationToken cancellationToken)
+   at EFCore.BulkExtensions.SqlAdapters.SqlServer.SqlServerAdapter.MergeAsync[T](DbContext context, Type type, IEnumerable`1 entities, TableInfo tableInfo, OperationType operationType, Action`1 progress, Boolean isAsync, CancellationToken cancellationToken)
+   at EFCore.BulkExtensions.SqlAdapters.SqlServer.SqlServerAdapter.MergeAsync[T](DbContext context, Type type, IEnumerable`1 entities, TableInfo tableInfo, OperationType operationType, Action`1 progress, CancellationToken cancellationToken)
+   at EFCore.BulkExtensions.SqlBulkOperation.MergeAsync[T](DbContext context, Type type, IEnumerable`1 entities, TableInfo tableInfo, OperationType operationType, Action`1 progress, CancellationToken cancellationToken)
+   at EFCore.BulkExtensions.DbContextBulkTransaction.ExecuteAsync[T](DbContext context, Type type, IEnumerable`1 entities, OperationType operationType, BulkConfig bulkConfig, Action`1 progress, CancellationToken cancellationToken)
+   at SIM.Logic.ImportLogic.InsertOrUpdateBulk(List`1 items) in F:\SIM\SIM.Lib\Logic\Implementiation\ImportLogic.cs:line 286
+   at SIM.Logic.ImportLogic.InsertOrUpdateGiantGear() in F:\SIM\SIM.Lib\Logic\Implementiation\ImportLogic.cs:line 85
+   at SIM.Logic.ImportLogic.ImportGiant(GiantProductType type, Int32 year) in F:\SIM\SIM.Lib\Logic\Implementiation\ImportLogic.cs:line 52
+   at SIM.Controllers.ImportController.Giant(GiantProductType type, Years year) in F:\SIM\SIMAPI\Controllers\ImportController.cs:line 35
+   at lambda_method82(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+ClientConnectionId:c9592033-15a6-4fc8-8935-b1579ddb519c
+Error Number:8672,State:1,Class:16

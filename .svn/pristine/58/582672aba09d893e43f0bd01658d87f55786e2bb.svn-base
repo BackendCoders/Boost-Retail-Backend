@@ -1,0 +1,213 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SIM.Data;
+using SIM.DTOs;
+using SIM.Logic;
+
+namespace SIM.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CatalogueController : ControllerBase
+    {
+        private readonly ILogger<CatalogueController> _logger;
+        private readonly ICatalogueLogic _logic;
+
+        public CatalogueController(
+            ILogger<CatalogueController> logger,
+            ICatalogueLogic logic)
+        {
+            _logger = logger;
+            _logic = logic;
+        }
+
+
+        [HttpGet, Route("Barcodes")]
+        public async Task<ActionResult> GetBarcodes([FromQuery] List<string> mpns)
+        {
+            var res = await _logic.GetBarcodes(mpns);
+            if (res.Success)
+                return Ok(res.Value);
+            else
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("Barcode")]
+        public async Task<IActionResult> GetBarcode([FromQuery] string mpn)
+        {
+            var res = await _logic.GetBarcode(mpn);
+            if (res.Success)
+                return Ok(res.Value);
+            else 
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("BarcodesBySupplier")]
+        public async Task<IActionResult> GetBarcodesBySupplier([FromQuery] DataSupplier supplier)
+        {
+            var res = await _logic.GetBarcodesBySupplier(supplier);
+            return Ok(res);
+        }
+
+        [HttpGet, Route("Brands")]
+        public async Task<List<string>> GetBrands([FromQuery] DataSupplier supplier, string year)
+        {
+            return await _logic.GetBrands(supplier, year);
+        }
+
+        [HttpGet, Route("Descriptions")]
+        public async Task<ActionResult> GetDescriptions([FromQuery] List<string> mpns)
+        {
+            var res = await _logic.GetDescriptions(mpns);
+            if (res.Success)
+                return Ok(res.Value);
+            else
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("Description")]
+        public async Task<ActionResult> GetDescription([FromQuery] string mpn)
+        {
+            var res = await _logic.GetDescription(mpn);
+            if (res.Success)
+                return Ok(res.Value);
+            else
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("ImagesBulk")]
+        public async Task<ActionResult> GetImages([FromQuery] List<string> mpns)
+        {
+            var res = await _logic.GetImagesBulk(mpns);
+            if (res.Success)
+                return Ok(res.Value);
+            else
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("Images")]
+        public async Task<ActionResult> GetImages([FromQuery] string mpn)
+        {
+            var res = await _logic.GetImages(mpn);
+            if (res.Success)
+                return Ok(res.Value);
+            else
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("ProductCountKeywordYear")]
+        public async Task<int> GetProductCountByKeywordYear([FromQuery] string keyword, string year)
+        {
+            return await _logic.GetProductCountByKeywordYear(keyword, year);
+        }
+
+        [HttpGet, Route("ProductCountSupplierBrandYear")]
+        public async Task<int> GetProductCountBySupplierBrand([FromQuery] DataSupplier supplier, string brand, string year)
+        {
+            return await _logic.GetProductCountBySupplierBrand(supplier, brand, year);
+        }
+
+        [HttpGet, Route("ProductCountSupplierBrandKeywordYear")]
+        public async Task<int> GetProductCountBySupplierBrandKeywordYear([FromQuery] DataSupplier supplier, string brand, string keyword, string year)
+        {
+            return await _logic.GetProductCountBySupplierBrandKeywordYear(supplier, brand, keyword, year);
+        }
+
+        [HttpGet, Route("ProductCountSupplierYear")]
+        public async Task<int> GetProductCountBySupplierYear([FromQuery] DataSupplier supplier, string year)
+        {
+            return await _logic.GetProductCountBySupplierYear(supplier, year);
+        }
+
+        [HttpGet, Route("ProductCountSupplierYearKeyword")]
+        public async Task<int> GetProductCountBySupplierYearKeyword([FromQuery] DataSupplier supplier, string keyword, string year)
+        {
+            return await _logic.GetProductCountBySupplierYearKeyword(supplier, keyword, year);
+        }
+
+        [HttpGet, Route("ProductCountYear")]
+        public async Task<int> GetProductCountByYear([FromQuery] string year)
+        {
+            return await _logic.GetProductCountByYear(year);
+        }
+
+        [HttpGet, Route("Product")]
+        public async Task<ActionResult> GetProductsByMpn([FromQuery] string mpn)
+        {
+            var res = await _logic.GetProductByMpn(mpn);
+            if (res.Success)
+                return Ok(res.Value);
+            else
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("Products")]
+        public async Task<ActionResult> GetProductsByMpnBulk([FromQuery] List<string> mpns)
+        {
+            var res = await _logic.GetProductsByMpnBulk(mpns);
+            if (res.Success)
+                return Ok(res.Value);
+            else
+                return BadRequest(res);
+        }
+
+        [HttpGet, Route("ProductsBySupplier")]
+        public async Task<List<ProductDto>> GetProductsBySupplier([FromQuery] DataSupplier supplier)
+        {
+            return await _logic.GetProductsBySupplier(supplier);
+        }
+
+        [HttpGet, Route("ProductsBySupplierYear")]
+        public async Task<List<ProductDto>> GetProductsBySupplier([FromQuery] DataSupplier supplier, int year)
+        {
+            return await _logic.GetProductsBySupplier(supplier, year);
+        }
+
+        [HttpGet, Route("ProductsBySupplierBrandYear")]
+        public async Task<List<ProductDto>> GetProductsBySupplierBrandByYear([FromQuery] DataSupplier supplier, string brand, int skip, int take, string year)
+        {
+            return await _logic.GetProductsBySupplierBrandByYear(supplier, brand, skip, take, year);
+        }
+
+        [HttpGet, Route("ProductsBySupplierYearKeyword")]
+        public async Task<List<ProductDto>> GetProductsBySupplierYearKeyword([FromQuery] DataSupplier supplier, int skip, int take, string keyword, string year)
+        {
+            return await _logic.GetProductsBySupplierYearKeyword(supplier, skip, take, keyword, year);
+        }
+
+        [HttpGet, Route("ProductsBySupplierYearKeywordBrand")]
+        public async Task<List<ProductDto>> GetProductsBySupplierYearKeywordBrand([FromQuery] DataSupplier supplier, string brand, int skip, int take, string keyword, string year)
+        {
+            return await _logic.GetProductsBySupplierYearKeywordBrand(supplier, brand, skip, take, keyword, year);
+        }
+
+        [HttpGet, Route("ProductsBySupplierYearPaged")]
+        public async Task<List<ProductDto>> GetProductsBySupplierYearPaged([FromQuery] DataSupplier supplier, int skip, int take, string year)
+        {
+            return await _logic.GetProductsBySupplierYearPaged(supplier, skip, take, year);
+        }
+
+        [HttpGet, Route("ProductsByYearKeyword")]
+        public async Task<List<ProductDto>> GetProductsByYearKeyword([FromQuery] int skip, int take, string keyword, string year)
+        {
+            return await _logic.GetProductsByYearKeyword(skip, take, keyword, year);
+        }
+
+        [HttpGet, Route("ProductTypes")]
+        public async Task<List<string>> GetProductTypes()
+        {
+            return await _logic.GetProductTypes();
+        }
+
+        [HttpGet, Route("Suppliers")]
+        public async Task<List<string>> GetSuppliers()
+        {
+            return await _logic.GetSuppliers();
+        }
+
+        [HttpGet, Route("Years")]
+        public async Task<List<string>> GetYears()
+        {
+            return await _logic.GetYears();
+        }
+    }
+}

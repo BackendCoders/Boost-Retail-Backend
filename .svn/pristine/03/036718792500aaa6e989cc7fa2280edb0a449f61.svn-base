@@ -1,0 +1,252 @@
+﻿@using Microsoft.EntityFrameworkCore
+@using SIM.Data.Models;
+@using Boost.Data.Models;
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@page "/UserProductGroupEdit"
+<h3>User Product Group Edit</h3>
+
+@inject HttpClient Http
+@inject Boost.Data.BoostDbContext db;
+<Tabs EnableFadeEffect="true" NavStyle="NavStyle.Pills">
+    <Tab Title="Details" IsActive="true">
+        <Content>
+            <div class="container" style="margin-top:20px">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Title: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Title" Placeholder="Enter Title" />
+                                @*  <ValidationMessage For="@(() => groupOverride.Title)" /> *@
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Brand: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Brand" Placeholder="Enter Brand" />
+                                @* <ValidationMessage For="@(() => groupOverride.Brand)" /> *@
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Year: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <InputNumber @bind-Value="@groupOverride.Year" Placeholder="Enter Year" />
+                                @* <ValidationMessage For="@(() => groupOverride.Year)" /> *@
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Promo Date: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <DateInput @bind-Value="@groupOverride.PromoStart" Placeholder="Enter Start" />
+                                @* <ValidationMessage For="@(() => groupOverride.PromoStart)" /> *@
+                            </div>
+                            <div class="col-md-10">
+                                <DateInput @bind-Value="@groupOverride.PromoEnd" Placeholder="Enter End" />
+                                @* <ValidationMessage For="@(() => groupOverride.PromoEnd)" /> *@
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Category 1: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Category1" Placeholder="Enter Category 1" />
+                                @* <ValidationMessage For="@(() => groupOverride.Category1)" /> *@
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Category 2: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Category2" Placeholder="Enter Category 2" />
+                                @* <ValidationMessage For="@(() => groupOverride.Category2)" /> *@
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Category 3: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Category3" Placeholder="Enter Category 3" />
+                                @* <ValidationMessage For="@(() => groupOverride.Category3)" /> *@
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Model: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Model" Placeholder="Enter Model" />
+                                @* <ValidationMessage For="@(() => groupOverride.Model)" /> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <Grid @ref="grid"
+                          TItem="UserProductOverride"
+                          Class="table table-hover table-bordered table-striped"
+                          DataProvider="EmployeesDataProvider"
+                          AllowFiltering="false"
+                          AllowSorting="false"
+                          Responsive="true">
+
+                        <GridColumns>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Id" PropertyName="Id">
+                                @context.Id
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="EPOS Id" PropertyName="EPN">
+                                @context.UserProduct.EPN
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Image" PropertyName="Images">
+                                @context.UserProduct.Images
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Title" PropertyName="Title">
+                                @context.UserProduct.Title
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="MPN" PropertyName="MPN">
+                                @context.UserProduct.MPN
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Barcode" PropertyName="UserProduct.Barcode">
+                                @context.UserProduct.Barcode
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Colour" PropertyName="Colour">
+                                @context.Colour
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Simple Colour" PropertyName="SimpleColour">
+                                @context.SimpleColour
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Size" PropertyName="Size">
+                                @context.Size
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Simple Size" PropertyName="SimpleSize">
+                                @context.SimpleSize
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="RRP" PropertyName="RRP">
+                                @context.RRP
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Promo Price" PropertyName="PromoPrice">
+                                @context.PromoRRP
+                            </GridColumn>
+                            <GridColumn TItem="UserProductOverride" HeaderText="Stock" PropertyName="Stock">
+                                @context.Stock
+                            </GridColumn>
+                        </GridColumns>
+
+                    </Grid>
+                </div>
+            </div>
+        </Content>
+    </Tab>
+    <Tab Title="Descriptions">
+        <Content>
+              <div class="container" style="margin-top:20px">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Short Description: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.ShortDescription" Placeholder="Enter Short Description" />
+                                @*  <ValidationMessage For="@(() => groupOverride.Title)" /> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Full Description: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.FullDescription" Placeholder="Enter Full Description" />
+                                @*  <ValidationMessage For="@(() => groupOverride.Title)" /> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Content>
+    </Tab>
+    <Tab Title="Geometry">
+        <Content>
+            <div class="container" style="margin-top:20px">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Geometry: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Geometry" Placeholder="Enter Geometry" />
+                                @*  <ValidationMessage For="@(() => groupOverride.Title)" /> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Content>
+    </Tab>
+    <Tab Title="Specification">
+        <Content>
+            <div class="container" style="margin-top:20px">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-2 col-form-label">Specification: <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <TextInput @bind-Value="@groupOverride.Specification" Placeholder="Enter Specification" />
+                                @*  <ValidationMessage For="@(() => groupOverride.Title)" /> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Content>
+    </Tab>
+</Tabs>
+
+
+@code {
+    private Grid<UserProductOverride> grid;
+    public UserProductGroupOverride groupOverride = new();
+    private List<UserProductOverride> productOverrides = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            var userId = user.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+            // groupOverride.PromoStart = DateTime.Now;
+            // groupOverride.PromoEnd = DateTime.Now;
+
+             var go = await db.UserProductGroupOverrides.Where(o => o.UserId == userId).FirstOrDefaultAsync();
+             var gps = await db.UserProductOverrides.Where(o => o.UserId == userId).ToListAsync();
+
+        }
+    }
+
+    private async Task<GridDataProviderResult<UserProductOverride>> EmployeesDataProvider(GridDataProviderRequest<UserProductOverride> request)
+    {
+        
+        return await Task.FromResult(request.ApplyTo(productOverrides));
+    }
+
+
+}
+<style>
+    .valid.modified:not([type=checkbox]) {
+        outline: 1px solid #26b050;
+    }
+
+    .invalid {
+        outline: 1px solid red;
+    }
+
+    .validation-message {
+        color: red;
+    }
+</style>

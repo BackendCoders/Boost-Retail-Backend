@@ -1,0 +1,25 @@
+﻿namespace SIMUI
+{
+    public enum TreeNodeType
+    {
+        Category,
+        Brand
+    }
+
+    public class TreeNode
+    {
+        public string Title { get; set; }
+        public TreeNodeType Type { get; set; } = TreeNodeType.Category;
+        public List<TreeNode> Children { get; set; } = new();
+        public bool IsExpanded { get; set; } = false;
+        public int Count { get; set; } = 0;
+        public bool IsChecked { get; set; } = false;
+        public TreeNode Parent { get; set; }
+
+        // IDs to use for querying
+        public int? Category2Id { get; set; }
+        public int? Category3Id { get; set; }
+        public int? BrandId { get; set; }
+    }
+
+}

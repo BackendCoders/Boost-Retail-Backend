@@ -1,0 +1,51 @@
+﻿@typeparam TItem
+@using SIMUI.Components
+
+<ul class="treeview">
+    @foreach (var node in Nodes)
+    {
+        <li>
+            <div class="tree-node">
+                <span @onclick="() => Toggle(node)" style="margin-right: 4px;">
+                    @if (node.Children?.Any() == true)
+                    {
+                        <span>@(node.IsExpanded ? "▾" : "▸")</span>
+                    }
+                    else
+                    {
+                        <span style="display: inline-block; width: 1em;"></span>
+                    }
+                </span>
+
+                @if (node.Type == TreeNodeType.Brand)
+                {
+                    <input type="checkbox" @bind="node.IsChecked" @onclick:stopPropagation />
+                }
+
+                <span>@RenderNodeLabel(node)</span>
+            </div>
+
+            @if (node.IsExpanded && node.Children?.Any() == true)
+            {
+                <TreeView TItem="TItem" Nodes="node.Children" />
+            }
+        </li>
+    }
+</ul>
+
+@code {
+    [Parameter] public List<TreeNode> Nodes { get; set; }
+
+    void Toggle(TreeNode node) => node.IsExpanded = !node.IsExpanded;
+
+    RenderFragment RenderNodeLabel(TreeNode node) => builder =>
+    {
+        var label = node.Type switch
+        {
+            TreeNodeType.Category => $"📁 {node.Title} ({node.Count})",
+            TreeNodeType.Brand => $"🏷️ {node.Title} ({node.Count})",
+            _ => node.Title
+        };
+        builder.AddContent(0, label);
+    };
+}

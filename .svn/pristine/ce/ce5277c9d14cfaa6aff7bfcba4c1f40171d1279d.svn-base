@@ -1,0 +1,14 @@
+﻿using AutoMapper;
+using SIM.Data.Models.Catalog;
+using SIM.DTOs;
+
+namespace SIM.Configuration
+{
+    public class AutoMapperProfile : Profile
+    {
+        public AutoMapperProfile() 
+        {
+            CreateMap<CatalogueItem, ProductDto>();
+        }
+    }
+}

@@ -1,0 +1,17 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SIM.Data.Models
+{
+    public abstract class ModelBase
+    {
+        public ModelBase()
+        {
+        }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual int Id { get; set; }
+
+        public DateTime DateCreated { get; set; } = DateTime.Now;
+        public DateTime? DateUpdated { get; set; }
+    }
+}

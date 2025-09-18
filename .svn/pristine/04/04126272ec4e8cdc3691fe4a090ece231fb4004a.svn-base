@@ -1,0 +1,32 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SIM.Actions;
+using SIM.Data;
+using SIM.Logic;
+
+namespace SIMAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ConnverterController : ControllerBase
+    {
+        private readonly ICatalogueToProductActions _catalogueToProductActions;
+        private readonly ICatalogueLogic _catalogueLogic;
+
+        public ConnverterController(ICatalogueLogic catalogueLogic, ICatalogueToProductActions converter)
+        {
+            _catalogueLogic = catalogueLogic;
+            _catalogueToProductActions = converter;
+        }
+
+        [HttpGet]
+        [Route("Do")]
+        public async Task Do()
+        {
+            // get products
+            var products = await _catalogueLogic.GetProductsBySupplierAndType(DataSupplier.Giant, ProductType.Bike);
+
+            await _catalogueToProductActions.ProcessItems(products, DataSupplier.Giant);
+        }
+
+    }
+}

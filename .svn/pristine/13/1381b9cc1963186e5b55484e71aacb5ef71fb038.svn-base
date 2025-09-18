@@ -1,0 +1,72 @@
+﻿namespace SIM.Data
+{
+    public enum DataSupplier
+    {
+        Giant = 1,
+        Trek = 2,
+        Specialized = 3,
+        Raleigh = 4,
+        Whyte = 5,
+        Madison = 6,
+        Cube = 7,
+        Sportline = 8
+    }
+
+    public enum GenderOrAgeGroup
+    {
+        None,
+        Boys,
+        Girls,
+        Men,
+        Women,
+        Unisex,
+    }
+
+    public enum ImportType
+    {
+        All,
+        Bikes,
+        Accessories,
+        Apparell
+    }
+
+    public enum ProductType
+    {
+        Unknown,
+        Bike,
+        Frame,
+        Accessory,
+        Clothing,
+        AfterMarket,
+        EBike,
+        ServicePart
+    }
+
+    public enum GiantProductType
+    {
+        Both,
+        Bike,
+        Gear
+    }
+
+    public enum GiantDivisionCode
+    {
+        Giant,
+        Liv,
+        Cadex
+    }
+
+    public enum SupplierProductType
+    {
+        Both,
+        Bike,
+        Accessories
+    }
+
+    public enum ProductStatus
+    {
+        Active,
+        Deferred,
+        Hidden
+    }
+}

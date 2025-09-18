@@ -1,0 +1,389 @@
+﻿using OfficeOpenXml;
+using Serilog;
+using Boost.Admin.Data;
+using Boost.Admin.Data.Models.Catalog;
+using System.Net;
+
+namespace SIM.Suppliers.Raleigh
+{
+    public class RaleighDataImportService
+    {
+        private readonly Serilog.ILogger _logger;
+        
+        private const string PartsFeedUrl = "https://cdn.abacusonline.net/SUPPLIER-DATA/raleigh/Epos_parts_data.xlsx";
+        private const string BikeFeedUrl = "https://cdn.abacusonline.net/SUPPLIER-DATA/raleigh/Epos_bikes_data.xlsx";
+
+        private const string BikesLocalFile = "_temp\\raleigh-bikes.xlsx";
+        private const string PALocalFile = "_temp\\raleigh-pa.xlsx";
+
+        public RaleighDataImportService()
+        {
+            _logger = Log.ForContext<RaleighDataImportService>();
+        }
+
+        public List<CatalogueItem> GetParts()
+        {
+            using (WebClient wc = new())
+            {
+                if (!Directory.Exists("_temp"))
+                {
+                    Directory.CreateDirectory("_temp");
+                }
+
+                // download and save to local file  
+                _logger.Information($"downloading parts file to local");
+                wc.DownloadFile(PartsFeedUrl, PALocalFile);
+            }
+
+            if (!File.Exists(PALocalFile))
+                throw new FileNotFoundException(PALocalFile);
+
+            _logger.Information($"read excel file into dto");
+            var parts = ReadExcelToPartsList(PALocalFile);
+            _logger.Information($"conversion complete");
+
+            _logger.Information($"converting parts feed to catalgue items");
+            var resParts = ConvertPartsProducts(parts);
+            _logger.Information($"convert parts complete");
+
+            var res = new List<CatalogueItem>();
+
+            res.AddRange(resParts);
+
+            return res;
+        }
+
+        public List<CatalogueItem> GetBikes()
+        {
+            using (WebClient wc = new())
+            {
+                if (!Directory.Exists("_temp"))
+                {
+                    Directory.CreateDirectory("_temp");
+                }
+
+                // download and save to local file  
+                _logger.Information($"downloading bikes file to local");
+                wc.DownloadFile(BikeFeedUrl, BikesLocalFile);
+            }
+
+            if (!File.Exists(BikesLocalFile))
+                throw new FileNotFoundException(BikesLocalFile);
+
+            _logger.Information($"read excel file into dto");
+            var bikes = ReadExcelToBikesList(BikesLocalFile);
+            _logger.Information($"conversion complete");
+
+            _logger.Information($"converting bikes feed to catalgue items");
+            var resBikes = ConvertBikeProducts(bikes);
+            _logger.Information($"convert bikes complete");
+
+            var res = new List<CatalogueItem>();
+
+            res.AddRange(resBikes);
+
+            return res;
+        }
+
+        public List<FeedDto> ReadExcelToPartsList(string filePath)
+        {
+            // Ensure EPPlus license is set to non-commercial
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            var productList = new List<FeedDto>();
+
+            using (var package = new ExcelPackage(new FileInfo(filePath)))
+            {
+                var worksheet = package.Workbook.Worksheets[0]; // Assuming data is in the first sheet
+
+                // Get the total rows and columns in the sheet
+                int rows = worksheet.Dimension.Rows;
+                int columns = worksheet.Dimension.Columns;
+
+                // Start reading data from row 2 (assuming row 1 is headers)
+                for (int row = 3; row <= rows; row++)
+                {
+                    var product = new FeedDto
+                    {
+                        ItemNumber = worksheet.Cells[row, 1].Text,
+                        Group = worksheet.Cells[row, 2].Text,
+                        ShortDesc = worksheet.Cells[row, 3].Text,
+                        EAN13 = worksheet.Cells[row, 4].Text,
+                        Brand = worksheet.Cells[row, 5].Text,
+                        Size = worksheet.Cells[row, 6].Text,
+                        BasicColour = worksheet.Cells[row, 7].Text,
+                        ModelYear = worksheet.Cells[row, 8].Text,
+                        LongDesc = worksheet.Cells[row, 9].Text,
+                        USP1 = worksheet.Cells[row, 10].Text,
+                        USP2 = worksheet.Cells[row, 11].Text,
+                        USP3 = worksheet.Cells[row, 12].Text,
+                        USP4 = worksheet.Cells[row, 13].Text,
+                        USP5 = worksheet.Cells[row, 14].Text,
+                        USP6 = worksheet.Cells[row, 15].Text,
+                        USP7 = worksheet.Cells[row, 16].Text,
+                        USP8 = worksheet.Cells[row, 17].Text,
+                        USP9 = worksheet.Cells[row, 18].Text,
+                        USP10 = worksheet.Cells[row, 19].Text,
+                        USP11 = worksheet.Cells[row, 20].Text,
+                        USP12 = worksheet.Cells[row, 21].Text,
+                        USP13 = worksheet.Cells[row, 22].Text,
+                        ImageLink = worksheet.Cells[row, 23].Text,
+                        ImageLink1 = worksheet.Cells[row, 24].Text,
+                        ImageLink2 = worksheet.Cells[row, 25].Text,
+                        ConsumerPriceDefault = decimal.TryParse(worksheet.Cells[row, 26].Text, out var price) ? price : 0,
+                        CountryOfOriginDescription = worksheet.Cells[row, 27].Text,
+                        IntrastatCode = worksheet.Cells[row, 28].Text
+                    };
+
+                    productList.Add(product);
+                }
+            }
+
+            return productList;
+        }
+
+        private List<CatalogueItem> ConvertPartsProducts(List<FeedDto> items)
+        {
+            var res = new List<CatalogueItem>();
+
+            foreach (var item in items) 
+            {
+                var type = ProductType.Accessory;
+
+                //if (item.Brand == "Haibike")
+                //    type = ProductType.EBike;
+                //else
+                //    type = ProductType.Bike;
+
+                var yr = 0;
+                int.TryParse(item.ModelYear, out yr);
+
+                var obj = new CatalogueItem
+                {
+                    MPN = item.ItemNumber,
+                    Barcode = item.EAN13,
+                    BoxQty = 1,
+                    ProductTitle = item.ShortDesc,
+                    ShortDescription = item.ShortDesc,
+                    Brand = item.Brand,
+                    Supplier = DataSupplier.Raleigh,
+                    GroupName = item.ShortDesc,
+                    Colour = ColorConverter.GetStandardColor(item.BasicColour),
+                    Size = SizeConverter.GetStandardSize(item.Size),
+                    Categorys = item.Group,
+                    Price = (double)item.ConsumerPriceDefault,
+                    SalePrice = 0,
+                    Cost = 0,
+                    Year = yr,
+                    ProductType = type,
+                    GenderOrAge = GenderOrAgeGroup.Unisex,
+                    GeometryJson = "",
+                    SpecificationsJson = "",
+                    SupplierDetailsUrl = string.Empty
+                };
+
+                // deal with long description
+                obj.LongDescription = BuildDescription(item);
+
+                // deal with images
+                var imgs = new List<string>();
+
+                if(!string.IsNullOrEmpty(item.ImageLink) && item.ImageLink != "-")
+                    imgs.Add(item.ImageLink);
+                if (!string.IsNullOrEmpty(item.ImageLink1) && item.ImageLink1 != "-")
+                    imgs.Add(item.ImageLink1);
+                if (!string.IsNullOrEmpty(item.ImageLink2) && item.ImageLink2 != "-")
+                    imgs.Add(item.ImageLink2);
+
+                obj.Images = string.Join(",", imgs);
+
+                res.Add(obj);
+            }
+
+            return res;
+        }
+
+        public List<FeedDto> ReadExcelToBikesList(string filePath)
+        {
+            // Ensure EPPlus license is set to non-commercial
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            var productList = new List<FeedDto>();
+
+            using (var package = new ExcelPackage(new FileInfo(filePath)))
+            {
+                var worksheet = package.Workbook.Worksheets[0]; // Assuming data is in the first sheet
+
+                // Get the total rows and columns in the sheet
+                int rows = worksheet.Dimension.Rows;
+                int columns = worksheet.Dimension.Columns;
+
+                // Start reading data from row 2 (assuming row 1 is headers)
+                for (int row = 3; row <= rows; row++)
+                {
+                    var product = new FeedDto
+                    {
+                        ItemNumber = worksheet.Cells[row, 1].Text,
+                        ShortDesc = worksheet.Cells[row, 2].Text,
+                        EAN13 = worksheet.Cells[row, 3].Text,
+                        Brand = worksheet.Cells[row, 4].Text,
+                        Size = worksheet.Cells[row, 5].Text,
+                        BasicColour = worksheet.Cells[row, 6].Text,
+                        ModelYear = worksheet.Cells[row, 7].Text,
+                        LongDesc = worksheet.Cells[row, 8].Text,
+                        USP1 = worksheet.Cells[row, 9].Text,
+                        USP2 = worksheet.Cells[row, 10].Text,
+                        USP3 = worksheet.Cells[row, 11].Text,
+                        USP4 = worksheet.Cells[row, 12].Text,
+                        USP5 = worksheet.Cells[row, 13].Text,
+                        USP6 = worksheet.Cells[row, 14].Text,
+                        USP7 = worksheet.Cells[row, 15].Text,
+                        USP8 = worksheet.Cells[row, 16].Text,
+                        //USP9 = worksheet.Cells[row, 17].Text,
+                        USP10 = worksheet.Cells[row, 17].Text,
+                        USP11 = worksheet.Cells[row, 18].Text,
+                        USP12 = worksheet.Cells[row, 19].Text,
+                        USP13 = worksheet.Cells[row, 20].Text,
+                        ImageLink = worksheet.Cells[row, 25].Text,
+                        ImageLink1 = worksheet.Cells[row, 26].Text,
+                        ImageLink2 = worksheet.Cells[row, 27].Text,
+                        ConsumerPriceDefault = decimal.TryParse(worksheet.Cells[row, 28].Text, out var price) ? price : 0,
+                        CountryOfOriginDescription = worksheet.Cells[row, 29].Text,
+                        IntrastatCode = worksheet.Cells[row, 30].Text
+                    };
+
+                    productList.Add(product);
+                }
+            }
+
+            return productList;
+        }
+
+        private List<CatalogueItem> ConvertBikeProducts(List<FeedDto> items)
+        {
+            var res = new List<CatalogueItem>();
+
+            foreach (var item in items)
+            {
+                var type = ProductType.Bike;
+
+                if (item.Brand == "Haibike")
+                    type = ProductType.EBike;
+                else
+                    type = ProductType.Bike;
+
+                var yr = 0;
+                int.TryParse(item.ModelYear, out yr);
+
+                var obj = new CatalogueItem
+                {
+                    MPN = item.ItemNumber,
+                    Barcode = item.EAN13,
+                    BoxQty = 1,
+                    ProductTitle = item.ShortDesc,
+                    ShortDescription = item.ShortDesc,
+                    Brand = item.Brand,
+                    Supplier = DataSupplier.Raleigh,
+                    GroupName = item.ShortDesc,
+                    Colour = ColorConverter.GetStandardColor(item.BasicColour),
+                    Size = SizeConverter.GetStandardSize(item.Size),
+                    Categorys = "",
+                    Price = (double)item.ConsumerPriceDefault,
+                    SalePrice = 0,
+                    Cost = 0,
+                    Year = yr,
+                    ProductType = type,
+                    GenderOrAge = GenderOrAgeGroup.None,
+                    GeometryJson = "",
+                    SpecificationsJson = "",
+                    SupplierDetailsUrl = string.Empty
+                };
+
+                // deal with long description
+                obj.LongDescription = BuildDescription(item);
+
+                // deal with images
+                var imgs = new List<string>();
+
+                if (!string.IsNullOrEmpty(item.ImageLink) && item.ImageLink != "-")
+                    imgs.Add(item.ImageLink);
+                if (!string.IsNullOrEmpty(item.ImageLink1) && item.ImageLink1 != "-")
+                    imgs.Add(item.ImageLink1);
+                if (!string.IsNullOrEmpty(item.ImageLink2) && item.ImageLink2 != "-")
+                    imgs.Add(item.ImageLink2);
+
+                obj.Images = string.Join(",", imgs);
+
+                res.Add(obj);
+            }
+
+            return res;
+        }
+
+        private string BuildDescription(FeedDto item)
+        {
+            var str = string.Empty;
+
+            str = $"<p>{item.LongDesc}</p>";
+
+            str += "<ul>";
+
+            if (!string.IsNullOrEmpty(item.USP1) || item.USP1 != "-")
+            {
+                str += $"<li>{item.USP1}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP2) || item.USP2 != "-")
+            {
+                str += $"<li>{item.USP2}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP1) || item.USP3 != "-")
+            {
+                str += $"<li>{item.USP3}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP4) || item.USP4 != "-")
+            {
+                str += $"<li>{item.USP4}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP5) || item.USP5 != "-")
+            {
+                str += $"<li>{item.USP5}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP6) || item.USP6 != "-")
+            {
+                str += $"<li>{item.USP6}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP7) || item.USP7 != "-")
+            {
+                str += $"<li>{item.USP7}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP8) || item.USP8 != "-")
+            {
+                str += $"<li>{item.USP8}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP9) || item.USP9 != "-")
+            {
+                str += $"<li>{item.USP9}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP10) || item.USP10 != "-")
+            {
+                str += $"<li>{item.USP10}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP11) || item.USP11 != "-")
+            {
+                str += $"<li>{item.USP11}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP12) || item.USP12 != "-")
+            {
+                str += $"<li>{item.USP12}</li>";
+            }
+            if (!string.IsNullOrEmpty(item.USP13) || item.USP13 != "-")
+            {
+                str += $"<li>{item.USP13}</li>";
+            }
+
+            str += "</ul>";
+
+            return str;
+        }
+    }
+}

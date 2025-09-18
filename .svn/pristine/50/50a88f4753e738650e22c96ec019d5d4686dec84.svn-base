@@ -1,0 +1,12 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SIM.Data;
+using SIM.DTOs;
+
+namespace SIM.Actions
+{
+    public interface ICatalogueToProductActions
+    {
+        Task<ActionResult> Exists(string mpn);
+        Task ProcessItems(List<ProductDto> items, DataSupplier supplier);
+    }
+}

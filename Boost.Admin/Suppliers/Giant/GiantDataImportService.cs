@@ -1,0 +1,616 @@
+﻿using Newtonsoft.Json;
+using Serilog;
+using Boost.Admin.Data;
+using Boost.Admin.Data.Models.Catalog;
+using Boost.Admin.DTOs;
+using System.Net;
+
+namespace SIM.Suppliers.Giant
+{
+    public class GiantDataImportService
+    {
+        private readonly Serilog.ILogger _logger;
+
+        public GiantDataImportService()
+        {
+            _logger = Log.ForContext<GiantDataImportService>();
+        }
+
+        #region Giant API Feed
+
+        // API Endpoint ::
+        // https://api2.giant-bicycles.com/swagger/ui/index
+
+        private const string LoginUsername = "peter@abacusonline.net";
+        private const string LoginPassword = "FDFD**#J@2788dfjkbsbn";
+        private const string BaseAddress = "https://api2.giant-bicycles.com";
+
+
+        /// <summary>
+        /// Gets all bikes from the API and returns CatalogueItems
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public async Task<List<CatalogueItem>> GetBikesFromApi(int year)
+        {
+            var lst = new List<CatalogueItem>();
+
+            _logger.Information($"getting giant bikes from api.");
+            var giant = await GetApiFeed(GiantProductType.Bike, year, GiantDivisionCode.Giant);
+            _logger.Information($"giant bikes found {giant.Products.Count}");
+
+            _logger.Information($"getting liv bikes from api.");
+            var liv = await GetApiFeed(GiantProductType.Bike, year, GiantDivisionCode.Liv);
+            _logger.Information($"liv bikes found {giant.Products.Count}");
+
+            _logger.Information($"getting cadex bikes from api.");
+            var cadex = await GetApiFeed(GiantProductType.Bike, year, GiantDivisionCode.Cadex);
+            _logger.Information($"cadex bikes found {giant.Products.Count}");
+
+            _logger.Information("starting conversions to db models");
+
+            _logger.Information("converting giant bikes");
+            var gb = ConvertProducts(giant.Products, year, GiantDivisionCode.Giant, ProductType.Bike);
+
+            _logger.Information("converting liv bikes");
+            var lb = ConvertProducts(liv.Products, year, GiantDivisionCode.Liv, ProductType.Bike);
+
+            _logger.Information("converting cadex bikes");
+            var cb = ConvertProducts(cadex.Products, year, GiantDivisionCode.Cadex, ProductType.Bike);
+
+            _logger.Information("conversions completed");
+
+            lst.AddRange(gb);
+            lst.AddRange(lb);
+            lst.AddRange(cb);
+
+            return lst;
+        }
+
+        public async Task<List<CatalogueItem>> GetGearFromApi()
+        {
+            var lst = new List<CatalogueItem>();
+
+            _logger.Information($"getting giant gear from api.");
+            var giant = await GetApiFeed(GiantProductType.Gear, 0, GiantDivisionCode.Giant);
+            _logger.Information($"giant gear found {giant.Products.Count}");
+
+            _logger.Information($"getting liv gear from api.");
+            var liv = await GetApiFeed(GiantProductType.Gear, 0, GiantDivisionCode.Liv);
+            _logger.Information($"liv gear found {liv.Products.Count}");
+
+            _logger.Information($"getting cadex gear from api.");
+            var cadex = await GetApiFeed(GiantProductType.Gear, 0, GiantDivisionCode.Cadex);
+            _logger.Information($"cadex gear found {cadex.Products.Count}");
+
+            _logger.Information("starting conversions to db models");
+
+            _logger.Information("converting giant bikes");
+            var gg = ConvertProducts(giant.Products, 0, GiantDivisionCode.Giant, ProductType.Accessory);
+
+            _logger.Information("converting liv bikes");
+            var lg = ConvertProducts(liv.Products, 0, GiantDivisionCode.Liv, ProductType.Accessory);
+
+            _logger.Information("converting cadex bikes");
+            var cg = ConvertProducts(cadex.Products, 0, GiantDivisionCode.Cadex, ProductType.Accessory);
+
+            _logger.Information("conversions completed");
+
+            lst.AddRange(gg);
+            lst.AddRange(lg);
+            lst.AddRange(cg);
+
+            return lst;
+        }
+
+        private async Task<GiantApiDto> GetApiFeed(GiantProductType productType, int year, GiantDivisionCode divisionCode)
+        {
+            var token = await ExchangeCredentialsForAccessTokenAsync();
+            var type = productType.ToString();
+            var div = divisionCode.ToString();
+
+            var productUrl = $"/api/Products?culture=en-gb&divisionCode={div}&productType={type}&shortResponseMode=false";
+
+            if (productType == GiantProductType.Bike && year != 0)
+                productUrl += $"&modelYear={year}";
+
+            var res = await ExecuteRequest(productUrl, token);
+         
+            var data = JsonConvert.DeserializeObject<GiantApiDto>(res);
+            return data;
+        }
+
+        private async Task<string> ExecuteRequest(string url, string accessToken)
+        {
+            using (HttpClient authorizedClient = new HttpClient())
+            {
+                authorizedClient.BaseAddress = new Uri(BaseAddress);
+                // Set the Authorization header with the obtained access token
+                authorizedClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
+
+                // Make an authorized request to a protected resource
+                HttpResponseMessage response = await authorizedClient.GetAsync(url);
+
+                // Check if the request was successful
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseData = await response.Content.ReadAsStringAsync();
+                    return responseData;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        private static async Task<string> ExchangeCredentialsForAccessTokenAsync()
+        {
+            string tokenEndpoint = BaseAddress + "/token";
+            using (HttpClient httpClient = new HttpClient())
+            {
+                // Prepare the request parameters
+                var tokenRequest = new FormUrlEncodedContent(new[]
+                {
+                new KeyValuePair<string, string>("grant_type", "password"),
+                new KeyValuePair<string, string>("username", LoginUsername),
+                new KeyValuePair<string, string>("password", LoginPassword),
+            });
+
+                // Make a POST request to the token endpoint
+                HttpResponseMessage tokenResponse = await httpClient.PostAsync(tokenEndpoint, tokenRequest);
+
+                // Check if the request was successful
+                if (tokenResponse.IsSuccessStatusCode)
+                {
+                    // Parse and return the access token from the response
+                    string responseContent = await tokenResponse.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Token Response: {responseContent}");
+
+                    // Here, you would typically parse the JSON response to get the access token
+                    // For simplicity, we'll assume the response is a JSON object with an "access_token" field
+                    // Replace this with the actual parsing logic based on your OAuth provider's response format
+
+                    // For example:
+                    var tokenData = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
+
+                    // Return the access token
+                    return tokenData["access_token"];
+                }
+                else
+                {
+                    Console.WriteLine($"Token Request Failed: {tokenResponse.StatusCode} - {tokenResponse.ReasonPhrase}");
+                    return null;
+                }
+            }
+        }
+        #endregion
+
+        private List<CatalogueItem> ConvertProducts(List<Product> items, int year,
+            GiantDivisionCode division, ProductType type)
+        {
+            var res = new List<CatalogueItem>();
+
+            switch (type)
+            {
+                case ProductType.Bike:
+                    var result = ConvertBikes(items, division, year);
+                    res.AddRange(result);
+                    break;
+                case ProductType.Accessory:  // gear
+                    var result1 = ConvertGear(items, division);
+                    res.AddRange(result1);
+                    break;
+            }
+
+            // get pricing
+            var prices = GetPrices();
+
+            foreach (var item in res)
+            {
+                var price = prices.Where(o => o.sku == item.MPN).FirstOrDefault();
+
+                if (price != null)
+                {
+                    item.Cost = price.cost;
+                    item.Price = price.rrp;
+                    item.VatRate = price.vat;
+                }
+            }
+
+            return res;
+        }
+
+        private List<CatalogueItem> ConvertBikes(List<Product> items, GiantDivisionCode division, int year)
+        {
+            var res = new List<CatalogueItem>();
+
+            foreach (var item in items)
+            {
+                var obj = ConvertGroup(item, division, year, false);
+
+                if (obj != null)
+                {
+                    res.AddRange(obj);
+                }
+            }
+
+            return res.ToList();
+        }
+
+        private List<CatalogueItem> ConvertGear(List<Product> items, GiantDivisionCode division)
+        {
+            var res = new List<CatalogueItem>();
+
+            foreach (var item in items)
+            {
+                var obj = ConvertGroup(item, division, 0, true);
+
+                if (obj != null)
+                {
+                    res.AddRange(obj);
+                }
+            }
+
+            return res.DistinctBy(o => o.MPN).ToList();
+        }
+
+        private List<CatalogueItem> ConvertGroup(Product item, GiantDivisionCode division, int year, bool gear)
+        {
+            var res = new List<CatalogueItem>();
+
+            GenderOrAgeGroup gender = GenderOrAgeGroup.None;
+            ProductType type = ProductType.Unknown;
+
+            switch (division)
+            {
+                case GiantDivisionCode.Giant:
+                    gender = GenderOrAgeGroup.Men;
+
+                    if (gear)
+                        type = ProductType.Accessory;
+                    else
+                    {
+                        if (item.Categories.Contains("Electric Bikes"))
+                        { 
+                            type = ProductType.EBike;
+                        }
+                        else
+                            type = ProductType.Bike; 
+                    }
+
+                    break;
+                case GiantDivisionCode.Liv:
+                    gender = GenderOrAgeGroup.Women;
+                    if (gear)
+                        type = ProductType.Accessory;
+                    else
+                        type = ProductType.Bike;
+                    break;
+                case GiantDivisionCode.Cadex:
+                    if (gear)
+                        type = ProductType.Accessory;
+                    else
+                        type = ProductType.Frame;
+                    break;
+            }
+
+            foreach (var sku in item.Skus)
+            {
+                var spec = new SpecDto();
+                var geo = new List<KeyValueDto>();
+
+                if (sku.Frame != null)
+                {
+                    geo = BuildGeo(sku.Frame);
+                }
+
+                if (item.ProductAttributes != null)
+                {
+                    if (!gear)
+                        spec = BuildSpecs(item.ProductAttributes);
+                    else
+                        spec = BuildSpec(item.Specifications, item.SpecificationsObject);
+                }
+
+                var specJson = string.Empty;
+                var geoJson = string.Empty;
+
+                if (geo.Count > 0)
+                    geoJson = JsonConvert.SerializeObject(geo);
+
+                if (spec.Specs.Count > 0)
+                    specJson = JsonConvert.SerializeObject(spec);
+
+
+                var title = string.Empty;
+
+                if (!gear)
+                {
+                    if (year == 2024 || year == 2023 || year == 2025 || year == 2026)
+                        title = item.MetaTitle.Replace("| Women  bike", "").Replace("|   bike", "");
+                    else
+                        title = item.MetaTitle;
+
+                    if (title.Contains("Frameset"))
+                        type = ProductType.Frame;
+                }
+                else
+                {
+                    title = item.Name;
+                }
+
+                var color = string.Empty;
+                if (string.IsNullOrEmpty(sku.Color))
+                {
+                    if (item.Colors != null && item.Colors.Length > 0)
+                    {
+                        color = ColorConverter.GetStandardMultiColor(item.Colors);
+                    }
+                }
+                else
+                    color = ColorConverter.GetStandardColor(sku.Color);
+
+                var obj = new CatalogueItem
+                {
+                    Barcode = sku.Barcode,
+                    Colour = color,
+                    Size = SizeConverter.GetStandardSize(sku.Size),
+                    BoxQty = 1,
+                    Brand = division.ToString(),
+                    Categorys = string.Join(",", item.Categories),
+                    ProductTitle = title,
+                    ShortDescription = string.IsNullOrEmpty(item.MetaDescription) ? "" : item.MetaDescription,
+                    GroupName = item.Name,
+                    GeometryJson = geoJson,
+                    SpecificationsJson = specJson,
+                    GenderOrAge = gender,
+                    Supplier = DataSupplier.Giant,
+                    MPN = sku.Id,
+                    ProductType = type,
+                    Year = year
+                };
+
+                // deal with long description
+                obj.LongDescription = BuildDescription(item);
+
+                // deal with images
+                obj.Images = BuildImages(sku.Id, item);
+
+                res.Add(obj);
+            }
+
+            return res;
+        }
+
+        private string BuildDescription(Product product)
+        {
+            var str = string.Empty;
+
+            // main text
+            str = product.BikeSeriesDescription;
+
+            var html = string.Empty;
+
+            // features
+            if (product.Features.Length > 0)
+            {
+                html = $"<div id=\"features\" style=\"padding-top:30px;\">";
+                html += "<ul>";
+                foreach (var feature in product.Features)
+                {
+                    html += $"<li>{feature}</li>";
+                }
+                html += "</ul>";
+                html += $"</div>";
+            }
+
+            // KeyPerformanceFactors
+            if (product.KeyPerformanceFactors != null)
+            {
+                html = $"<div id=\"performace-factors\" style=\"padding-top:30px;\">";
+                html += "<h3>Key Performance Factors</h3>";
+
+                foreach (var factor in product.KeyPerformanceFactors)
+                {
+                    html += $"<h4>{factor.Title}</h4>";
+                    html += $"<p>{factor.Text}</p>";
+                }
+                html += $"</div>";
+            }
+
+            // Technologies
+            if (product.Technologies != null)
+            {
+                html += $"<div id=\"technologies\" style=\"padding-top:30px;\">";
+                html += "<h3>Technologies</h3>";
+
+                foreach (var tech in product.Technologies)
+                {
+                    html += $"<h4>{tech.Name}</h4>";
+                    html += $"<p>{tech.Description}</p>";
+                }
+                html += $"</div>";
+            }
+
+            str += html;
+
+            return str;
+        }
+
+        private string BuildImages(string sku, Product product)
+        {
+            var str = string.Empty;
+
+            var images = product.Images.Where(o => o.SkuId == sku).Select(o => o.Path.OriginalString).ToList();
+            var all = product.Images.Where(o => o.SkuId == null).Select(o => o.Path.OriginalString).ToList();
+
+            if (images != null && images.Count > 0)
+                str = string.Join(",", images);
+
+            if (all != null && all.Count > 0)
+            {
+                if (string.IsNullOrEmpty(str))
+                    str = string.Join(",", all);
+                else
+                    str += "," + string.Join(",", all);
+            }
+
+            return str;
+        }
+
+        private List<PriceData> GetPrices()
+        {
+            var list = new List<PriceData>();
+            using (WebClient wc = new())
+            {
+                if (!Directory.Exists("_temp"))
+                {
+                    Directory.CreateDirectory("_temp");
+                }
+
+                // download and save to local file  
+                wc.DownloadFile("https://cdn.abacusonline.net/SUPPLIER-DATA/GIANT/feed.csv", "_temp\\giant-feed.csv");
+
+                var arr = File.ReadAllLines("_temp\\giant-feed.csv");
+
+                for (int i = 1; i < arr.Length; i++)
+                {
+                    var line = arr[i].Split(";");
+
+                    var sku = line[0].Replace("\"", "");
+                    var rrp = Convert.ToDouble(line[7].Replace(",", "."));
+                    var vat = Convert.ToDouble(line[8].Replace(",", "."));
+                    var cost = Convert.ToDouble(line[21].Replace(",", "."));
+
+                    list.Add(new PriceData(sku, rrp, cost, vat));
+                }
+            }
+
+            return list;
+        }
+
+        private SpecDto BuildSpecs(ProductAttribute[] attributes)
+        {
+            var res = new SpecDto();
+            var specs = new List<KeyValueDto>();
+
+            if (attributes != null)
+            {
+                foreach (var attr in attributes)
+                {
+                    var obj = new KeyValueDto { Title = attr.Label, Value = attr.Value };
+                    specs.Add(obj);
+                }
+
+                res.Specs = specs;
+            }
+
+            return res;
+        }
+
+        private SpecDto BuildSpec(string specification, SpecificationsObject specificationsObject)
+        {
+            var res = new SpecDto();
+            var specs = new List<KeyValueDto>();
+
+            res.Text = specification;
+
+            if (specificationsObject.SpecificationRows != null)
+            {
+                foreach (var row in specificationsObject.SpecificationRows)
+                {
+                    var title = string.Empty;
+
+                    if (row.SpecificationKey == null)
+                        title = row.RowId.ToString();
+                    else
+                        title = row.SpecificationKey;
+
+                    var obj = new KeyValueDto { Title = title, Value = row.SpecificationValue };
+                    specs.Add(obj);
+                }
+
+                res.Specs = specs;
+            }
+
+            return res;
+        }
+
+        private List<KeyValueDto> BuildGeo(Frame frame)
+        {
+            var res = new List<KeyValueDto>();
+
+            res.Add(new KeyValueDto { Title = "Size", Value = frame.SizeName });
+            res.Add(new KeyValueDto { Title = "Seat Tube Length", Value = frame.SeatTubeLength.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Seat Tube Angle", Value = frame.SeatTubeAngle.ToString() });
+
+            if (frame.SeatTubeAngleMid != 0)
+                res.Add(new KeyValueDto { Title = "Seat Tube Angle (Mid)", Value = frame.SeatTubeAngleMid.ToString() });
+            if (frame.SeatTubeAngleHigh != 0)
+                res.Add(new KeyValueDto { Title = "Seat Tube Angle (High)", Value = frame.SeatTubeAngleHigh.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Top Tube Length", Value = frame.TopTubeLength.ToString() });
+
+            if (frame.TopTubeLengthMid != 0)
+                res.Add(new KeyValueDto { Title = "Top Tube Length (Mid)", Value = frame.TopTubeLengthMid.ToString() });
+
+            if (frame.TopTubeLengthHigh != 0)
+                res.Add(new KeyValueDto { Title = "Top Tube Length (High)", Value = frame.TopTubeLengthHigh.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Head Tube Length", Value = frame.HeadTubeLength.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Head Tube Angle", Value = frame.HeadTubeAngle.ToString() });
+
+            if (frame.HeadTubeAngleMid != 0)
+                res.Add(new KeyValueDto { Title = "Head Tube Angle (Mid)", Value = frame.HeadTubeAngleMid.ToString() });
+            if (frame.HeadTubeAngleMid != 0)
+                res.Add(new KeyValueDto { Title = "Head Tube Angle (High)", Value = frame.HeadTubeAngleHigh.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Fork Rake", Value = frame.ForkRake.ToString() });
+            res.Add(new KeyValueDto { Title = "Trail", Value = frame.Trail.ToString() });
+            if (frame.TrailMid != 0)
+                res.Add(new KeyValueDto { Title = "Trail (Mid)", Value = frame.TrailMid.ToString() });
+            if (frame.TrailHigh != 0)
+                res.Add(new KeyValueDto { Title = "Trail (High)", Value = frame.TrailHigh.ToString() });
+
+            if (frame.WheelSizeAlt != null)
+                res.Add(new KeyValueDto { Title = "Wheel Size Alt", Value = frame.WheelSizeAlt.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Wheel Base", Value = frame.WheelBase.ToString() });
+            if (frame.WheelBaseMid != 0)
+                res.Add(new KeyValueDto { Title = "Wheel Base (Mid)", Value = frame.WheelBaseMid.ToString() });
+            if (frame.WheelBaseMid != 0)
+                res.Add(new KeyValueDto { Title = "Wheel Base (High)", Value = frame.WheelBaseHigh.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Chain Stay Length", Value = frame.ChainStayLength.ToString() });
+
+            if (frame.ChainStayLengthMid != 0)
+                res.Add(new KeyValueDto { Title = "Chain Stay Length (Mid)", Value = frame.ChainStayLengthMid.ToString() });
+            if (frame.ChainStayLengthHigh != 0)
+                res.Add(new KeyValueDto { Title = "Chain Stay Length (High)", Value = frame.ChainStayLengthHigh.ToString() });
+
+            res.Add(new KeyValueDto { Title = "Bottom Bracket Drop", Value = frame.BottomBracketDrop.ToString() });
+            res.Add(new KeyValueDto { Title = "Stack", Value = frame.Stack.ToString() });
+            res.Add(new KeyValueDto { Title = "Reach", Value = frame.Reach.ToString() });
+            res.Add(new KeyValueDto { Title = "Stand Over Height", Value = frame.StandOverHeight.ToString() });
+            if (frame.StandOverHeightMid != 0)
+                res.Add(new KeyValueDto { Title = "Stand Over Height (Mid)", Value = frame.StandOverHeightMid.ToString() });
+            if (frame.StandOverHeightHigh != 0)
+                res.Add(new KeyValueDto { Title = "Stand Over Height (High)", Value = frame.StandOverHeightHigh.ToString() });
+
+            res.Add(new KeyValueDto { Title = "HandlebarWidth", Value = frame.HandlebarWidth.ToString() });
+            res.Add(new KeyValueDto { Title = "StemLength", Value = frame.StemLength.ToString() });
+            res.Add(new KeyValueDto { Title = "CrankLength", Value = frame.CrankLength.ToString() });
+            res.Add(new KeyValueDto { Title = "CrankLengthDec", Value = frame.CrankLengthDec.ToString() });
+            res.Add(new KeyValueDto { Title = "WheelSizeAlt", Value = frame.WheelSizeAlt });
+            res.Add(new KeyValueDto { Title = "SizeStart", Value = frame.SizeStart.ToString() });
+            res.Add(new KeyValueDto { Title = "SizeEnd", Value = frame.SizeEnd.ToString() });
+            res.Add(new KeyValueDto { Title = "Image", Value = frame.Image });
+
+            return res;
+        }
+
+        private record PriceData(string sku, double rrp, double cost, double vat);
+    }
+}

@@ -1,0 +1,77 @@
+using Boost.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Serilog;
+using SIM.Configuration;
+using SIM.Data;
+using SIM.Logic;
+using System.Text.Json.Serialization;
+
+namespace SIM
+{
+    public class Program
+    {
+        private static IConfiguration Config { get; set; }
+        
+        public static void Main(string[] args)
+        {
+            var config = new ConfigurationBuilder()
+              .AddJsonFile(@"appsettings.json", optional: false)
+              .Build();
+
+            Config = config;
+
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(config)
+                 .CreateLogger();
+
+            var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddLogging(logging =>
+            {
+                logging.AddSerilog(dispose: true);
+            });
+
+            builder.Services.AddDbContext<SimDbContext>(options =>
+              options.UseSqlServer(Config.GetConnectionString(name: @"DefaultConnection")));
+
+            builder.Services.AddDbContext<BoostDbContext>(options =>
+                options.UseSqlServer(Config.GetConnectionString(name: @"BoostConnection")));
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+                options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<SimDbContext>();
+
+            // Add services to the container.
+            builder.Services.AddControllers().AddJsonOptions(options => 
+            { 
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); 
+            });
+
+            builder.Services.AddAutoMapper(typeof(AutoMapperProfile),typeof(SIMAPI.Configuration.AutoMapperProfile));
+            builder.Services.AddScoped<ICatalogueLogic, CatalogueLogic>();
+            builder.Services.AddScoped<IImportLogic,ImportLogic>();
+
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
+            //if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.MapControllers();
+            app.Run();
+        }
+    }
+}

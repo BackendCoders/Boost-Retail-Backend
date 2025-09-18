@@ -1,0 +1,288 @@
+﻿using AbacusOnline.SIM.Specialized;
+using Serilog;
+using System.Net;
+
+namespace SIM.Suppliers.Specialized
+{
+    public class SpecializedDataImportService
+    {
+        private readonly Serilog.ILogger _logger;
+
+        public const string BikesFeed = "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getSuperSectionSections&superSectionId=ConceptUKBikes";
+        public const string EquiptmentFeed = "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getSuperSectionSections&superSectionId=ConceptUKEquipment";
+        public const string ApparelFeed = "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getSuperSectionSections&superSectionId=ConceptUKApparelAll";
+
+        public static string SectionIdData(string sectionId)
+        { return "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getSectionProducts&sectionId=" + sectionId; }
+        public static string SpecializedProductIdData(string productId, string year)
+        { return "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getProductItems&productId=" + productId + "&modelYear=" + year; }
+        public static string SpecializedBikeFeaturesData(string productId)
+        { return "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getProductBullets&productId=" + productId; }
+        public static string SpecializedBikeTechSpecsData(string productId)
+        { return "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getProductSpecs&productId=" + productId; }
+        public static string SpecializedBikeGeometryData(string productId)
+        { return "http://ibd.specialized.com/SBC/xml/SBCXMLFeed.jsp?feedType=getProductGeos&productId=" + productId; }
+
+        public static string SpecializedImageUrl(string id)
+        { return "http://s7d5.scene7.com/is/image/Specialized/" + id + "?$Display$"; }
+        public static string SpecializedImageUrlHighDef(string id)
+        { return "http://s7d5.scene7.com/is/image/Specialized/" + id; }
+
+
+        // Bikes List
+        public List<Family> Bikes { get; set; }
+
+        // Accessories List
+        public List<Family> Equipments { get; set; }
+
+        // Apparells List
+        public List<Family> Apparels { get; set; }
+
+        public SpecializedDataImportService()
+        {
+            _logger = Log.ForContext<SpecializedDataImportService>();
+
+            Bikes = new List<Family>();
+            Equipments = new List<Family>();
+            Apparels = new List<Family>();
+        }
+
+        public async Task GetBikes()
+        {
+            _logger.Information("Starting Specialized Bikes Data Download.");
+            var bikesSectionsData = Helper.ReadFileFromUrl(BikesFeed);
+
+            _logger.Information("Converting feed to Stream.");
+            var stream = Helper.GenerateStreamFromString(bikesSectionsData);
+
+            // get product familys
+            _logger.Information("Starting Specialized Bike Familys Data Download.");
+            var sections = SECTION.Read(stream);
+
+            // store for our product familys
+            var familys = new List<Family>();
+
+            _logger.Information("Converting Specialized Sections to Familys.");
+            foreach (var section in sections)
+            {
+                familys.Add(new Family
+                {
+                    SectionName = section.DisplayName,
+                    DisplayText = section.DisplayText,
+                    SectionId = section.SectionId
+                });
+            }
+            var tasks = new List<Task>();
+            // get list of product ranges for each family
+            _logger.Information("Launching " + familys.Count + " Tasks() Async");
+            for (int i = 0; i < familys.Count; i++) //86
+            //for (int i = 79; i < familys.Count; i++) //86
+            {
+                var family = familys[i];
+                tasks.Add(ProcessFamily(family, FamilyType.Bikes));
+            }
+            await Task.WhenAll(tasks.ToArray());
+        }
+
+        public async Task GetApparell()
+        {
+            _logger.Information("Starting Specialized Apparell Data Download.");
+            var apparel = Helper.ReadFileFromUrl(ApparelFeed);
+
+            _logger.Information("Converting feed to Stream.");
+            var stream = Helper.GenerateStreamFromString(apparel);
+
+            // get product familys
+            _logger.Information("Starting Specialized Apparel Familys Data Download.");
+            var sections = SECTION.Read(stream);
+
+            // store for our product familys
+            var familys = new List<Family>();
+
+            _logger.Information("Converting Specialized Sections to Familys.");
+            foreach (var section in sections)
+            {
+                familys.Add(new Family
+                {
+                    SectionName = section.DisplayName,
+                    DisplayText = section.DisplayText,
+                    SectionId = section.SectionId
+                });
+            }
+
+            var tasks = new List<Task>();
+            // get list of product ranges for each family
+            _logger.Information("Launching " + familys.Count + " Tasks() Async");
+            for (int i = 0; i < familys.Count; i++) //133
+            {
+                var family = familys[i];
+                tasks.Add(ProcessFamily(family, FamilyType.Apparel));
+            }
+            await Task.WhenAll(tasks.ToArray());
+        }
+
+        public async Task GetEquiptment()
+        {
+            _logger.Information("Starting Specialized Equiptment Data Download.");
+            var equiptment = Helper.ReadFileFromUrl(EquiptmentFeed);
+
+            _logger.Information("Converting feed to Stream.");
+            var stream = Helper.GenerateStreamFromString(equiptment);
+
+            // get product familys
+            _logger.Information("Starting Specialized Equiptment Familys Data Download.");
+            var sections = SECTION.Read(stream);
+
+            // store for our product familys
+            var familys = new List<Family>();
+
+            //Logger.Info("Converting Specialized Sections to Familys.");
+            foreach (var section in sections)
+            {
+                familys.Add(new Family
+                {
+                    SectionName = section.DisplayName,
+                    DisplayText = section.DisplayText,
+                    SectionId = section.SectionId
+                });
+            }
+
+            var tasks = new List<Task>();
+            // get list of product ranges for each family
+            _logger.Information("Launching " + familys.Count + " Tasks() Async");
+            for (int i = 0; i < familys.Count; i++) //235
+            //for (int i = 199; i < familys.Count; i++)
+            {
+                var family = familys[i];
+                tasks.Add(ProcessFamily(family, FamilyType.Equiptment));
+            }
+
+            await Task.WhenAll(tasks.ToArray());
+        }
+
+        private async Task ProcessFamily(Family family, FamilyType familyType)
+        {
+            var txt = familyType == FamilyType.Bikes ? "Bike" : familyType == FamilyType.Apparel ? "Apparel" : "Equiptment";
+            await Task.Run(() =>
+            {
+                Console.WriteLine(@"Starting Specialized " + txt + @" Ranges Data Download for Family " + family.SectionName);// + " [" + i + 1 + " of " + familys.Count + "]");
+                var rangeData = Helper.ReadFileFromUrl(SectionIdData(family.SectionId));
+                //Logger.Info("Converting feed to Stream.");
+                var rangeStream = Helper.GenerateStreamFromString(rangeData);
+
+                var ranges = PRODUCT.Read(rangeStream);
+                family.Ranges.AddRange(ranges);
+
+                // we only want 2019
+                family.Ranges.RemoveAll(o => o.ModelYear != "2024");
+
+                for (int i = 0; i < family.Ranges.Count; i++)
+                {
+                    var range = family.Ranges[i];
+                    // get individual product items in this range
+                    var products = new List<ITEM>();
+                    try
+                    {
+                        Console.WriteLine(@"Starting Specialized Product Items Download for Range " + range.DisplayName + @" in family : " + family.DisplayText + "\r\nSectionId : " + family.SectionId + "\r\nSection Name : " + family.SectionName);
+                        var itemData =
+                            Helper.ReadFileFromUrl(SpecializedProductIdData(range.ProductId, range.ModelYear));
+                        // Logger.Info("Converting feed to Stream.");
+                        var itemStream = Helper.GenerateStreamFromString(itemData);
+                        products = ITEM.Read(itemStream);
+                    }
+                    catch (WebException ex)
+                    {
+                        _logger.Error("Error Processing Specialized Range " + range.DisplayName + "\r\nProductId = " + range.ProductId + "\r\nModelYear = " + range.ModelYear);
+                        _logger.Error("Error Processign Specialized Range", ex, true);
+                        continue;
+                    }
+
+                    foreach (var product in products)
+                    {
+                        // get image urls
+                        product.ImageUrl = SpecializedImageUrl(product.ImageId);
+                        product.ImageHighDefUrl = SpecializedImageUrlHighDef(product.ImageId);
+
+                        // get bullet points
+                        try
+                        {
+                            List<FEATURE> bullets;
+                            Console.WriteLine(@"Starting Specialized Product Features/Bullet Points Data Download for " +
+                                        product.ItemDescription);
+                            var featureData =
+                                Helper.ReadFileFromUrl(SpecializedBikeFeaturesData(product.ProductId));
+
+                            product.FeaturesXml = string.IsNullOrEmpty(featureData) ? string.Empty : featureData;
+                        }
+                        catch (WebException ex)
+                        {
+                            _logger.Error("Error downloading features data.", ex);
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.Error("Unknown Error downloading features data.", ex);
+                        }
+
+                        if (familyType.Equals(FamilyType.Bikes))
+                        {
+                            // get specs
+                            try
+                            {
+                                List<SPECIFICATION> specs;
+                                Console.WriteLine(@"Starting Specialized Product Specifications Data Download for " +
+                                            product.ItemDescription);
+                                var specificationData =
+                                    Helper.ReadFileFromUrl(SpecializedBikeTechSpecsData(product.ProductId));
+
+                                product.SpecificationXml = string.IsNullOrEmpty(specificationData) ? string.Empty : specificationData;
+                            }
+                            catch (WebException ex)
+                            {
+                                _logger.Error("Error downloading specifications data.", ex);
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.Error("Unknown Error downloading specifications data.", ex);
+                            }
+
+                            // get geos
+                            try
+                            {
+                                List<GEO> geo;
+                                Console.WriteLine(@"Starting Specialized Product Geometry Data Download for" +
+                                            product.ItemDescription);
+                                var geometryData =
+                                    Helper.ReadFileFromUrl(SpecializedBikeGeometryData(product.ProductId));
+
+                                var geoStream = Helper.GenerateStreamFromString(geometryData);
+                                geo = GEO.Read(geoStream);
+                                product.Geometry = geo;
+                            }
+                            catch (WebException ex)
+                            {
+                                _logger.Error("Error downloading geometry data.", ex);
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.Error("Unkwown Error downloading geometry data.", ex);
+                            }
+                        }
+
+                    }
+
+                    // add the individual items to our range
+                    range.ProductItems.AddRange(products);
+                    Console.WriteLine(@"***** RANGE [" + range.DisplayName + @"] COMPLETED *****");
+                    Console.WriteLine(@"***** TOTAL [" + family.GetTotalProducts() + @"] PRODUCTS *****");
+                    Console.WriteLine(@"***** COMPLETED RANGE [" + (i + 1) + @" OF " + family.Ranges.Count + @"] *****");
+                }
+
+                Console.WriteLine(@"======= COMPLETED FAMILY [" + family.SectionName + @"] ========");
+
+                if (family.Ranges.Count > 0)
+                    Bikes.Add(family);
+                Console.WriteLine("FAMILYS DONE : " + Bikes.Count);
+            });
+        }
+    }
+}

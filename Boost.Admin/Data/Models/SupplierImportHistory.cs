@@ -1,0 +1,23 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Boost.Admin.Data.Models
+{
+    public class SupplierImportHistory
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        public DataSupplier Supplier { get; set; }
+
+        [Required]
+        public string SupplierName { get; set; }
+
+        public DateTime ImportedOn { get; set; }
+
+        [Required]
+        public int ProductCount { get; set; }
+    }
+}

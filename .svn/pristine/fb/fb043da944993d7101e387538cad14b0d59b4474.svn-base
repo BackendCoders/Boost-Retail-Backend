@@ -1,0 +1,104 @@
+﻿using Boost.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SIM.Configuration;
+using SIM.Data;
+using SIM.Logic;
+
+namespace SIMWORKER
+{
+    internal class Program
+    {
+        private static IConfiguration Config { get; set; }
+
+        static void Main(string[] args)
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile(@"appsettings.json",optional: false)
+                .Build();
+
+            Config = config;
+
+            var host = Host.CreateDefaultBuilder()
+           .ConfigureServices((context,services) =>
+           {
+               services.AddDbContext<SimDbContext>(options =>
+                   options.UseSqlServer(Config.GetConnectionString(name: @"DefaultConnection")));
+
+               services.AddDbContext<BoostDbContext>(options =>
+                   options.UseSqlServer(Config.GetConnectionString(name: @"BoostConnection")));
+
+               services.AddAutoMapper(typeof(AutoMapperProfile));
+               services.AddScoped<ICatalogueLogic,CatalogueLogic>();
+               services.AddScoped<IImportLogic,ImportLogic>();
+               services.AddScoped<ProcessCatalogueToProducts, ProcessCatalogueToProducts>();
+
+           }).Build();
+
+            var ai = new AI();
+            var category = ai.GetCategory("Can you tell me the categorys 'Category A','Category B','Category C' this bicycle would come under,the model name is Trinity Advanced Pro 1. Do not return any other text except the category").GetAwaiter().GetResult();
+
+            ProcessGiant(host.Services).GetAwaiter().GetResult();
+        }
+
+
+        static async Task ProcessGiant(IServiceProvider services)
+        {
+            //var d = new SIM.Suppliers.Specialized.SpecializedDataImportService();
+            //await d.GetBikes();
+
+            using var scope = services.CreateScope();
+            var catService = scope.ServiceProvider
+                .GetRequiredService<ICatalogueLogic>();
+
+            var cat2prod = scope.ServiceProvider
+                .GetRequiredService<ProcessCatalogueToProducts>();
+
+            var prod = scope.ServiceProvider
+                .GetRequiredService<IImportLogic>();
+
+            //await prod.ImportBaseCategoriesFromCSV();
+
+            //await prod.ImportCategoryMapsFromCSV();
+
+            // GIANT
+            Console.WriteLine("GIANT");
+            var products = await catService.GetProductsBySupplierAndType(DataSupplier.Giant,ProductType.Bike);
+            products.AddRange(await catService.GetProductsBySupplierAndType(DataSupplier.Giant,ProductType.EBike));
+
+            await cat2prod.ProcessItems(products,DataSupplier.Giant);
+
+            // TREK
+            Console.WriteLine("TREK");
+            var products1 = await catService.GetProductsBySupplierAndType(DataSupplier.Trek, ProductType.Bike);
+            products1.AddRange(await catService.GetProductsBySupplierAndType(DataSupplier.Trek, ProductType.EBike));
+
+            await cat2prod.ProcessItems(products1, DataSupplier.Trek);
+
+            // CUBE
+            Console.WriteLine("CUBE");
+            var products2 = await catService.GetProductsBySupplierAndType(DataSupplier.Cube, ProductType.Bike);
+            products2.AddRange(await catService.GetProductsBySupplierAndType(DataSupplier.Cube, ProductType.EBike));
+
+            await cat2prod.ProcessItems(products2, DataSupplier.Cube);
+
+            // WHYTE
+            Console.WriteLine("WHYTE");
+            var products3 = await catService.GetProductsBySupplierAndType(DataSupplier.Whyte, ProductType.Bike);
+            products3.AddRange(await catService.GetProductsBySupplierAndType(DataSupplier.Whyte, ProductType.EBike));
+
+            await cat2prod.ProcessItems(products3, DataSupplier.Whyte);
+
+            // RALEIGH
+            Console.WriteLine("RALEIGH");
+            var products4 = await catService.GetProductsBySupplierAndType(DataSupplier.Raleigh, ProductType.Bike);
+            products4.AddRange(await catService.GetProductsBySupplierAndType(DataSupplier.Raleigh, ProductType.EBike));
+
+            await cat2prod.ProcessItems(products4, DataSupplier.Raleigh);
+        }
+
+
+    }
+}

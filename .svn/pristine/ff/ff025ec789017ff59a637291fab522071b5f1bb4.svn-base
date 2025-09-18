@@ -1,0 +1,94 @@
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using SIM.Data.Models;
+using SIM.Data.Models.Catalog;
+
+namespace SIM.Data
+{
+    public class SimDbContext : IdentityDbContext
+    {
+        private readonly IConfiguration _config;
+
+        public virtual DbSet<CatalogueItem> CatalogueItems { get; set; }
+        public virtual DbSet<SupplierImportHistory> SupplierImportHistories { get; set; }
+        public virtual DbSet<Colour> Colours { get; set; }
+        public virtual DbSet<Size> Sizes { get; set; }
+        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<VatRate> VatRates { get; set; }
+        public virtual DbSet<Specification> Specifications { get; set; }
+        public virtual DbSet<Geometry> Geometrys { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<ShortDescription> ShortDescriptions { get; set; }
+        public virtual DbSet<LongDescription> LongDescriptions { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+
+
+        public SimDbContext(DbContextOptions<SimDbContext> options,
+            IConfiguration configuration) : base(options)
+        {
+            _config = configuration;
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Geometry>()
+            //.Property(o => o.Geo)
+            //.HasColumnType("nvarchar(max)")
+            //.IsRequired();
+
+            //modelBuilder.Entity<Specification>()
+            //.Property(o => o.Spec)
+            //.HasColumnType("nvarchar(max)")
+            //.IsRequired();
+
+
+            modelBuilder.Entity<Supplier>()
+            .Property(e => e.Id)
+            .UseIdentityColumn(1, 1); // Start at 1, increment by 1
+
+            // Self-referencing relationship for category hierarchy
+            modelBuilder.Entity<Category>()
+                .HasOne(c => c.Parent)
+                .WithMany(c => c.SubCategories)
+                .HasForeignKey(c => c.ParentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // One-to-Many: A product belongs to a category
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category1)
+                .WithMany(c => c.Cat1Products) // Different collection for each relationship
+                .HasForeignKey(p => p.Category1Id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category2)
+                .WithMany(c => c.Cat2Products)
+                .HasForeignKey(p => p.Category2Id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category3)
+                .WithMany(c => c.Cat3Products)
+                .HasForeignKey(p => p.Category3Id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
+            }
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
+    }
+}

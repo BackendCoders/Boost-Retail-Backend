@@ -1,0 +1,62 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace SIM.Migrations
+{
+    /// <inheritdoc />
+    public partial class initial : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "CatalogueItems",
+                columns: table => new
+                {
+                    MPN = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProductTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Supplier = table.Column<int>(type: "int", nullable: false),
+                    ProductType = table.Column<int>(type: "int", nullable: false),
+                    GenderOrAge = table.Column<int>(type: "int", nullable: true),
+                    Colour = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Images = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VideoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SupplierDetailsUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LongDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BoxQty = table.Column<int>(type: "int", nullable: false),
+                    Cost = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: true),
+                    Price = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: false),
+                    SalePrice = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: false),
+                    VatRate = table.Column<double>(type: "float(18)", precision: 18, scale: 2, nullable: true),
+                    GoogleCategoryId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Categorys = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GeometryJson = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SpecificationsJson = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Year = table.Column<int>(type: "int", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CatalogueItems", x => x.MPN);
+                });
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "CatalogueItems");
+        }
+    }
+}

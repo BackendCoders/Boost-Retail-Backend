@@ -1,0 +1,24 @@
+F:\BOOST RETAIL\Boost.Shared\bin\Release\net8.0\Boost.Shared.deps.json
+F:\BOOST RETAIL\Boost.Shared\bin\Release\net8.0\Boost.Shared.dll
+F:\BOOST RETAIL\Boost.Shared\bin\Release\net8.0\Boost.Shared.pdb
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.csproj.AssemblyReference.cache
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.GeneratedMSBuildEditorConfig.editorconfig
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.AssemblyInfoInputs.cache
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.AssemblyInfo.cs
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.csproj.CoreCompileInputs.cache
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.dll
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\refint\Boost.Shared.dll
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.pdb
+F:\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\ref\Boost.Shared.dll
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\bin\Release\net8.0\Boost.Shared.deps.json
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\bin\Release\net8.0\Boost.Shared.dll
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\bin\Release\net8.0\Boost.Shared.pdb
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.csproj.AssemblyReference.cache
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.AssemblyInfoInputs.cache
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.AssemblyInfo.cs
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.csproj.CoreCompileInputs.cache
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.dll
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\refint\Boost.Shared.dll
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\Boost.Shared.pdb
+D:\Ashwani\BOOST RETAIL\BOOST RETAIL\Boost.Shared\obj\Release\net8.0\ref\Boost.Shared.dll

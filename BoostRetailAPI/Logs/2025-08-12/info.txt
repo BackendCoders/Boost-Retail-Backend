@@ -1,0 +1,8 @@
+2025-08-12 15:30:56.552 +01:00 [INF] Task scheduler started.
+2025-08-12 15:32:10.612 +01:00 [INF] Task scheduler started.
+2025-08-12 15:33:42.940 +01:00 [INF] Task scheduler started.
+2025-08-12 15:34:44.888 +01:00 [INF] Task scheduler started.
+2025-08-12 15:52:40.790 +01:00 [INF] Task scheduler started.
+2025-08-12 16:03:35.064 +01:00 [INF] Task scheduler started.
+2025-08-12 17:02:51.828 +01:00 [INF] Task scheduler started.
+2025-08-12 17:03:16.633 +01:00 [INF] Task scheduler started.

@@ -1,0 +1,6 @@
+@SIM_HostAddress = http://localhost:5054
+
+GET {{SIM_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,314 @@
+[
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.AuthenticateController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Authenticate/changepassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Boost.Shared.ChangePasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.AuthenticateController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Authenticate/confirmemail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.AuthenticateController",
+    "Method": "Login",
+    "RelativePath": "api/Authenticate/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Boost.Shared.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.AuthenticateController",
+    "Method": "Register",
+    "RelativePath": "api/Authenticate/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Boost.Shared.RegisterModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "Add",
+    "RelativePath": "api/Category",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "item",
+        "Type": "Boost.Admin.DTOs.CategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "Update",
+    "RelativePath": "api/Category/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedItem",
+        "Type": "Boost.Admin.DTOs.CategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "Delete",
+    "RelativePath": "api/Category/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "AddCategoryLookupAsync",
+    "RelativePath": "api/Category/AddCategoryLookupAsync",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "item",
+        "Type": "Boost.Admin.Data.Models.CategoryLookup",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "DeleteCategoryLookupAsync",
+    "RelativePath": "api/Category/DeleteCategoryLookupAsync/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "DeleteCategoryMapAsync",
+    "RelativePath": "api/Category/DeleteCategoryMapAsync/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "GetAllCategories",
+    "RelativePath": "api/Category/GetAllCategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "GetCategoriesBySupplier",
+    "RelativePath": "api/Category/GetCategoriesBySupplier",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "supplier",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "GetCategoryByParentId",
+    "RelativePath": "api/Category/GetCategoryByParentId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "parentId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "GetCategoryLookups",
+    "RelativePath": "api/Category/GetCategoryLookups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "GetCategoryMaps",
+    "RelativePath": "api/Category/GetCategoryMaps",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lookupId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "GetCategoryParents",
+    "RelativePath": "api/Category/GetCategoryParents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "GetSupplierColumns",
+    "RelativePath": "api/Category/GetSupplierColumns",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "supplier",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "SaveCategoryMapAsync",
+    "RelativePath": "api/Category/SaveCategoryMapAsync",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Boost.Admin.DTOs.CategoryMapRequestdto",
+        "IsRequired": true
+      },
+      {
+        "Name": "Tableid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BoostRetailAPI.Controllers.Admin_Controllers.CategoryController",
+    "Method": "UpdateCategoryLookupAsync",
+    "RelativePath": "api/Category/UpdateCategoryLookupAsync/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedItem",
+        "Type": "Boost.Admin.Data.Models.CategoryLookup",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

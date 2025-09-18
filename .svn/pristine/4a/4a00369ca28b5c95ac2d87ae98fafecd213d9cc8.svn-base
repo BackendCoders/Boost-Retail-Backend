@@ -1,0 +1,119 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.Mapping;
+using Serilog;
+using SIM.Data;
+using SIM.DTOs;
+using SIM.Logic;
+using SIM.Logic.Interface;
+
+namespace SIM.Actions
+{
+    public class CatalogueToProductActions : ICatalogueToProductActions
+    {
+        private readonly ILogger _logger;
+        private readonly ICatalogueLogic _catalogueLogic;
+        private readonly IProductLogic _productLogic;
+
+        public CatalogueToProductActions(ICatalogueLogic logic, IProductLogic logic2)
+        {
+            _catalogueLogic = logic;
+            _productLogic = logic2;
+            _logger = Log.ForContext<CatalogueToProductActions>();
+        }
+
+        public async Task<ActionResult> Exists(string mpn)
+        {
+            try
+            {
+                //return OkResult(); if no return object
+                return new OkObjectResult(await _catalogueLogic.Exists(mpn));
+            }
+            catch (Exception ex)
+            {
+                return new ObjectResult(ex.Message)
+                {
+                    StatusCode = 500
+                };
+            }
+        }
+
+        public async Task ProcessItems(List<ProductDto> items, DataSupplier supplier)
+        {
+            _logger.Information("begin filling foriegn tables");
+
+            // VAT RATES
+            var vatList = await _productLogic.GetVatRates();
+
+            // SUPPLIERS
+            var supplierList = await _productLogic.GetSuppliers();
+
+            // BRAND
+            var brands = items.Select(x => x.Brand).Distinct().ToList();
+            var brandList = await _productLogic.GetBrands(brands);
+
+            // COLOURS
+            var colors = items.Select(x => x.Colour).Distinct().ToList();
+            var colorList = await _productLogic.GetColors(colors);
+
+            // SIZES
+            var sizes = items.Select(x => x.Size).Distinct().ToList();
+            var sizeList = await _productLogic.GetSizes(sizes);
+
+            // GEOMETRY
+            var geo = items.Select(x => x.GeometryJson).Distinct().ToList();
+            var geoList = await _productLogic.GetGeos(geo);
+
+            // SPECIFICATIONS
+            var spec = items.Select(x => x.SpecificationsJson).Distinct().ToList();
+            var specList = await _productLogic.GetSpecs(spec);
+
+            // CATEGORYS
+            var categorys = items.Select(x => x.Categorys).Distinct().ToList();
+            var categoryList = await _productLogic.GetCategorys(categorys);
+
+            // LONG DESCRIPTIONS
+            var longDesc = items.Select(x => x.LongDescription).Distinct().ToList();
+            var longDescList = await _productLogic.GetLongDescriptions(longDesc);
+
+            // SHORT DESCRIPTIONS
+            var shortDesc = items.Select(x => x.ShortDescription).Distinct().ToList();
+            var shortDescList = await _productLogic.GetShortDescriptions(shortDesc);
+
+            foreach ( var item in items)
+            {
+                if(item.VatRate == null)
+                    item.VatRate = 0;
+
+                var nobj = new Data.Models.Catalog.Product();
+
+                nobj.MPN = item.MPN;
+                nobj.Barcode = item.Barcode;
+                nobj.BoxQty = item.BoxQty;
+                nobj.Price = item.Price;
+                nobj.GenderOrAge = item.GenderOrAge;
+                nobj.Cost = item.Cost;
+                nobj.GroupName = item.GroupName;
+                nobj.Images = item.Images;
+                nobj.ProductType = item.ProductType;
+                nobj.Status = ProductStatus.Deferred;
+                nobj.SupplierDetailsUrl = item.SupplierDetailsUrl;
+                nobj.Title = item.ProductTitle;
+                nobj.VideoUrl = item.VideoUrl;
+                nobj.Weight = item.Weight;
+                nobj.Year = item.Year;
+
+                nobj.SupplierId = supplierList.First(o => o.Name == "Giant").Id;
+                nobj.BrandId = brandList.First(o => o.Name == item.Brand).Id;
+                nobj.ColourId = colorList.First(o => o.Name == item.Colour).Id;
+                nobj.SizeId = sizeList.First(o => o.Name == item.Size).Id;
+                nobj.VatRateId = vatList.First(o => o.Rate == (decimal)item.VatRate).Id;
+                nobj.LongDescId = longDescList.First(o => o.Description == item.LongDescription).Id;
+                nobj.ShortDescId = shortDescList.First(o => o.Description == item.ShortDescription).Id;
+                nobj.GeoId = geoList.First(o => o.GeometryJson == item.GeometryJson).Id;
+                nobj.SpecId = specList.First(o => o.SpecificationJson == item.SpecificationsJson).Id;
+                nobj.CategoryId = categoryList.First(o => o.GetFullCategory() == item.Categorys).Id;
+
+            }
+        }
+    }
+}

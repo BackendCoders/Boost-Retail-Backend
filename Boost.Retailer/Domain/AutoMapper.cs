@@ -1,0 +1,60 @@
+﻿using AutoMapper;
+using Boost.Admin.Data.Models.Catalog;
+using Boost.Retail.Data.DTO;
+using Boost.Retail.Data.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace BoostRetailLib.Domain
+{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            CreateMap<Product, ProductDto>();
+            CreateMap<MasterProduct, UserProduct>()
+            // Direct matches (handled automatically, but shown for clarity)
+            .ForMember(dest => dest.MPN, opt => opt.MapFrom(src => src.MPN))
+            .ForMember(dest => dest.Barcode, opt => opt.MapFrom(src => src.Barcode))
+            .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
+            .ForMember(dest => dest.GroupName, opt => opt.MapFrom(src => src.GroupName))
+            .ForMember(dest => dest.Weight, opt => opt.MapFrom(src => src.Weight))
+            .ForMember(dest => dest.VideoUrl, opt => opt.MapFrom(src => src.VideoUrl))
+            .ForMember(dest => dest.SupplierDetailsUrl, opt => opt.MapFrom(src => src.SupplierDetailsUrl))
+            .ForMember(dest => dest.Cost, opt => opt.MapFrom(src => src.Cost))
+            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
+            .ForMember(dest => dest.Year, opt => opt.MapFrom(src => src.Year))
+
+            // Custom mappings
+            .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand != null ? src.Brand.Name : string.Empty))
+            .ForMember(dest => dest.Supplier, opt => opt.MapFrom(src => src.Supplier != null ? src.Supplier.ToString() : string.Empty))
+            .ForMember(dest => dest.Colour, opt => opt.MapFrom(src => src.Colour != null ? src.Colour.Name : string.Empty))
+            .ForMember(dest => dest.Size, opt => opt.MapFrom(src => src.Size != null ? src.Size.Name : string.Empty))
+            .ForMember(dest => dest.VatRate, opt => opt.MapFrom(src => src.VatRate != null ? src.VatRate.Rate : 0))
+            .ForMember(dest => dest.Category1, opt => opt.MapFrom(src => src.Category1 != null ? src.Category1.Name : string.Empty))
+            .ForMember(dest => dest.Category2, opt => opt.MapFrom(src => src.Category2 != null ? src.Category2.Name : string.Empty))
+            .ForMember(dest => dest.Category3, opt => opt.MapFrom(src => src.Category3 != null ? src.Category3.Name : string.Empty))
+            .ForMember(dest => dest.ShortDescription, opt => opt.MapFrom(src => src.ShortDescription != null ? src.ShortDescription.Description : string.Empty))
+            .ForMember(dest => dest.LongDescription, opt => opt.MapFrom(src => src.LongDescription != null ? src.LongDescription.Description : string.Empty))
+
+            // Images: convert CSV string to List<string>
+            .ForMember(dest => dest.Images, opt => opt.Ignore())
+                .AfterMap((src, dest) =>
+                {
+                    dest.Images = string.IsNullOrWhiteSpace(src.Images)
+                        ? new List<string>()
+                        : src.Images.Split(',').Select(i => i.Trim()).ToList();
+                })
+
+            // GeometryJson & SpecificationsJson: assume serialization needed
+            .ForMember(dest => dest.GeometryJson, opt => opt.MapFrom(src => src.Geo != null ? src.Geo.GeometryJson : string.Empty))
+            .ForMember(dest => dest.SpecificationsJson, opt => opt.MapFrom(src => src.Spec != null ? src.Spec.SpecificationJson : string.Empty))
+
+            // Ignore fields not in source
+            .ForMember(dest => dest.Id, opt => opt.Ignore())
+            .ForMember(dest => dest.EPN, opt => opt.Ignore())
+            .ForMember(dest => dest.PromoPrice, opt => opt.Ignore())
+            .ForMember(dest => dest.PromoStart, opt => opt.Ignore())
+            .ForMember(dest => dest.PromoEnd, opt => opt.Ignore());
+        }
+    }
+}
