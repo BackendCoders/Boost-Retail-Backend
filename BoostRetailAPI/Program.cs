@@ -93,6 +93,9 @@ namespace BoostRetailAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
@@ -127,6 +130,8 @@ namespace BoostRetailAPI
                 }
                 });
             });
+
+
             // Add Database Context
             builder.Services.AddDbContext<SimDbContext>(options =>
                 options.UseSqlServer(Config.GetConnectionString(name: @"DefaultConnection")));
@@ -165,6 +170,8 @@ namespace BoostRetailAPI
             })
             .AddCookie();
 
+
+
             builder.Services.AddScoped<ITenantDbContextFactory, TenantDbContextFactory>();
             builder.Services.AddHttpContextAccessor(); // Needed for token extraction
 
@@ -187,7 +194,7 @@ namespace BoostRetailAPI
             builder.Services.AddAutoMapper(typeof(MappingProfile));
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
-
+           
 
             var app = builder.Build();
             app.UseCors("AllowAll");
@@ -208,6 +215,7 @@ namespace BoostRetailAPI
             app.MapControllers();
 
             app.Run();
+
         }
     }
 }

@@ -9,10 +9,14 @@ namespace Boost.Admin.Configuration
     {
         public AutoMapperProfile() 
         {
+            // entity -> Dto
             CreateMap<CatalogueItem, SIMProductDto>();
             CreateMap<MasterProduct, SIMProductDto>();
             CreateMap<Category, CategoryDto>();
 
+
+            // Dto -> entity
+            
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BoostRetail.Integrations.SConnect")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37ef6fcd5a9244a560a6a661a2f645835400f328")]
 [assembly: System.Reflection.AssemblyProductAttribute("BoostRetail.Integrations.SConnect")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BoostRetail.Integrations.SConnect")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
