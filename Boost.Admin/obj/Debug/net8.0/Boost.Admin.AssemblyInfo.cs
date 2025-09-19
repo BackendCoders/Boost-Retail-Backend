@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Boost.Admin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8d2a08a2053a9c87e76a91e83ac177d2bc0eaba")]
 [assembly: System.Reflection.AssemblyProductAttribute("Boost.Admin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Boost.Admin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

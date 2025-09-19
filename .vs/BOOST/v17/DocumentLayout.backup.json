@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|d:\\ashwani\\boost retail\\boost retail\\boostretailapi\\controllers\\admin controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|solutionrelative:boostretailapi\\controllers\\admin controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7AE6A3FA-C1CD-41DB-A7C8-C6928A8E3B20}|Boost.Admin\\Boost.Admin.csproj|d:\\ashwani\\boost retail\\boost retail\\boost.admin\\logic\\interface\\icategorylogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AE6A3FA-C1CD-41DB-A7C8-C6928A8E3B20}|Boost.Admin\\Boost.Admin.csproj|solutionrelative:boost.admin\\logic\\interface\\icategorylogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|d:\\ashwani\\boost retail\\boost retail\\boostretailapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|solutionrelative:boostretailapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|d:\\ashwani\\boost retail\\boost retail\\boostretailapi\\controllers\\admin controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|solutionrelative:boostretailapi\\controllers\\admin controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7AE6A3FA-C1CD-41DB-A7C8-C6928A8E3B20}|Boost.Admin\\Boost.Admin.csproj|d:\\ashwani\\boost retail\\boost retail\\boost.admin\\data\\models\\categorymap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|d:\\ashwani\\boost retail\\boost retail\\boostretailapi\\controllers\\admin controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|solutionrelative:boostretailapi\\controllers\\admin controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|d:\\ashwani\\boost retail\\boost retail\\boostretailapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{FE6197F7-3B38-495F-B9D1-B5D94A8D921A}|BoostRetailAPI\\BoostRetailAPI.csproj|solutionrelative:boostretailapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CategoryMapRequestdto.cs",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\Boost.Admin\\DTOs\\CategoryMapRequestdto.cs",
               "RelativeDocumentMoniker": "Boost.Admin\\DTOs\\CategoryMapRequestdto.cs",
@@ -59,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CategoryMap.cs",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\Boost.Admin\\Data\\Models\\CategoryMap.cs",
               "RelativeDocumentMoniker": "Boost.Admin\\Data\\Models\\CategoryMap.cs",
@@ -72,33 +72,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ICategoryLogic.cs",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\Boost.Admin\\Logic\\Interface\\ICategoryLogic.cs",
               "RelativeDocumentMoniker": "Boost.Admin\\Logic\\Interface\\ICategoryLogic.cs",
               "ToolTip": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\Boost.Admin\\Logic\\Interface\\ICategoryLogic.cs",
               "RelativeToolTip": "Boost.Admin\\Logic\\Interface\\ICategoryLogic.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA4wCYAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-17T06:48:34.347Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\BoostRetailAPI\\Controllers\\Admin Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "BoostRetailAPI\\Controllers\\Admin Controllers\\CategoryController.cs",
               "ToolTip": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\BoostRetailAPI\\Controllers\\Admin Controllers\\CategoryController.cs",
               "RelativeToolTip": "BoostRetailAPI\\Controllers\\Admin Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAD4v8EAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAhwJ4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-17T06:50:53.561Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CategoryLogic.cs",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\Boost.Admin\\Logic\\Implementiation\\CategoryLogic.cs",
               "RelativeDocumentMoniker": "Boost.Admin\\Logic\\Implementiation\\CategoryLogic.cs",
@@ -111,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\Boost.Admin\\Data\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Boost.Admin\\Data\\Models\\Category.cs",
@@ -124,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\BoostRetailAPI\\appsettings.json",
               "RelativeDocumentMoniker": "BoostRetailAPI\\appsettings.json",
@@ -132,11 +132,12 @@
               "RelativeToolTip": "BoostRetailAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-17T08:52:46.981Z"
+              "WhenOpened": "2025-09-17T08:52:46.981Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SupplierController.cs",
               "DocumentMoniker": "D:\\Ashwani\\BOOST RETAIL\\BOOST RETAIL\\BoostRetailAPI\\Controllers\\Admin Controllers\\SupplierController.cs",
               "RelativeDocumentMoniker": "BoostRetailAPI\\Controllers\\Admin Controllers\\SupplierController.cs",
